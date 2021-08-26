@@ -1,2 +1,1 @@
-#= require trix/banner
-#= require trix/index
+import Trix from "../src/trix/index.coffee"
