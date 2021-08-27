@@ -1,11 +1,13 @@
 #= export Trix
 #= require_self
 #= require trix/core
-#= require trix/config
+import config from "./config/index.coffee"
 #= require trix/elements/trix_editor_element
 
-@Trix =
-  VERSION: "<%= depend_on_asset("trix/VERSION").to_s.chomp %>"
+import { version } from "../../package.json"
+
+Trix =
+  VERSION: version
 
   ZERO_WIDTH_SPACE: "\uFEFF"
   NON_BREAKING_SPACE: "\u00A0"
@@ -24,4 +26,6 @@
         return false unless property of InputEvent.prototype
       true
 
-  config: {}
+  config: config
+
+export default Trix

@@ -1,4 +1,4 @@
-Trix.config.textAttributes =
+export default textAttributes =
   bold:
     tagName: "strong"
     inheritable: true

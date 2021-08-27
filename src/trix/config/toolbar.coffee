@@ -1,4 +1,4 @@
-Trix.config.toolbar =
+export default toolbar =
   getDefaultHTML: ->
     {lang} = Trix.config
     """

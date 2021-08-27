@@ -1,4 +1,4 @@
-Trix.config.css =
+export default css =
   attachment: "attachment"
   attachmentCaption: "attachment__caption"
   attachmentCaptionEditor: "attachment__caption-editor"

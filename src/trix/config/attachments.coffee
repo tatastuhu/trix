@@ -1,4 +1,4 @@
-Trix.config.attachments =
+export default attachments =
   preview:
     presentation: "gallery"
     caption:

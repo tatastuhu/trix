@@ -1,9 +1,8 @@
-#= require trix/config/lang
+import lang from "./lang.coffee"
 
-{lang} = Trix.config
 sizes = [lang.bytes, lang.KB, lang.MB, lang.GB, lang.TB, lang.PB]
 
-Trix.config.fileSize =
+export default fileSize =
   prefix: "IEC"
   precision: 2
 

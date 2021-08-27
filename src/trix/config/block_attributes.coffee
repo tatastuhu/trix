@@ -1,4 +1,4 @@
-Trix.config.blockAttributes = attributes =
+attributes =
   default:
     tagName: "div"
     parse: false
@@ -41,3 +41,5 @@ Trix.config.blockAttributes = attributes =
     terminal: true
     parse: false
     group: false
+
+export default attributes

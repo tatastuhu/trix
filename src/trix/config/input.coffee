@@ -1,4 +1,4 @@
-Trix.config.input =
+export default input =
   level2Enabled: true
 
   getLevel: ->

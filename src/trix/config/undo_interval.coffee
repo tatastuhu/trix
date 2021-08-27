@@ -4,4 +4,4 @@
 # interval" specifies how often, in milliseconds, these aggregate entries are
 # split (or prevents splitting them at all when set to 0).
 
-Trix.config.undoInterval = 5000
+export default undoInterval = 5000

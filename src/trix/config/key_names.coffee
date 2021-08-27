@@ -1,4 +1,4 @@
-Trix.config.keyNames =
+export default keyNames =
   "8":  "backspace"
   "9":  "tab"
   "13": "return"
