@@ -4,7 +4,7 @@ import filesize from 'rollup-plugin-filesize'
 
 import { version } from "./package.json"
 const year = new Date().getFullYear()
-const banner = `/*\nTurbo ${version}\nCopyright © ${year} Basecamp, LLC\n */`
+const banner = `/*\nTrix ${version}\nCopyright © ${year} Basecamp, LLC\n */`
 
 export default {
   input: "assets/trix-core.coffee",
