@@ -1,8 +1,10 @@
 #= require trix/controllers/input_controller
 
-{makeElement, objectsAreEqual, tagName, browser, keyEventIsKeyboardCommand,
- dataTransferIsWritable, dataTransferIsPlainText} = Trix
+import { removeNode, tagName, makeElement } from "../core/helpers/dom.coffee"
+import { dataTransferIsPlainText, dataTransferIsWritable, keyEventIsKeyboardCommand } from "../core/helpers/events.coffee"
+import { objectsAreEqual } from "../core/helpers/objects.coffee"
 
+{browser } = Trix
 {keyNames} = Trix.config
 
 class Trix.Level0InputController extends Trix.InputController
@@ -383,7 +385,7 @@ class Trix.Level0InputController extends Trix.InputController
 
     requestAnimationFrame =>
       html = element.innerHTML
-      Trix.removeNode(element)
+      removeNode(element)
       @setSelectedRange(selectedRange)
       callback(html)
 

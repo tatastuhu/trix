@@ -2,9 +2,9 @@
 #= require trix/models/point_mapper
 #= require trix/observers/selection_change_observer
 
-{getDOMSelection, getDOMRange, setDOMRange, elementContainsNode,
- nodeIsCursorTarget, innerElementIsActive, handleEvent, normalizeRange,
- rangeIsCollapsed, rangesAreEqual} = Trix
+import { handleEvent, innerElementIsActive, elementContainsNode, nodeIsCursorTarget } from "../core/helpers/dom.coffee"
+import { normalizeRange, rangeIsCollapsed, rangesAreEqual } from "../core/helpers/ranges.coffee"
+import { getDOMSelection, getDOMRange, setDOMRange } from "../core/helpers/selection.coffee"
 
 class Trix.SelectionManager extends Trix.BasicObject
   constructor: (@element) ->

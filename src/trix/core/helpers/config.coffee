@@ -3,21 +3,21 @@ blockAttributeNames = null
 textAttributeNames = null
 listAttributeNames = null
 
-Trix.extend
-  getAllAttributeNames: ->
-    allAttributeNames ?= Trix.getTextAttributeNames().concat Trix.getBlockAttributeNames()
+export getAllAttributeNames = ->
+    allAttributeNames ?= config.getTextAttributeNames().concat config.getBlockAttributeNames()
 
-  getBlockConfig: (attributeName) ->
+export getBlockConfig = (attributeName) ->
     Trix.config.blockAttributes[attributeName]
 
-  getBlockAttributeNames: ->
+export getBlockAttributeNames = ->
     blockAttributeNames ?= Object.keys(Trix.config.blockAttributes)
 
-  getTextConfig: (attributeName) ->
+export getTextConfig = (attributeName) ->
     Trix.config.textAttributes[attributeName]
 
-  getTextAttributeNames: ->
+export getTextAttributeNames = ->
     textAttributeNames ?= Object.keys(Trix.config.textAttributes)
 
-  getListAttributeNames: ->
+export getListAttributeNames = ->
     listAttributeNames ?= (listAttribute for key, {listAttribute} of Trix.config.blockAttributes when listAttribute?)
+

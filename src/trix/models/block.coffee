@@ -1,6 +1,9 @@
 #= require trix/models/text
 
-{arraysAreEqual, spliceArray, getBlockConfig, getBlockAttributeNames, getListAttributeNames} = Trix
+import { arraysAreEqual, spliceArray } from "../core/helpers/arrays.coffee"
+import { getBlockConfig, getBlockAttributeNames } from "../core/helpers/config.coffee"
+
+{getListAttributeNames} = Trix
 
 class Trix.Block extends Trix.Object
   @fromJSON: (blockJSON) ->

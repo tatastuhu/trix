@@ -1,14 +1,13 @@
-Trix.extend
-  getDOMSelection: ->
+export getDOMSelection = ->
     selection = window.getSelection()
     selection if selection.rangeCount > 0
 
-  getDOMRange: ->
+export getDOMRange = ->
     if domRange = Trix.getDOMSelection()?.getRangeAt(0)
       unless domRangeIsPrivate(domRange)
         domRange
 
-  setDOMRange: (domRange) ->
+export setDOMRange = (domRange) ->
     selection = window.getSelection()
     selection.removeAllRanges()
     selection.addRange(domRange)

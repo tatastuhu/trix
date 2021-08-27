@@ -1,4 +1,6 @@
-{findClosestElementFromNode, nodeIsEmptyTextNode, nodeIsBlockStartComment, normalizeSpaces, summarizeStringChange, tagName} = Trix
+import { findClosestElementFromNode, tagName, nodeIsBlockStartComment, nodeIsEmptyTextNode } from "../core/helpers/dom.coffee"
+import { normalizeSpaces, summarizeStringChange } from "../helpers/strings.coffee"
+
 
 class Trix.MutationObserver extends Trix.BasicObject
   mutableAttributeName = "data-trix-mutable"

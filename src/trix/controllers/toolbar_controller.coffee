@@ -1,4 +1,4 @@
-{handleEvent, triggerEvent, findClosestElementFromNode} = Trix
+import { handleEvent, triggerEvent, findClosestElementFromNode } from "../core/helpers/dom.coffee"
 
 class Trix.ToolbarController extends Trix.BasicObject
   attributeButtonSelector = "[data-trix-attribute]"

@@ -1,4 +1,4 @@
-{handleEvent} = Trix
+import { handleEvent } from "../core/helpers/dom.coffee"
 
 class Trix.Inspector.View
   constructor: (@editorElement) ->

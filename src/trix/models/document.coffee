@@ -2,7 +2,9 @@
 #= require trix/models/splittable_list
 #= require trix/models/html_parser
 
-{arraysAreEqual, normalizeRange, rangeIsCollapsed, getBlockConfig} = Trix
+import { spliceArray, arraysAreEqual } from "../core/helpers/arrays.coffee"
+import { getBlockConfig } from "../core/helpers/config.coffee"
+import { normalizeRange, rangeIsCollapsed } from "../core/helpers/config.coffee"
 
 class Trix.Document extends Trix.Object
   @fromJSON: (documentJSON) ->

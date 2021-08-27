@@ -1,3 +1,5 @@
+import { tagName } from "../core/helpers/dom.coffee"
+
 attributes =
   default:
     tagName: "div"
@@ -24,7 +26,7 @@ attributes =
     group: false
     nestable: true
     test: (element) ->
-      Trix.tagName(element.parentNode) is attributes[@listAttribute].tagName
+      tagName(element.parentNode) is attributes[@listAttribute].tagName
   numberList:
     tagName: "ol"
     parse: false
@@ -34,7 +36,7 @@ attributes =
     group: false
     nestable: true
     test: (element) ->
-      Trix.tagName(element.parentNode) is attributes[@listAttribute].tagName
+      tagName(element.parentNode) is attributes[@listAttribute].tagName
   attachmentGallery:
     tagName: "div"
     exclusive: true

@@ -1,4 +1,4 @@
-{arraysAreEqual} = Trix
+import { arraysAreEqual } from "../helpers/arrays.coffee"
 
 class Trix.Hash extends Trix.Object
   @fromCommonAttributesOfObjects: (objects = []) ->

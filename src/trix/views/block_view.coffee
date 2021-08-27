@@ -1,6 +1,8 @@
 #= require trix/views/text_view
 
-{makeElement, getBlockConfig} = Trix
+import { getBlockConfig } from "../core/helpers/config.coffee"
+import { makeElement } from "../core/helpers/dom.coffee"
+
 {css} = Trix.config
 
 class Trix.BlockView extends Trix.ObjectView

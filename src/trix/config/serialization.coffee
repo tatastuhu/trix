@@ -1,3 +1,5 @@
+import { removeNode } from "../core/helpers/dom.coffee"
+
 unserializableElementSelector = "[data-trix-serialize=false]"
 unserializableAttributeNames = ["contenteditable", "data-trix-id", "data-trix-store-key", "data-trix-mutable", "data-trix-placeholder", "tabindex"]
 serializedAttributesAttribute = "data-trix-serialized-attributes"
@@ -5,7 +7,7 @@ serializedAttributesSelector = "[#{serializedAttributesAttribute}]"
 
 blockCommentPattern = new RegExp("<!--block-->", "g")
 
-Trix.extend
+serialization =
   serializers:
     "application/json": (serializable) ->
       if serializable instanceof Trix.Document
@@ -27,7 +29,7 @@ Trix.extend
 
       # Remove unserializable elements
       for el in element.querySelectorAll(unserializableElementSelector)
-        Trix.removeNode(el)
+        removeNode(el)
 
       # Remove unserializable attributes
       for attribute in unserializableAttributeNames
@@ -51,13 +53,15 @@ Trix.extend
       Trix.Document.fromHTML(string)
 
   serializeToContentType: (serializable, contentType) ->
-    if serializer = Trix.serializers[contentType]
+    if serializer = serialization.serializers[contentType]
       serializer(serializable)
     else
       throw new Error "unknown content type: #{contentType}"
 
   deserializeFromContentType: (string, contentType) ->
-    if deserializer = Trix.deserializers[contentType]
+    if deserializer = serialization.deserializers[contentType]
       deserializer(string)
     else
       throw new Error "unknown content type: #{contentType}"
+
+export default serialization

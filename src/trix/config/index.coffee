@@ -6,13 +6,10 @@ import textAttributes from "./text_attributes.coffee"
 import undoInterval from "./undo_interval.coffee"
 import attachments from "./attachments.coffee"
 import keyNames from "./key_names.coffee"
-
-#= require trix/config/serialization
-
 import toolbar from "./toolbar.coffee"
 import input from "./input.coffee"
 
-export default config = {
+config = {
   lang,
   css,
   blockAttributes,
@@ -24,3 +21,5 @@ export default config = {
   keyNames,
   input,
 }
+
+export default config

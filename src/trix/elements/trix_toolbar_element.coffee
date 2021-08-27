@@ -1,4 +1,6 @@
-Trix.registerElement "trix-toolbar",
+import { registerElement } from "../core/helpers/custom_elements.coffee"
+
+registerElement "trix-toolbar",
   defaultCSS: """
     %t {
       display: block;

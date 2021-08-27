@@ -1,6 +1,8 @@
 #= require trix/controllers/attachment_editor_controller
 
-{defer, handleEvent, makeElement, tagName} = Trix
+import { handleEvent, removeNode, tagName, makeElement } from "../core/helpers/dom.coffee"
+import { defer } from "../core/helpers/functions.coffee"
+
 {lang, css, keyNames} = Trix.config
 
 class Trix.AttachmentEditorController extends Trix.BasicObject
@@ -97,7 +99,7 @@ class Trix.AttachmentEditorController extends Trix.BasicObject
     handleEvent("click", onElement: element, matchingSelector: "[data-trix-action]", withCallback: @didClickActionButton)
 
     do: => @element.appendChild(element)
-    undo: => Trix.removeNode(element)
+    undo: => removeNode(element)
 
   installCaptionEditor: undoable ->
     textarea = makeElement
@@ -134,7 +136,7 @@ class Trix.AttachmentEditorController extends Trix.BasicObject
       if @options.editCaption
         defer -> textarea.focus()
     undo: ->
-      Trix.removeNode(editingFigcaption)
+      removeNode(editingFigcaption)
       figcaption.style.display = null
 
   # Event handlers

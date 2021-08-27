@@ -1,31 +1,31 @@
-Trix.extend
-  normalizeSpaces: (string) ->
-    string
-      .replace(///#{Trix.ZERO_WIDTH_SPACE}///g, "")
-      .replace(///#{Trix.NON_BREAKING_SPACE}///g, " ")
 
-  normalizeNewlines: (string) ->
-    string.replace(/\r\n/g, "\n")
+export normalizeSpaces = (string) ->
+  string
+    .replace(///#{Trix.ZERO_WIDTH_SPACE}///g, "")
+    .replace(///#{Trix.NON_BREAKING_SPACE}///g, " ")
 
-  breakableWhitespacePattern: ///[^\S#{Trix.NON_BREAKING_SPACE}]///
+export normalizeNewlines = (string) ->
+  string.replace(/\r\n/g, "\n")
 
-  squishBreakableWhitespace: (string) ->
-    string
-      # Replace all breakable whitespace characters with a space
-      .replace(///#{Trix.breakableWhitespacePattern.source}///g, " ")
-      # Replace two or more spaces with a single space
-      .replace(/\ {2,}/g, " ")
+export breakableWhitespacePattern = ///[^\S#{Trix.NON_BREAKING_SPACE}]///
 
-  summarizeStringChange: (oldString, newString) ->
-    oldString = Trix.UTF16String.box(oldString)
-    newString = Trix.UTF16String.box(newString)
+export squishBreakableWhitespace = (string) ->
+  string
+    # Replace all breakable whitespace characters with a space
+    .replace(///#{Trix.breakableWhitespacePattern.source}///g, " ")
+    # Replace two or more spaces with a single space
+    .replace(/\ {2,}/g, " ")
 
-    if newString.length < oldString.length
-      [removed, added] = utf16StringDifferences(oldString, newString)
-    else
-      [added, removed] = utf16StringDifferences(newString, oldString)
+export summarizeStringChange = (oldString, newString) ->
+  oldString = Trix.UTF16String.box(oldString)
+  newString = Trix.UTF16String.box(newString)
 
-    {added, removed}
+  if newString.length < oldString.length
+    [removed, added] = utf16StringDifferences(oldString, newString)
+  else
+    [added, removed] = utf16StringDifferences(newString, oldString)
+
+  {added, removed}
 
 utf16StringDifferences = (a, b) ->
   return ["", ""] if a.isEqualTo(b)

@@ -1,7 +1,8 @@
 #= require trix/controllers/attachment_editor_controller
 #= require trix/views/document_view
 
-{findClosestElementFromNode, handleEvent, innerElementIsActive, defer}  = Trix
+import { handleEvent, innerElementIsActive, findClosestElementFromNode } from "../core/helpers/dom.coffee"
+import { defer } from "../core/helpers/functions.coffee"
 
 {attachmentSelector} = Trix.AttachmentView
 

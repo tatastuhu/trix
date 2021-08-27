@@ -1,6 +1,6 @@
-{elementContainsNode, findChildIndexOfNode, nodeIsBlockStart,
- nodeIsBlockStartComment, nodeIsBlockContainer, nodeIsCursorTarget,
- nodeIsEmptyTextNode, nodeIsTextNode, nodeIsAttachmentElement, tagName, walkTree} = Trix
+import { elementContainsNode, findChildIndexOfNode, walkTree, tagName, 
+  nodeIsBlockContainer, nodeIsBlockStart, nodeIsBlockStartComment, nodeIsCursorTarget, 
+  nodeIsAttachmentElement, nodeIsEmptyTextNode, nodeIsTextNode } from "../core/helpers/dom.coffee"
 
 class Trix.LocationMapper
   constructor: (@element) ->

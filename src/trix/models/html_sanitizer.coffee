@@ -1,4 +1,4 @@
-{tagName, walkTree, nodeIsAttachmentElement} = Trix
+import { removeNode, walkTree, tagName, nodeIsAttachmentElement } from "../core/helpers/dom.coffee"
 
 class Trix.HTMLSanitizer extends Trix.BasicObject
   DEFAULT_ALLOWED_ATTRIBUTES = "style href src width height class".split(" ")
@@ -44,7 +44,7 @@ class Trix.HTMLSanitizer extends Trix.BasicObject
           nodesToRemove.push(node)
 
     for node in nodesToRemove
-      Trix.removeNode(node)
+      removeNode(node)
     @body
 
   sanitizeElement: (element) ->

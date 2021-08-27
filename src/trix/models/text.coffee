@@ -2,6 +2,8 @@
 #= require trix/models/string_piece
 #= require trix/models/splittable_list
 
+import { getDirection } from "../core/helpers/bidi.coffee"
+
 class Trix.Text extends Trix.Object
   @textForAttachmentWithAttributes: (attachment, attributes) ->
     piece = new Trix.AttachmentPiece attachment, attributes
@@ -170,7 +172,7 @@ class Trix.Text extends Trix.Object
   # BIDI
 
   getDirection: ->
-    Trix.getDirection(@toString())
+    getDirection(@toString())
 
   isRTL: ->
     @getDirection() is "rtl"

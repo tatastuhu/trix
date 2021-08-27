@@ -1,3 +1,2 @@
-Trix.extend
-  defer: (fn) ->
-    setTimeout fn, 1
+export defer = (fn) ->
+  setTimeout fn, 1

@@ -1,7 +1,8 @@
 #= require trix/views/attachment_view
 #= require trix/views/previewable_attachment_view
 
-{makeElement, findInnerElement, getTextConfig} = Trix
+import { getTextConfig } from "../core/helpers/config.coffee"
+import { findInnerElement, makeElement } from "../core/helpers/dom.coffee"
 
 class Trix.PieceView extends Trix.ObjectView
   constructor: ->

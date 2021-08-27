@@ -1,8 +1,10 @@
 #= require trix/models/html_sanitizer
 
-{arraysAreEqual, makeElement, tagName, getBlockTagNames, walkTree,
- findClosestElementFromNode, elementContainsNode, nodeIsAttachmentElement,
- normalizeSpaces, breakableWhitespacePattern, squishBreakableWhitespace} = Trix
+import { arraysAreEqual } from "../helpers/arrays.coffee"
+import { normalizeSpaces, breakableWhitespacePattern, squishBreakableWhitespace } from "../helpers/strings.coffee"
+import { elementContainsNode, findClosestElementFromNode, removeNode, walkTree, 
+  tagName, makeElement, getBlockTagNames, nodeIsAttachmentElement } from "../core/helpers/dom.coffee"
+
 
 class Trix.HTMLParser extends Trix.BasicObject
   @parse: (html, options) ->
@@ -43,7 +45,7 @@ class Trix.HTMLParser extends Trix.BasicObject
       document.body.appendChild(@containerElement)
 
   removeHiddenContainer: ->
-    Trix.removeNode(@containerElement)
+    removeNode(@containerElement)
 
   nodeFilter = (node) ->
     if tagName(node) is "style"

@@ -1,11 +1,14 @@
 #= require trix/elements/trix_toolbar_element
 #= require trix/controllers/editor_controller
 
-{browser, makeElement, triggerEvent, handleEvent, handleEventOnce, findClosestElementFromNode} = Trix
+import { registerElement } from "../core/helpers/custom_elements.coffee"
+import { handleEvent, handleEventOnce, triggerEvent, findClosestElementFromNode, makeElement } from "../core/helpers/dom.coffee"
+
+{browser} = Trix
 
 {attachmentSelector} = Trix.AttachmentView
 
-Trix.registerElement "trix-editor", do ->
+registerElement "trix-editor", do ->
   id = 0
 
   # Contenteditable support helpers

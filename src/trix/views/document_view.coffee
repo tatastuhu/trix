@@ -1,6 +1,7 @@
 #= require trix/views/block_view
 
-{defer, makeElement} = Trix
+import { makeElement } from "../core/helpers/dom.coffee"
+import { defer } from "../core/helpers/functions.coffee"
 
 class Trix.DocumentView extends Trix.ObjectView
   @render: (document) ->

@@ -1,7 +1,7 @@
 #= require trix/observers/mutation_observer
 #= require trix/operations/file_verification_operation
 
-{handleEvent, innerElementIsActive} = Trix
+import { handleEvent, innerElementIsActive } from "../core/helpers/dom.coffee"
 
 class Trix.InputController extends Trix.BasicObject
   constructor: (@element) ->

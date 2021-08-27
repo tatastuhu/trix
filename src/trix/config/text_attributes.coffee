@@ -1,3 +1,5 @@
+# import { findClosestElementFromNode } from "../core/helpers/dom.coffee"
+
 export default textAttributes =
   bold:
     tagName: "strong"
@@ -16,7 +18,7 @@ export default textAttributes =
     parser: (element) ->
       {attachmentSelector} = Trix.AttachmentView
       matchingSelector = "a:not(#{attachmentSelector})"
-      if link = Trix.findClosestElementFromNode(element, {matchingSelector})
+      if link = findClosestElementFromNode(element, {matchingSelector})
         link.getAttribute("href")
   strike:
     tagName: "del"

@@ -1,3 +1,6 @@
+import { makeElement } from "../core/helpers/dom.coffee"
+import { copyObject } from "../core/helpers/objects.coffee"
+
 {makeElement} = Trix
 {css} = Trix.config
 
@@ -95,7 +98,7 @@ class Trix.AttachmentView extends Trix.ObjectView
 
   getCaptionConfig: ->
     type = @attachment.getType()
-    config = Trix.copyObject(Trix.config.attachments[type]?.caption)
+    config = copyObject(Trix.config.attachments[type]?.caption)
     config.name = true if type is "file"
     config
 

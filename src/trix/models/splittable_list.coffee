@@ -1,4 +1,4 @@
-{spliceArray} = Trix
+import { spliceArray } from "../core/helpers/arrays.coffee"
 
 class Trix.SplittableList extends Trix.Object
   @box: (objects) ->

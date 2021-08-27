@@ -8,7 +8,10 @@
 #= require trix/models/attachment_manager
 #= require trix/models/selection_manager
 
-{rangeIsCollapsed, rangesAreEqual, objectsAreEqual, getBlockConfig} = Trix
+import { getBlockConfig } from "../core/helpers/config.coffee"
+import { serializeToContentType } from "../core/config/serialization.coffee"
+import { objectsAreEqual } from "../core/helpers/objects.coffee"
+import { rangeIsCollapsed, rangesAreEqual } from "../core/helpers/ranges.coffee"
 
 class Trix.EditorController extends Trix.Controller
   constructor: ({@editorElement, document, html}) ->
@@ -367,7 +370,7 @@ class Trix.EditorController extends Trix.Controller
 
   updateInputElement: ->
     element = @compositionController.getSerializableElement()
-    value = Trix.serializeToContentType(element, "text/html")
+    value = serializeToContentType(element, "text/html")
     @editorElement.setInputElementValue(value)
 
   notifyEditorElement: (message, data) ->

@@ -1,6 +1,8 @@
 # This file is not included in the main Trix bundle and
 # should be explicitly required to enable the debugger.
 
+import { findClosestElementFromNode } from "../core/helpers/dom.coffee"
+
 DEBUG_METHODS =
   "Trix.AttachmentEditorController": "
     didClickRemoveButton
@@ -43,8 +45,6 @@ DEBUG_METHODS =
     didClickDialogButton
     didKeyDownDialogInput
   "
-
-{findClosestElementFromNode} = Trix
 
 errorListeners = []
 

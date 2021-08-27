@@ -1,6 +1,6 @@
 #= require trix/views/attachment_view
 
-{makeElement} = Trix
+import { makeElement } from "../core/helpers/dom.coffee"
 
 class Trix.PreviewableAttachmentView extends Trix.AttachmentView
   constructor: ->

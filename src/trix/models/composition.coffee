@@ -1,7 +1,11 @@
 #= require trix/models/document
 #= require trix/models/line_break_insertion
 
-{normalizeRange, rangesAreEqual, rangeIsCollapsed, objectsAreEqual, arrayStartsWith, summarizeArrayChange, getAllAttributeNames, getBlockConfig, getTextConfig, extend} = Trix
+import { arrayStartsWith, summarizeArrayChange } from "../core/helpers/arrays.coffee"
+import { getAllAttributeNames, getBlockConfig, getTextConfig } from "../core/helpers/config.coffee"
+import { objectsAreEqual } from "../core/helpers/objects.coffee"
+import { extend } from "../core/helpers/extend.coffee"
+import { normalizeRange, rangesAreEqual, rangeIsCollapsed } from "../core/helpers/ranges.coffee"
 
 class Trix.Composition extends Trix.BasicObject
   constructor: ->

@@ -1,4 +1,6 @@
-Trix.registerElement "trix-inspector",
+import { registerElement } from "../core/helpers/custom_elements.coffee"
+
+registerElement "trix-inspector",
   defaultCSS: """
     %t {
       display: block;

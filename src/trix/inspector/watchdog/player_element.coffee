@@ -1,7 +1,9 @@
 #= require trix/watchdog/recording
 #= require trix/watchdog/player_controller
 
-Trix.registerElement "trix-watchdog-player",
+import { registerElement } from "../../core/helpers/custom_elements.coffee"
+
+registerElement "trix-watchdog-player",
   defaultCSS: """
     %t > div { display: -webkit-flex; display: flex; font-size: 14px; margin: 10px 0 }
     %t > div > button { width: 65px }

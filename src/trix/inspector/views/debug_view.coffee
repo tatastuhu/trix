@@ -1,6 +1,6 @@
 #= require trix/inspector/view
 
-{handleEvent} = Trix
+import { handleEvent } from "../../core/helpers/dom.coffee"
 
 Trix.Inspector.registerView class extends Trix.Inspector.View
   title: "Debug"

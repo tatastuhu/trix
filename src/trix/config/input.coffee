@@ -1,4 +1,6 @@
-export default input =
+# import { removeNode, makeElement } from "../core/helpers/dom.coffee"
+
+input =
   level2Enabled: true
 
   getLevel: ->
@@ -8,14 +10,16 @@ export default input =
       0
 
   pickFiles: (callback) ->
-    input = Trix.makeElement("input", type: "file", multiple: true, hidden: true, id: @fileInputId)
+    input = makeElement("input", type: "file", multiple: true, hidden: true, id: @fileInputId)
 
     input.addEventListener "change", ->
       callback(input.files)
-      Trix.removeNode(input)
+      removeNode(input)
 
-    Trix.removeNode(document.getElementById(@fileInputId))
+    removeNode(document.getElementById(@fileInputId))
     document.body.appendChild(input)
     input.click()
 
   fileInputId: "trix-file-input-#{Date.now().toString(16)}"
+
+export default input
