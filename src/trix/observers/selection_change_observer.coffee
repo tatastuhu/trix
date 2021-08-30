@@ -1,6 +1,7 @@
-{getDOMRange} = Trix
+import { getDOMRange } from "../core/helpers/selection.coffee"
+import { BasicObject } from "../core/basic_object.coffee"
 
-class Trix.SelectionChangeObserver extends Trix.BasicObject
+export default class SelectionChangeObserver extends BasicObject
   constructor: ->
     @selectionManagers = []
 
@@ -53,4 +54,4 @@ class Trix.SelectionChangeObserver extends Trix.BasicObject
       left?.endContainer is right?.endContainer and
       left?.endOffset is right?.endOffset
 
-Trix.selectionChangeObserver ?= new Trix.SelectionChangeObserver
+export { selectionChangeObserver: new SelectionChangeObserver() }

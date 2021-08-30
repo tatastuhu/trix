@@ -1,29 +1,38 @@
-#= require trix/models/block
-#= require trix/models/splittable_list
-#= require trix/models/html_parser
+
+import config from "../config/index.coffee"
 
 import { spliceArray, arraysAreEqual } from "../core/helpers/arrays.coffee"
 import { getBlockConfig } from "../core/helpers/config.coffee"
 import { normalizeRange, rangeIsCollapsed } from "../core/helpers/config.coffee"
 
-class Trix.Document extends Trix.Object
+import TrixObject from "./core/object.coffee" # Don't override global Object
+import HTMLParser from "./html_parser.coffee"
+
+import Block from "./block.coffee"
+import Text from "./text.coffee"
+import SplittableList from "./splittable_list.coffee"
+
+import ObjectMap from "../core/collections/object_map.coffee"
+import Hash from "../core/collections/hash.coffee"
+
+export default class Document extends TrixObject
   @fromJSON: (documentJSON) ->
     blocks = for blockJSON in documentJSON
-      Trix.Block.fromJSON blockJSON
+      Block.fromJSON blockJSON
     new this blocks
 
   @fromHTML: (html, options) ->
-    Trix.HTMLParser.parse(html, options).getDocument()
+    HTMLParser.parse(html, options).getDocument()
 
   @fromString: (string, textAttributes) ->
-    text = Trix.Text.textForStringWithAttributes(string, textAttributes)
-    new this [new Trix.Block text]
+    text = Text.textForStringWithAttributes(string, textAttributes)
+    new this [new Block text]
 
 
   constructor: (blocks = []) ->
     super
-    blocks = [new Trix.Block] if blocks.length is 0
-    @blockList = Trix.SplittableList.box(blocks)
+    blocks = [new Block] if blocks.length is 0
+    @blockList = SplittableList.box(blocks)
 
   isEmpty: ->
     @blockList.length is 1 and (
@@ -40,7 +49,7 @@ class Trix.Document extends Trix.Object
     new @constructor blocks
 
   copyUsingObjectsFromDocument: (sourceDocument) ->
-    objectMap = new Trix.ObjectMap sourceDocument.getObjects()
+    objectMap = new ObjectMap sourceDocument.getObjects()
     @copyUsingObjectMap(objectMap)
 
   copyUsingObjectMap: (objectMap) ->
@@ -227,8 +236,8 @@ class Trix.Document extends Trix.Object
     {offset} = @locationFromPosition(startPosition)
 
     document = @removeTextAtRange(range)
-    blocks = [new Trix.Block] if offset is 0
-    new @constructor document.blockList.insertSplittableListAtPosition(new Trix.SplittableList(blocks), startPosition)
+    blocks = [new Block] if offset is 0
+    new @constructor document.blockList.insertSplittableListAtPosition(new SplittableList(blocks), startPosition)
 
   applyBlockAttributeAtRange: (attributeName, value, range) ->
     {document, range} = @expandRangeToLineBreaksAndSplitBlocks(range)
@@ -405,8 +414,8 @@ class Trix.Document extends Trix.Object
           textAttributes.push(block.text.getCommonAttributesAtRange(textRange))
           blockAttributes.push(attributesForBlock(block))
 
-      Trix.Hash.fromCommonAttributesOfObjects(textAttributes)
-        .merge(Trix.Hash.fromCommonAttributesOfObjects(blockAttributes))
+      Hash.fromCommonAttributesOfObjects(textAttributes)
+        .merge(Hash.fromCommonAttributesOfObjects(blockAttributes))
         .toObject()
 
   getCommonAttributesAtPosition: (position) ->
@@ -417,7 +426,7 @@ class Trix.Document extends Trix.Object
     commonAttributes = attributesForBlock(block)
     attributes = block.text.getAttributesAtPosition(offset)
     attributesLeft = block.text.getAttributesAtPosition(offset - 1)
-    inheritableAttributes = (key for key, value of Trix.config.textAttributes when value.inheritable)
+    inheritableAttributes = (key for key, value of config.textAttributes when value.inheritable)
 
     for key, value of attributesLeft
       if value is attributes[key] or key in inheritableAttributes

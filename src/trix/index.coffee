@@ -1,8 +1,4 @@
-#= export Trix
-#= require_self
-#= require trix/core
 import config from "./config/index.coffee"
-#= require trix/elements/trix_editor_element
 
 import { version } from "../../package.json"
 

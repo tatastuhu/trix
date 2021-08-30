@@ -1,4 +1,4 @@
-class Trix.LineBreakInsertion
+export default class LineBreakInsertion
   constructor: (@composition) ->
     {@document} = @composition
 

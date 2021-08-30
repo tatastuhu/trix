@@ -1,4 +1,6 @@
-class Trix.ObjectMap extends Trix.BasicObject
+import BasicObject from "../basic_object.coffee"
+
+export default class ObjectMap extends BasicObject
   constructor: (objects = []) ->
     @objects = {}
     for object in objects

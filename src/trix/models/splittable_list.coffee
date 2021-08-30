@@ -1,6 +1,8 @@
 import { spliceArray } from "../core/helpers/arrays.coffee"
 
-class Trix.SplittableList extends Trix.Object
+import TrixObject from "../core/object.coffee" # Don't override global Object
+
+export class SplittableList extends TrixObject
   @box: (objects) ->
     if objects instanceof this
       objects

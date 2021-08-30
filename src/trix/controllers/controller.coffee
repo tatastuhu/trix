@@ -1,3 +1,3 @@
-#= require trix/views/object_view
+import BasicObject from "../core/basic_object.coffee"
 
-class Trix.Controller extends Trix.BasicObject
+export default class Controller extends BasicObject

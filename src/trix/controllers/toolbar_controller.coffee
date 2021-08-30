@@ -1,6 +1,7 @@
 import { handleEvent, triggerEvent, findClosestElementFromNode } from "../core/helpers/dom.coffee"
+import BasicObject from "../core/basic_object.coffee"
 
-class Trix.ToolbarController extends Trix.BasicObject
+export default class ToolbarController extends BasicObject
   attributeButtonSelector = "[data-trix-attribute]"
   actionButtonSelector = "[data-trix-action]"
   toolbarButtonSelector = "#{attributeButtonSelector}, #{actionButtonSelector}"

@@ -1,6 +1,6 @@
-#= require trix/models/attachment
+import BasicObject from "../core/basic_object.coffee"
 
-class Trix.ManagedAttachment extends Trix.BasicObject
+export default class ManagedAttachment extends BasicObject
   constructor: (@attachmentManager, @attachment) ->
     {@id, @file} = @attachment
 

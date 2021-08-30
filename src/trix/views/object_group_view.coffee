@@ -1,6 +1,8 @@
-class Trix.ObjectGroupView extends Trix.ObjectView
+import ObjectView from "./object_view.coffee"
+
+export default class ObjectGroupView extends ObjectView
   constructor: ->
-    super
+    super()
     @objectGroup = @object
     {@viewClass} = @options
     delete @options.viewClass

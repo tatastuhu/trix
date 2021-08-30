@@ -1,6 +1,6 @@
 import { handleEvent } from "../core/helpers/dom.coffee"
 
-class Trix.Inspector.View
+export default class View
   constructor: (@editorElement) ->
     {@editorController, @editor} = @editorElement
     {@compositionController, @composition} = @editorController

@@ -1,6 +1,7 @@
-#= require trix/core/basic_object
+import BasicObject from "./basic_object.coffee"
+import UTF16String from "./utilities/utf16_string.coffee"
 
-class Trix.Object extends Trix.BasicObject
+export default class Object extends BasicObject
   id = 0
 
   @fromJSONString: (jsonString) ->
@@ -27,7 +28,7 @@ class Trix.Object extends Trix.BasicObject
     JSON.stringify(this)
 
   toUTF16String: ->
-    Trix.UTF16String.box(this)
+    UTF16String.box(this)
 
   getCacheKey: ->
     @id.toString()

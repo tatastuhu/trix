@@ -1,6 +1,8 @@
 import { removeNode, walkTree, tagName, nodeIsAttachmentElement } from "../core/helpers/dom.coffee"
 
-class Trix.HTMLSanitizer extends Trix.BasicObject
+import BasicObject from "../core/basic_object.coffee"
+
+export default class HTMLSanitizer extends BasicObject
   DEFAULT_ALLOWED_ATTRIBUTES = "style href src width height class".split(" ")
   DEFAULT_FORBIDDEN_PROTOCOLS = "javascript:".split(" ")
   DEFAULT_FORBIDDEN_ELEMENTS = "script iframe".split(" ")

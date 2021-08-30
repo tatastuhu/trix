@@ -1,8 +1,8 @@
-import { elementContainsNode, findChildIndexOfNode, walkTree, tagName, 
-  nodeIsBlockContainer, nodeIsBlockStart, nodeIsBlockStartComment, nodeIsCursorTarget, 
+import { elementContainsNode, findChildIndexOfNode, walkTree, tagName,
+  nodeIsBlockContainer, nodeIsBlockStart, nodeIsBlockStartComment, nodeIsCursorTarget,
   nodeIsAttachmentElement, nodeIsEmptyTextNode, nodeIsTextNode } from "../core/helpers/dom.coffee"
 
-class Trix.LocationMapper
+export default class LocationMapper
   constructor: (@element) ->
 
   findLocationFromContainerAndOffset: (container, offset, {strict} = strict: true) ->

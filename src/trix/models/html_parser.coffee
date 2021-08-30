@@ -1,12 +1,15 @@
-#= require trix/models/html_sanitizer
+import config from "../config/index.coffee"
 
 import { arraysAreEqual } from "../helpers/arrays.coffee"
 import { normalizeSpaces, breakableWhitespacePattern, squishBreakableWhitespace } from "../helpers/strings.coffee"
-import { elementContainsNode, findClosestElementFromNode, removeNode, walkTree, 
+import { elementContainsNode, findClosestElementFromNode, removeNode, walkTree,
   tagName, makeElement, getBlockTagNames, nodeIsAttachmentElement } from "../core/helpers/dom.coffee"
 
+import BasicObject from "../core/basic_object.coffee"
+import Document from "./document.coffee"
+import HTMLSanitizer from "./html_sanitizer.coffee"
 
-class Trix.HTMLParser extends Trix.BasicObject
+export default class HTMLParser extends BasicObject
   @parse: (html, options) ->
     parser = new this html, options
     parser.parse()
@@ -18,14 +21,14 @@ class Trix.HTMLParser extends Trix.BasicObject
     @processedElements = []
 
   getDocument: ->
-    Trix.Document.fromJSON(@blocks)
+    Document.fromJSON(@blocks)
 
   # HTML parsing
 
   parse: ->
     try
       @createHiddenContainer()
-      html = Trix.HTMLSanitizer.sanitize(@html).getHTML()
+      html = HTMLSanitizer.sanitize(@html).getHTML()
       @containerElement.innerHTML = html
       walker = walkTree(@containerElement, usingFilter: nodeFilter)
       @processNode(walker.currentNode) while walker.nextNode()
@@ -195,22 +198,22 @@ class Trix.HTMLParser extends Trix.BasicObject
 
   getTextAttributes: (element) ->
     attributes = {}
-    for attribute, config of Trix.config.textAttributes
-      if config.tagName and findClosestElementFromNode(element, matchingSelector: config.tagName, untilNode: @containerElement)
+    for attribute, value of config.textAttributes
+      if value.tagName and findClosestElementFromNode(element, matchingSelector: value.tagName, untilNode: @containerElement)
         attributes[attribute] = true
 
-      else if config.parser
-        if value = config.parser(element)
+      else if value.parser
+        if value = value.parser(element)
           attributeInheritedFromBlock = false
           for blockElement in @findBlockElementAncestors(element)
-            if config.parser(blockElement) is value
+            if value.parser(blockElement) is value
               attributeInheritedFromBlock = true
               break
           unless attributeInheritedFromBlock
             attributes[attribute] = value
 
-      else if config.styleProperty
-        if value = element.style[config.styleProperty]
+      else if value.styleProperty
+        if value = element.style[value.styleProperty]
           attributes[attribute] = value
 
     if nodeIsAttachmentElement(element)
@@ -222,11 +225,11 @@ class Trix.HTMLParser extends Trix.BasicObject
   getBlockAttributes: (element) ->
     attributes = []
     while element and element isnt @containerElement
-      for attribute, config of Trix.config.blockAttributes when config.parse isnt false
-        if tagName(element) is config.tagName
-          if config.test?(element) or not config.test
+      for attribute, value of config.blockAttributes when value.parse isnt false
+        if tagName(element) is value.tagName
+          if value.test?(element) or not value.test
             attributes.push(attribute)
-            attributes.push(config.listAttribute) if config.listAttribute
+            attributes.push(value.listAttribute) if value.listAttribute
       element = element.parentNode
     attributes.reverse()
 
@@ -299,7 +302,7 @@ class Trix.HTMLParser extends Trix.BasicObject
           getBlockElementMargin(element)
 
   getMarginOfDefaultBlockElement: ->
-    element = makeElement(Trix.config.blockAttributes.default.tagName)
+    element = makeElement(config.blockAttributes.default.tagName)
     @containerElement.appendChild(element)
     getBlockElementMargin(element)
 

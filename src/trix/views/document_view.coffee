@@ -1,9 +1,12 @@
-#= require trix/views/block_view
-
 import { makeElement } from "../core/helpers/dom.coffee"
 import { defer } from "../core/helpers/functions.coffee"
 
-class Trix.DocumentView extends Trix.ObjectView
+import ObjectView from "./object_view.coffee"
+import BlockView from "./block_view.coffee"
+import ObjectGroup from "../core/collections/object_group.coffee"
+import ElementStore from "../core/collections/element_store.coffee"
+
+export default class DocumentView extends ObjectView
   @render: (document) ->
     element = makeElement("div")
     view = new this document, {element}
@@ -14,7 +17,7 @@ class Trix.DocumentView extends Trix.ObjectView
   constructor: ->
     super
     {@element} = @options
-    @elementStore = new Trix.ElementStore
+    @elementStore = new ElementStore
     @setDocument(@object)
 
   setDocument: (document) ->
@@ -27,9 +30,9 @@ class Trix.DocumentView extends Trix.ObjectView
     @shadowElement = makeElement("div")
 
     unless @document.isEmpty()
-      objects = Trix.ObjectGroup.groupObjects(@document.getBlocks(), asTree: true)
+      objects = ObjectGroup.groupObjects(@document.getBlocks(), asTree: true)
       for object in objects
-        view = @findOrCreateCachedChildView(Trix.BlockView, object)
+        view = @findOrCreateCachedChildView(BlockView, object)
         @shadowElement.appendChild(node) for node in view.getNodes()
 
   isSynced: ->

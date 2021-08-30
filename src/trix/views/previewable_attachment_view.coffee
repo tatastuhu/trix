@@ -1,8 +1,8 @@
-#= require trix/views/attachment_view
-
 import { makeElement } from "../core/helpers/dom.coffee"
+import { lang } from from "../config/index.coffee"
+import AttachmentView from "./attachment_view.coffee"
 
-class Trix.PreviewableAttachmentView extends Trix.AttachmentView
+export default class PreviewableAttachmentView extends AttachmentView
   constructor: ->
     super
     @attachment.previewDelegate = this
@@ -21,7 +21,7 @@ class Trix.PreviewableAttachmentView extends Trix.AttachmentView
   createCaptionElement: ->
     figcaption = super
     unless figcaption.textContent
-      figcaption.setAttribute("data-trix-placeholder", Trix.config.lang.captionPlaceholder)
+      figcaption.setAttribute("data-trix-placeholder", lang.captionPlaceholder)
     figcaption
 
   refresh: (image) ->

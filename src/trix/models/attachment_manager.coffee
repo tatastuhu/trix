@@ -1,6 +1,7 @@
-#= require trix/models/managed_attachment
+import BasicObject from "../core/basic_object.coffee"
+import ManagedAttachment from "./managed_attachment.coffee"
 
-class Trix.AttachmentManager extends Trix.BasicObject
+export default class AttachmentManager extends BasicObject
   constructor: (attachments = []) ->
     @managedAttachments = {}
     @manageAttachment(attachment) for attachment in attachments
@@ -9,7 +10,7 @@ class Trix.AttachmentManager extends Trix.BasicObject
     attachment for id, attachment of @managedAttachments
 
   manageAttachment: (attachment) ->
-    @managedAttachments[attachment.id] ?= new Trix.ManagedAttachment this, attachment
+    @managedAttachments[attachment.id] ?= new ManagedAttachment this, attachment
 
   attachmentIsManaged: (attachment) ->
     attachment.id of @managedAttachments

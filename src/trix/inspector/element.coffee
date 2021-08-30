@@ -1,4 +1,5 @@
 import { registerElement } from "../core/helpers/custom_elements.coffee"
+import Inspector from "../index.coffee"
 
 registerElement "trix-inspector",
   defaultCSS: """
@@ -77,7 +78,7 @@ registerElement "trix-inspector",
     removeEventListener("resize", @resizeHandler)
 
   createViews: ->
-    views = for View in Trix.Inspector.views
+    views = for View in Inspector.views
       new View @editorElement
 
     views.sort (a, b) ->

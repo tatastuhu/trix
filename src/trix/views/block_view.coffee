@@ -1,11 +1,13 @@
-#= require trix/views/text_view
+import config from "../config/index.coffee"
 
 import { getBlockConfig } from "../core/helpers/config.coffee"
 import { makeElement } from "../core/helpers/dom.coffee"
+import { css } from "../config/index.coffee"
 
-{css} = Trix.config
+import ObjectView from "./object_view.coffee"
+import TextView from "./text_view.coffee"
 
-class Trix.BlockView extends Trix.ObjectView
+export default class BlockView extends ObjectView
   constructor: ->
     super
     @block = @object
@@ -18,14 +20,14 @@ class Trix.BlockView extends Trix.ObjectView
       nodes.push(makeElement("br"))
     else
       textConfig = getBlockConfig(@block.getLastAttribute())?.text
-      textView = @findOrCreateCachedChildView(Trix.TextView, @block.text, {textConfig})
+      textView = @findOrCreateCachedChildView(TextView, @block.text, { textConfig })
       nodes.push(textView.getNodes()...)
       nodes.push(makeElement("br")) if @shouldAddExtraNewlineElement()
 
     if @attributes.length
       nodes
     else
-      {tagName} = Trix.config.blockAttributes.default
+      { tagName } = config.blockAttributes.default
       attributes = dir: "rtl" if @block.isRTL()
 
       element = makeElement({tagName, attributes})

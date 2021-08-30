@@ -1,6 +1,7 @@
-#= require trix/inspector/view
+import Inspector from "../index.coffee"
+import View "../view.coffee"
 
-Trix.Inspector.registerView class extends Trix.Inspector.View
+export default class PerformanceView extends View
   title: "Performance"
   template: "performance"
 
@@ -49,3 +50,5 @@ Trix.Inspector.registerView class extends Trix.Inspector.View
       -> performance.now()
     else
       -> new Date().getTime()
+
+Inspector.registerView PerformanceView

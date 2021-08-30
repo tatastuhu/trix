@@ -1,16 +1,17 @@
-import { ZERO_WIDTH_SPACE } from "../../index.coffee"
+import { ZERO_WIDTH_SPACE } from "../index.coffee"
+import config from "../config/index.coffee"
 
 import { makeElement } from "../core/helpers/dom.coffee"
 import { copyObject } from "../core/helpers/objects.coffee"
+import ObjectView from "./object_view.coffee"
 
-{makeElement} = Trix
-{css} = Trix.config
+{ css } = config
 
-class Trix.AttachmentView extends Trix.ObjectView
+export default class AttachmentView extends ObjectView
   @attachmentSelector: "[data-trix-attachment]"
 
   constructor: ->
-    super
+    super()
     @attachment = @object
     @attachment.uploadProgressDelegate = this
     @attachmentPiece = @options.piece
@@ -58,9 +59,9 @@ class Trix.AttachmentView extends Trix.ObjectView
       figcaption.classList.add("#{css.attachmentCaption}--edited")
       figcaption.textContent = caption
     else
-      config = @getCaptionConfig()
-      name = @attachment.getFilename() if config.name
-      size = @attachment.getFormattedFilesize() if config.size
+      captionConfig = @getCaptionConfig()
+      name = @attachment.getFilename() if captionConfig.name
+      size = @attachment.getFormattedFilesize() if captionConfig.size
 
       if name
         nameElement = makeElement(tagName: "span", className: css.attachmentName, textContent: name)
@@ -100,9 +101,9 @@ class Trix.AttachmentView extends Trix.ObjectView
 
   getCaptionConfig: ->
     type = @attachment.getType()
-    config = copyObject(Trix.config.attachments[type]?.caption)
-    config.name = true if type is "file"
-    config
+    captionConfig = copyObject(config.attachments[type]?.caption)
+    captionConfig.name = true if type is "file"
+    captionConfig
 
   findProgressElement: ->
     @findElement()?.querySelector("progress")

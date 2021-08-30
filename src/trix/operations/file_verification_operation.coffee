@@ -1,4 +1,6 @@
-class Trix.FileVerificationOperation extends Trix.Operation
+import "./operation.coffee"
+
+export default class FileVerificationOperation extends Operation
   constructor: (@file) ->
 
   perform: (callback) ->

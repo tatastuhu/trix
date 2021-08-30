@@ -1,3 +1,4 @@
+import config from "../config/index.coffee"
 import { registerElement } from "../core/helpers/custom_elements.coffee"
 
 registerElement "trix-toolbar",
@@ -27,4 +28,4 @@ registerElement "trix-toolbar",
 
   initialize: ->
     if @innerHTML is ""
-      @innerHTML = Trix.config.toolbar.getDefaultHTML()
+      @innerHTML = config.toolbar.getDefaultHTML()

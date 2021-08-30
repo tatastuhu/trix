@@ -1,6 +1,9 @@
-#= require trix/inspector/view
+import Inspector from "../index.coffee"
+import View "../view.coffee"
 
-Trix.Inspector.registerView class extends Trix.Inspector.View
+import UTF16String from "../../core/utilities/utf16_string.coffee"
+
+export default class SelectionView extends View
   title: "Selection"
   template: "selection"
   events:
@@ -18,7 +21,7 @@ Trix.Inspector.registerView class extends Trix.Inspector.View
 
   getCharacters: ->
     chars = []
-    utf16string = Trix.UTF16String.box(@document.toString())
+    utf16string = UTF16String.box(@document.toString())
     rangeIsExpanded = @range[0] isnt @range[1]
     position = 0
     while position < utf16string.length
@@ -31,3 +34,5 @@ Trix.Inspector.registerView class extends Trix.Inspector.View
 
   getTitle: ->
     "#{@title} (#{@range.join()})"
+
+Inspector.registerView SelectionView

@@ -1,6 +1,6 @@
-{getDOMRange, setDOMRange} = Trix
+import { getDOMRange, setDOMRange } from "../core/helpers/selection.coffee"
 
-class Trix.PointMapper
+export default class PointMapper
   createDOMRangeFromPoint: ({x, y}) ->
     if document.caretPositionFromPoint
       {offsetNode, offset} = document.caretPositionFromPoint(x, y)

@@ -1,23 +1,25 @@
+import config from "../config/index.coffee"
+
 allAttributeNames = null
 blockAttributeNames = null
 textAttributeNames = null
 listAttributeNames = null
 
 export getAllAttributeNames = ->
-    allAttributeNames ?= config.getTextAttributeNames().concat config.getBlockAttributeNames()
+    allAttributeNames ?= config.getTextAttributeNames().concat getBlockAttributeNames()
 
 export getBlockConfig = (attributeName) ->
-    Trix.config.blockAttributes[attributeName]
+    config.blockAttributes[attributeName]
 
 export getBlockAttributeNames = ->
-    blockAttributeNames ?= Object.keys(Trix.config.blockAttributes)
+    blockAttributeNames ?= Object.keys(config.blockAttributes)
 
 export getTextConfig = (attributeName) ->
-    Trix.config.textAttributes[attributeName]
+    config.textAttributes[attributeName]
 
 export getTextAttributeNames = ->
-    textAttributeNames ?= Object.keys(Trix.config.textAttributes)
+    textAttributeNames ?= Object.keys(config.textAttributes)
 
 export getListAttributeNames = ->
-    listAttributeNames ?= (listAttribute for key, {listAttribute} of Trix.config.blockAttributes when listAttribute?)
+    listAttributeNames ?= (listAttribute for key, {listAttribute} of config.blockAttributes when listAttribute?)
 

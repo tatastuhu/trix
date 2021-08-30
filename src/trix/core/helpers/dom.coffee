@@ -1,5 +1,7 @@
+import config from "../../config/index.coffee"
 import { extend } from "./extend.coffee"
 import { ZERO_WIDTH_SPACE } from "../../index.coffee"
+import AttachmentView from "../../views/attachment_view.coffee"
 
 html = document.documentElement
 match = html.matchesSelector ? html.webkitMatchesSelector ? html.msMatchesSelector ? html.mozMatchesSelector
@@ -26,7 +28,7 @@ export handleEvent = (eventName, {onElement, matchingSelector, withCallback, inP
 
 export handleEventOnce = (eventName, options = {}) ->
   options.times = 1
-  Trix.handleEvent(eventName, options)
+  handleEvent(eventName, options)
 
 export triggerEvent = (eventName, {onElement, bubbles, cancelable, attributes} = {}) ->
   element = onElement ? html
@@ -142,7 +144,7 @@ export makeElement = (tagName, options = {}) ->
   element
 
 export getBlockTagNames = ->
-  blockTagNames ?= (tagName for key, {tagName} of Trix.config.blockAttributes when tagName)
+  blockTagNames ?= (tagName for key, {tagName} of config.blockAttributes when tagName)
 
 export nodeIsBlockContainer = (node) ->
   nodeIsBlockStartComment(node?.firstChild)
@@ -176,7 +178,7 @@ export nodeIsCursorTarget = (node, {name} = {}) ->
     dom.nodeIsCursorTarget(node.firstChild)
 
 export nodeIsAttachmentElement = (node) ->
-  elementMatchesSelector(node, Trix.AttachmentView.attachmentSelector)
+  elementMatchesSelector(node, AttachmentView.attachmentSelector)
 
 export nodeIsEmptyTextNode = (node) ->
   nodeIsTextNode(node) and node?.data is ""

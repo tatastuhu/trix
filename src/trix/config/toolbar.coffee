@@ -1,6 +1,7 @@
+import lang from "./lang.coffee"
+
 export default toolbar =
   getDefaultHTML: ->
-    {lang} = Trix.config
     """
     <div class="trix-button-row">
       <span class="trix-button-group trix-button-group--text-tools" data-trix-button-group="text-tools">

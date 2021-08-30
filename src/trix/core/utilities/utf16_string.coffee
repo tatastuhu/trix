@@ -1,4 +1,6 @@
-class Trix.UTF16String extends Trix.BasicObject
+import BasicObject from "../basic_object.coffee"
+
+export default class UTF16String extends BasicObject
   @box: (value = "") ->
     if value instanceof this
       value

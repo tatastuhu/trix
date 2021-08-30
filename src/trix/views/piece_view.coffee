@@ -1,12 +1,13 @@
-#= require trix/views/attachment_view
-#= require trix/views/previewable_attachment_view
-
 import { NON_BREAKING_SPACE } from "../../index.coffee"
 
 import { getTextConfig } from "../core/helpers/config.coffee"
 import { findInnerElement, makeElement } from "../core/helpers/dom.coffee"
 
-class Trix.PieceView extends Trix.ObjectView
+import ObjectView from "./object_view.coffe"
+import AttachmentView from "./attachment_view.coffee"
+import PreviewableAttachementView from "./previewable_attachment_view.coffee"
+
+class PieceView extends ObjectView
   constructor: ->
     super
     @piece = @object
@@ -32,9 +33,9 @@ class Trix.PieceView extends Trix.ObjectView
 
   createAttachmentNodes: ->
     constructor = if @attachment.isPreviewable()
-      Trix.PreviewableAttachmentView
+      PreviewableAttachmentView
     else
-      Trix.AttachmentView
+      AttachmentView
 
     view = @createChildView(constructor, @piece.attachment, {@piece})
     view.getNodes()

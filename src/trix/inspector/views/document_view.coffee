@@ -1,6 +1,6 @@
-#= require trix/inspector/view
+import Inspector from "../index.coffee"
 
-Trix.Inspector.registerView class extends Trix.Inspector.View
+export default DocumentView class extends View
   title: "Document"
   template: "document"
   events:
@@ -10,3 +10,5 @@ Trix.Inspector.registerView class extends Trix.Inspector.View
   render: ->
     @document = @editor.getDocument()
     super
+
+Inspector.registerView DocumentView

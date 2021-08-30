@@ -1,8 +1,10 @@
-#= require trix/inspector/view
-
 import { handleEvent } from "../../core/helpers/dom.coffee"
 
-Trix.Inspector.registerView class extends Trix.Inspector.View
+import Inspector from "./index.coffee"
+import View "../view.coffee"
+import ControlElement "../control_element.coffee"
+
+export default class DebugView extends View
   title: "Debug"
   template: "debug"
 
@@ -27,7 +29,9 @@ Trix.Inspector.registerView class extends Trix.Inspector.View
 
   didToggleControlElement: ({target}) =>
     if target.checked
-      @control = new Trix.Inspector.ControlElement @editorElement
+      @control = new ControlElement @editorElement
     else
       @control?.uninstall()
       @control = null
+
+Inspector.registerView DebugView

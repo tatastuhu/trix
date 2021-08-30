@@ -1,9 +1,11 @@
+import { selectionChangeObserver } from "../../observers/selection_change_observer.coffee"
+
 export getDOMSelection = ->
     selection = window.getSelection()
     selection if selection.rangeCount > 0
 
 export getDOMRange = ->
-    if domRange = Trix.getDOMSelection()?.getRangeAt(0)
+    if domRange = getDOMSelection()?.getRangeAt(0)
       unless domRangeIsPrivate(domRange)
         domRange
 
@@ -11,7 +13,7 @@ export setDOMRange = (domRange) ->
     selection = window.getSelection()
     selection.removeAllRanges()
     selection.addRange(domRange)
-    Trix.selectionChangeObserver.update()
+    selectionChangeObserver.update()
 
 # In Firefox, clicking certain <input> elements changes the selection to a
 # private element used to draw its UI. Attempting to access properties of those

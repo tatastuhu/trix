@@ -1,25 +1,28 @@
-#= require trix/models/undo_manager
-#= require trix/filters/attachment_gallery_filter
 
-class Trix.Editor
-  DEFAULT_FILTERS = [ Trix.attachmentGalleryFilter ]
+import { attachmentGalleryFilter } from "../filters/attachment_gallery_filter"
+
+import Document from "./document.coffee"
+import UndoManager from "./undo_manager.coffee"
+
+export default class Editor
+  DEFAULT_FILTERS = [ attachmentGalleryFilter ]
 
   constructor: (@composition, @selectionManager, @element) ->
-    @undoManager = new Trix.UndoManager @composition
+    @undoManager = new UndoManager @composition
     @filters = DEFAULT_FILTERS.slice(0)
 
   loadDocument: (document) ->
     @loadSnapshot({document, selectedRange: [0, 0]})
 
   loadHTML: (html = "") ->
-    @loadDocument(Trix.Document.fromHTML(html, referenceElement: @element))
+    @loadDocument(Document.fromHTML(html, referenceElement: @element))
 
   loadJSON: ({document, selectedRange}) ->
-    document = Trix.Document.fromJSON(document)
+    document = Document.fromJSON(document)
     @loadSnapshot({document, selectedRange})
 
   loadSnapshot: (snapshot) ->
-    @undoManager = new Trix.UndoManager @composition
+    @undoManager = new UndoManager @composition
     @composition.loadSnapshot(snapshot)
 
   getDocument: ->

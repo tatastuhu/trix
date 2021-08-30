@@ -1,11 +1,11 @@
-#= require trix/models/attachment
-#= require trix/models/piece
-
 import { OBJECT_REPLACEMENT_CHARACTER } from "../index.coffee"
 
-Trix.Piece.registerType "attachment", class Trix.AttachmentPiece extends Trix.Piece
+import Attachment from "./attachment.coffee"
+import Piece from "./piece.coffee"
+
+export default class AttachmentPiece extends Piece
   @fromJSON: (pieceJSON) ->
-    new this Trix.Attachment.fromJSON(pieceJSON.attachment), pieceJSON.attributes
+    new this Attachment.fromJSON(pieceJSON.attachment), pieceJSON.attributes
 
   @permittedAttributes: ["caption", "presentation"]
 
@@ -51,3 +51,5 @@ Trix.Piece.registerType "attachment", class Trix.AttachmentPiece extends Trix.Pi
 
   toConsole: ->
     JSON.stringify(@toString())
+
+Piece.registerType "attachment", AttachmentPiece

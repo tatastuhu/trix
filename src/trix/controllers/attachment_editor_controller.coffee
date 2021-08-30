@@ -1,11 +1,9 @@
-#= require trix/controllers/attachment_editor_controller
-
 import { handleEvent, removeNode, tagName, makeElement } from "../core/helpers/dom.coffee"
 import { defer } from "../core/helpers/functions.coffee"
+import { lang, css, keyNames } from "../config/index.coffee"
+import BasicObject from "../core/basic_object.coffee"
 
-{lang, css, keyNames} = Trix.config
-
-class Trix.AttachmentEditorController extends Trix.BasicObject
+export default class AttachmentEditorController extends BasicObject
   constructor: (@attachmentPiece, @element, @container, @options = {}) ->
     {@attachment} = @attachmentPiece
     @element = @element.firstChild if tagName(@element) is "a"

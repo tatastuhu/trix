@@ -1,8 +1,9 @@
 import { findClosestElementFromNode, tagName, nodeIsBlockStartComment, nodeIsEmptyTextNode } from "../core/helpers/dom.coffee"
 import { normalizeSpaces, summarizeStringChange } from "../helpers/strings.coffee"
 
+import BasicObject from "../core/basic_object.coffee"
 
-class Trix.MutationObserver extends Trix.BasicObject
+export default class MutationObserver extends BasicObject
   mutableAttributeName = "data-trix-mutable"
   mutableSelector = "[#{mutableAttributeName}]"
 

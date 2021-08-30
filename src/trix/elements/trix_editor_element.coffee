@@ -1,12 +1,14 @@
-#= require trix/elements/trix_toolbar_element
-#= require trix/controllers/editor_controller
+import config from "../config/index.coffee"
 
 import { registerElement } from "../core/helpers/custom_elements.coffee"
 import { handleEvent, handleEventOnce, triggerEvent, findClosestElementFromNode, makeElement } from "../core/helpers/dom.coffee"
 
 import { browser } from "../index.coffee"
 
-{attachmentSelector} = Trix.AttachmentView
+import EditorController from "../controllers/editor_controller.coffee"
+import AttachmentView from "../views/attachment_view.coffee"
+
+{ attachmentSelector } = AttachmentView
 
 registerElement "trix-editor", do ->
   id = 0
@@ -34,7 +36,7 @@ registerElement "trix-editor", do ->
 
   setDefaultParagraphSeparator = (element) ->
     if document.queryCommandSupported?("DefaultParagraphSeparator")
-      {tagName} = Trix.config.blockAttributes.default
+      { tagName } = config.blockAttributes.default
       if tagName in ["div", "p"]
         document.execCommand("DefaultParagraphSeparator", false, tagName)
 
@@ -199,7 +201,7 @@ registerElement "trix-editor", do ->
     unless @hasAttribute("data-trix-internal")
       unless @editorController
         triggerEvent("trix-before-initialize", onElement: this)
-        @editorController = new Trix.EditorController(editorElement: this, html: @defaultValue = @value)
+        @editorController = new EditorController(editorElement: this, html: @defaultValue = @value)
         requestAnimationFrame => triggerEvent("trix-initialize", onElement: this)
       @editorController.registerSelectionManager()
       @registerResetListener()

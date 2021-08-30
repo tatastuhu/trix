@@ -1,50 +1,59 @@
-#= require trix/controllers/controller
-#= require trix/controllers/level_0_input_controller
-#= require trix/controllers/level_2_input_controller
-#= require trix/controllers/composition_controller
-#= require trix/controllers/toolbar_controller
-#= require trix/models/composition
-#= require trix/models/editor
-#= require trix/models/attachment_manager
-#= require trix/models/selection_manager
+import config from "../config/index.coffee"
 
 import { getBlockConfig } from "../core/helpers/config.coffee"
 import { serializeToContentType } from "../core/config/serialization.coffee"
 import { objectsAreEqual } from "../core/helpers/objects.coffee"
 import { rangeIsCollapsed, rangesAreEqual } from "../core/helpers/ranges.coffee"
 
-class Trix.EditorController extends Trix.Controller
+import Controller from "./controller.coffee"
+import SelectionManager from "../models/selection_manager.coffee"
+
+import AttachmentManager from "../attachment_manager.coffee"
+import Composition from "../models/composition.coffee"
+import Editor from "../models/editor.coffee"
+
+import CompositionController from "../controllers/composition_controller.coffee"
+import ToolbarController from "../controllers/toolbar_controller.coffee"
+import Level0InputController from "../controllers/level_0_input_controller.coffee"
+import Level2InputController from "../controllers/level_2_input_controller.coffee"
+
+import { selectionChangeObserver } from "../observers/selection_change_observer.coffee"
+
+export default class EditorController extends Controller
   constructor: ({@editorElement, document, html}) ->
-    @selectionManager = new Trix.SelectionManager @editorElement
+    @selectionManager = new SelectionManager @editorElement
     @selectionManager.delegate = this
 
-    @composition = new Trix.Composition
+    @composition = new Composition
     @composition.delegate = this
 
-    @attachmentManager = new Trix.AttachmentManager @composition.getAttachments()
+    @attachmentManager = new AttachmentManager @composition.getAttachments()
     @attachmentManager.delegate = this
 
-    @inputController = new Trix["Level#{Trix.config.input.getLevel()}InputController"](@editorElement)
+    @inputController = switch config.input.getLevel()
+      when 0 then new Level0InputController(@editorElement)
+      when 2 then new Level2InputController(@editorElement)
+
     @inputController.delegate = this
     @inputController.responder = @composition
 
-    @compositionController = new Trix.CompositionController @editorElement, @composition
+    @compositionController = new CompositionController @editorElement, @composition
     @compositionController.delegate = this
 
-    @toolbarController = new Trix.ToolbarController @editorElement.toolbarElement
+    @toolbarController = new ToolbarController @editorElement.toolbarElement
     @toolbarController.delegate = this
 
-    @editor = new Trix.Editor @composition, @selectionManager, @editorElement
+    @editor = new Editor @composition, @selectionManager, @editorElement
     if document?
       @editor.loadDocument(document)
     else
       @editor.loadHTML(html)
 
   registerSelectionManager: ->
-    Trix.selectionChangeObserver.registerSelectionManager(@selectionManager)
+    selectionChangeObserver.registerSelectionManager(@selectionManager)
 
   unregisterSelectionManager: ->
-    Trix.selectionChangeObserver.unregisterSelectionManager(@selectionManager)
+    selectionChangeObserver.unregisterSelectionManager(@selectionManager)
 
   render: ->
     @compositionController.render()
@@ -318,7 +327,7 @@ class Trix.EditorController extends Trix.Controller
       perform: -> @editor.decreaseNestingLevel() and @render()
     attachFiles:
       test: -> true
-      perform: -> Trix.config.input.pickFiles(@editor.insertFiles)
+      perform: -> config.input.pickFiles(@editor.insertFiles)
 
   canInvokeAction: (actionName) ->
     if @actionIsExternal(actionName)
@@ -411,8 +420,8 @@ class Trix.EditorController extends Trix.Controller
       locationRange
 
   getTimeContext: ->
-    if Trix.config.undoInterval > 0
-      Math.floor(new Date().getTime() / Trix.config.undoInterval)
+    if config.undoInterval > 0
+      Math.floor(new Date().getTime() / config.undoInterval)
     else
       0
 

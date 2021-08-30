@@ -1,12 +1,12 @@
-#= require trix/watchdog/player
-#= require trix/watchdog/player_view
+import Player from "./player.coffee"
+import PlayerView from "./player_view.coffee"
 
-class Trix.Watchdog.PlayerController
+export default class PlayerController
   constructor: (@element, @recording) ->
-    @player = new Trix.Watchdog.Player @recording
+    @player = new Player @recording
     @player.delegate = this
 
-    @view = new Trix.Watchdog.PlayerView @element
+    @view = new PlayerView @element
     @view.delegate = this
 
     @view.setLength(@player.length)

@@ -1,15 +1,15 @@
-#= require trix/models/location_mapper
-#= require trix/models/point_mapper
-#= require trix/observers/selection_change_observer
-
 import { handleEvent, innerElementIsActive, elementContainsNode, nodeIsCursorTarget } from "../core/helpers/dom.coffee"
 import { normalizeRange, rangeIsCollapsed, rangesAreEqual } from "../core/helpers/ranges.coffee"
 import { getDOMSelection, getDOMRange, setDOMRange } from "../core/helpers/selection.coffee"
 
-class Trix.SelectionManager extends Trix.BasicObject
+import BasicObject from "../core/basic_object.coffee"
+import LocationMapper from "./location_mapper.coffee"
+import PointMapper from "./point_mapper.coffee"
+
+export default class SelectionManager extends BasicObject
   constructor: (@element) ->
-    @locationMapper = new Trix.LocationMapper @element
-    @pointMapper = new Trix.PointMapper
+    @locationMapper = new LocationMapper @element
+    @pointMapper = new PointMapper
     @lockCount = 0
     handleEvent("mousedown", onElement: @element, withCallback: @didMouseDown)
 

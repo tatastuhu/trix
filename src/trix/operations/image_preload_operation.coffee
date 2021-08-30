@@ -1,4 +1,6 @@
-class Trix.ImagePreloadOperation extends Trix.Operation
+import Operation from "./operation.coffee"
+
+export default class ImagePreloadOperation extends Operation
   constructor: (@url) ->
 
   perform: (callback) ->

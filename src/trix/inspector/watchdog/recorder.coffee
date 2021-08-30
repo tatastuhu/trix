@@ -1,9 +1,9 @@
-#= require trix/watchdog/recording
-#= require trix/watchdog/serializer
+import Recording from "./recording.coffee"
+import Serializer from "./serializer.coffee"
 
-class Trix.Watchdog.Recorder
+export default class Recorder
   constructor: (@element, {@snapshotLimit} = {}) ->
-    @recording = new Trix.Watchdog.Recording
+    @recording = new Recording
 
   start: ->
     return if @started
@@ -72,7 +72,7 @@ class Trix.Watchdog.Recorder
     @recording.truncateToSnapshotCount(@snapshotLimit) if @snapshotLimit?
 
   getSnapshot: ->
-    serializer = new Trix.Watchdog.Serializer @element
+    serializer = new Serializer @element
     serializer.getSnapshot()
 
   characterFromKeyboardEvent = (event) ->

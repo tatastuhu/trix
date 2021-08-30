@@ -1,4 +1,6 @@
-class Trix.Operation extends Trix.BasicObject
+import BasicObject from "../basic_object.coffee"
+
+export class Operation extends BasicObject
   isPerforming: ->
     @performing is true
 

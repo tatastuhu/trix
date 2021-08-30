@@ -1,11 +1,4 @@
-#= require_tree ./polyfills
-#= require_self
-#= require ./element
-#= require ./control_element
-#= require_tree ./templates
-#= require_tree ./views
-
-Trix.Inspector =
+export default Inspector =
   views: []
 
   registerView: (constructor) ->

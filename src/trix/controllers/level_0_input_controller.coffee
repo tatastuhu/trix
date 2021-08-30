@@ -1,13 +1,22 @@
-#= require trix/controllers/input_controller
-
 import { removeNode, tagName, makeElement } from "../core/helpers/dom.coffee"
 import { dataTransferIsPlainText, dataTransferIsWritable, keyEventIsKeyboardCommand } from "../core/helpers/events.coffee"
 import { objectsAreEqual } from "../core/helpers/objects.coffee"
+import { squishBreakableWhitespace } from "../core/helpers/strings.coffee"
 
 import { browser } from "../index.coffee"
 import { keyNames } from "../config/index.coffee"
 
-class Trix.Level0InputController extends Trix.InputController
+import { selectionChangeObserver } from "../observers/selection_change_observer.coffee"
+
+import BasicObject from "../core/basic_object.coffee"
+import InputController from "./input_controller.coffee"
+
+import DocumentView from "../views/document_view.coffee"
+import Document from "../models/document.coffee"
+
+import UTF16String from "../core/utilities/utf16_string.coffee"
+
+export default class Level0InputController extends InputController
   pastedFileCount = 0
 
   constructor: ->
@@ -24,7 +33,7 @@ class Trix.Level0InputController extends Trix.InputController
 
   reset: ->
     @resetInputSummary()
-    Trix.selectionChangeObserver.reset()
+    selectionChangeObserver.reset()
 
   # Mutation observer delegate
 
@@ -95,7 +104,7 @@ class Trix.Level0InputController extends Trix.InputController
 
         if context?[keyName]?
           @setInputSummary({keyName})
-          Trix.selectionChangeObserver.reset()
+          selectionChangeObserver.reset()
           context[keyName].call(this, event)
 
       if keyEventIsKeyboardCommand(event)
@@ -165,7 +174,7 @@ class Trix.Level0InputController extends Trix.InputController
         @requestRender()
 
       else if documentJSON = event.dataTransfer.getData("application/x-trix-document")
-        document = Trix.Document.fromJSONString(documentJSON)
+        document = Document.fromJSONString(documentJSON)
         @responder?.insertDocument(document)
         @requestRender()
 
@@ -203,7 +212,7 @@ class Trix.Level0InputController extends Trix.InputController
       if href = clipboard.getData("URL")
         paste.type = "text/html"
         if name = clipboard.getData("public.url-name")
-          string = Trix.squishBreakableWhitespace(name).trim()
+          string = squishBreakableWhitespace(name).trim()
         else
           string = href
         paste.html = @createLinkHTML(href, string)
@@ -361,7 +370,7 @@ class Trix.Level0InputController extends Trix.InputController
     document = @responder?.getSelectedDocument().toSerializableDocument()
 
     dataTransfer.setData("application/x-trix-document", JSON.stringify(document))
-    dataTransfer.setData("text/html", Trix.DocumentView.render(document).innerHTML)
+    dataTransfer.setData("text/html", DocumentView.render(document).innerHTML)
     dataTransfer.setData("text/plain", document.toString().replace(/\n$/, ""))
     true
 
@@ -410,7 +419,7 @@ stringFromKeyEvent = (event) ->
       code = event.charCode
 
     if code? and keyNames[code] isnt "escape"
-      Trix.UTF16String.fromCodepoints([code]).toString()
+      UTF16String.fromCodepoints([code]).toString()
 
 pasteEventIsCrippledSafariHTMLPaste = (event) ->
   if paste = event.clipboardData
@@ -428,7 +437,7 @@ pasteEventIsCrippledSafariHTMLPaste = (event) ->
       isExternalRichTextPaste = "com.apple.flat-rtfd" in paste.types
       isExternalHTMLPaste or isExternalRichTextPaste
 
-class CompositionInput extends Trix.BasicObject
+class CompositionInput extends BasicObject
   constructor: (@inputController) ->
     {@responder, @delegate, @inputSummary} = @inputController
     @data = {}

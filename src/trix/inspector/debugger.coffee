@@ -48,7 +48,7 @@ DEBUG_METHODS =
 
 errorListeners = []
 
-Trix.Debugger =
+export default Debugger =
   addErrorListener: (listener) ->
     unless listener in errorListeners
       errorListeners.push(listener)
@@ -80,7 +80,7 @@ wrapFunctionWithErrorHandler = (fn) ->
   trixDebugWrapper
 
 reportError = (error) ->
-  Trix.Debugger.lastError = error
+  Debugger.lastError = error
 
   console.error "Trix error!"
   console.log error.stack

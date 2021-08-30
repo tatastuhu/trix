@@ -1,4 +1,5 @@
 import { ZERO_WIDTH_SPACE, NON_BREAKING_SPACE } from "../../index.coffee"
+import UTF16String from "../utilities/utf16_string.coffee"
 
 export normalizeSpaces = (string) ->
   string
@@ -13,13 +14,13 @@ export breakableWhitespacePattern = ///[^\S#{NON_BREAKING_SPACE}]///
 export squishBreakableWhitespace = (string) ->
   string
     # Replace all breakable whitespace characters with a space
-    .replace(///#{Trix.breakableWhitespacePattern.source}///g, " ")
+    .replace(///#{breakableWhitespacePattern.source}///g, " ")
     # Replace two or more spaces with a single space
     .replace(/\ {2,}/g, " ")
 
 export summarizeStringChange = (oldString, newString) ->
-  oldString = Trix.UTF16String.box(oldString)
-  newString = Trix.UTF16String.box(newString)
+  oldString = UTF16String.box(oldString)
+  newString = UTF16String.box(newString)
 
   if newString.length < oldString.length
     [removed, added] = utf16StringDifferences(oldString, newString)
@@ -37,7 +38,7 @@ utf16StringDifferences = (a, b) ->
   diffB = if length
     {offset} = diffA
     codepoints = a.codepoints.slice(0, offset).concat(a.codepoints.slice(offset + length))
-    utf16StringDifference(b, Trix.UTF16String.fromCodepoints(codepoints))
+    utf16StringDifference(b, UTF16String.fromCodepoints(codepoints))
   else
     utf16StringDifference(b, a)
 

@@ -1,11 +1,12 @@
-#= require trix/observers/mutation_observer
-#= require trix/operations/file_verification_operation
-
 import { handleEvent, innerElementIsActive } from "../core/helpers/dom.coffee"
 
-class Trix.InputController extends Trix.BasicObject
+import BasicObject from "../core/basic_object.coffee"
+import MutationObserver from "../observers/mutation_observer.coffee"
+import FileVerificationOperation from "../operations/file_verification_operation.coffee"
+
+class InputController extends BasicObject
   constructor: (@element) ->
-    @mutationObserver = new Trix.MutationObserver @element
+    @mutationObserver = new MutationObserver @element
     @mutationObserver.delegate = this
     for eventName of @events
       handleEvent eventName, onElement: @element, withCallback: @handlerFor(eventName)
@@ -28,7 +29,7 @@ class Trix.InputController extends Trix.BasicObject
     @requestRender()
 
   attachFiles: (files) ->
-    operations = (new Trix.FileVerificationOperation(file) for file in files)
+    operations = (new FileVerificationOperation(file) for file in files)
     Promise.all(operations).then (files) =>
       @handleInput ->
         @delegate?.inputControllerWillAttachFiles()

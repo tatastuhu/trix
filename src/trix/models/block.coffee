@@ -1,16 +1,15 @@
-#= require trix/models/text
-
 import { arraysAreEqual, spliceArray } from "../core/helpers/arrays.coffee"
-import { getBlockConfig, getBlockAttributeNames } from "../core/helpers/config.coffee"
+import { getBlockConfig, getBlockAttributeNames, getListAttributeNames } from "../core/helpers/config.coffee"
 
-{getListAttributeNames} = Trix
+import TrixObject from "../core/object.coffee" # Don't override global Object
+import Text from "./text.coffee"
 
-class Trix.Block extends Trix.Object
+export default class Block extends TrixObject
   @fromJSON: (blockJSON) ->
-    text = Trix.Text.fromJSON(blockJSON.text)
+    text = Text.fromJSON(blockJSON.text)
     new this text, blockJSON.attributes
 
-  constructor: (text = new Trix.Text, attributes = []) ->
+  constructor: (text = new Text, attributes = []) ->
     super
     @text = applyBlockBreakToText(text)
     @attributes = attributes
@@ -147,7 +146,7 @@ class Trix.Block extends Trix.Object
       @getDirection() is block.getDirection()
 
   consolidateWith: (block) ->
-    newlineText = Trix.Text.textForStringWithAttributes("\n")
+    newlineText = Text.textForStringWithAttributes("\n")
     text = @getTextWithoutBlockBreak().appendText(newlineText)
     @copyWithText(text.appendText(block.text))
 
@@ -207,11 +206,11 @@ class Trix.Block extends Trix.Object
         piece
 
     if modified
-      new Trix.Text [innerPieces..., lastPiece]
+      new Text [innerPieces..., lastPiece]
     else
       text
 
-  blockBreakText = Trix.Text.textForStringWithAttributes("\n", blockBreak: true)
+  blockBreakText = Text.textForStringWithAttributes("\n", blockBreak: true)
 
   addBlockBreakToText = (text) ->
     if textEndsInBlockBreak(text)

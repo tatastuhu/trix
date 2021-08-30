@@ -1,8 +1,10 @@
-#= require_self
-#= require trix/views/object_group_view
+import BasicObject from "../core/basic_object.coffee"
+import ObjectGroup from "../core/collections/object_group.coffee"
+import ObjectGroupView from "./object_group_view.coffee"
 
-class Trix.ObjectView extends Trix.BasicObject
+export default class ObjectView extends BasicObject
   constructor: (@object, @options = {}) ->
+    super()
     @childViews = []
     @rootView = this
 
@@ -27,9 +29,9 @@ class Trix.ObjectView extends Trix.BasicObject
     view
 
   createChildView: (viewClass, object, options = {}) ->
-    if object instanceof Trix.ObjectGroup
+    if object instanceof ObjectGroup
       options.viewClass = viewClass
-      viewClass = Trix.ObjectGroupView
+      viewClass = ObjectGroupView
 
     view = new viewClass object, options
     @recordChildView(view)

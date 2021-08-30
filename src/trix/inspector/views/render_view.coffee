@@ -1,6 +1,7 @@
-#= require trix/inspector/view
+import Inspector from "../index.coffee"
+import View "../view.coffee"
 
-Trix.Inspector.registerView class extends Trix.Inspector.View
+export default RenderView class extends View
   title: "Renders"
   template: "render"
   events:
@@ -19,3 +20,5 @@ Trix.Inspector.registerView class extends Trix.Inspector.View
 
   getTitle: ->
     "#{@title} (#{@renderCount})"
+
+Inspector.registerView RenderView

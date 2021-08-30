@@ -1,4 +1,4 @@
-class Trix.ObjectGroup
+export default class ObjectGroup
   @groupObjects: (ungroupedObjects = [], {depth, asTree} = {}) ->
     depth ?= 0 if asTree
     objects = []

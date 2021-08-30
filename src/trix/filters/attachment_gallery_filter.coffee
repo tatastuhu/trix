@@ -1,9 +1,9 @@
-Trix.attachmentGalleryFilter = (snapshot) ->
+export attachmentGalleryFilter = (snapshot) ->
   filter = new Filter snapshot
   filter.perform()
   filter.getSnapshot()
 
-class Filter
+export default class Filter
   BLOCK_ATTRIBUTE_NAME = "attachmentGallery"
   TEXT_ATTRIBUTE_NAME  = "presentation"
   TEXT_ATTRIBUTE_VALUE = "gallery"

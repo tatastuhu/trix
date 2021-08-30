@@ -1,7 +1,7 @@
-#= require trix/watchdog/recording
-#= require trix/watchdog/player_controller
-
 import { registerElement } from "../../core/helpers/custom_elements.coffee"
+
+import Recording from "./recording.coffee"
+import PlayerController from "./player_controller.coffee"
 
 registerElement "trix-watchdog-player",
   defaultCSS: """
@@ -27,8 +27,8 @@ registerElement "trix-watchdog-player",
     @activeRequest.onload = =>
       json = @activeRequest.responseText
       @activeRequest = null
-      recording = Trix.Watchdog.Recording.fromJSON(JSON.parse(json))
+      recording = Recording.fromJSON(JSON.parse(json))
       @loadRecording(recording)
 
   loadRecording: (recording) ->
-    @controller = new Trix.Watchdog.PlayerController this, recording
+    @controller = new PlayerController this, recording

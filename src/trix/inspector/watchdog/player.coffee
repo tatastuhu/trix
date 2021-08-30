@@ -1,6 +1,4 @@
-#= require trix/watchdog/recording
-
-class Trix.Watchdog.Player
+export default class Player
   constructor: (@recording) ->
     @playing = false
     @index = -1

@@ -1,6 +1,7 @@
-#= require trix/inspector/view
+import Inspector from "../index.coffee"
+import View "../view.coffee"
 
-Trix.Inspector.registerView class extends Trix.Inspector.View
+export default class UndoView extends View
   title: "Undo"
   template: "undo"
   events:
@@ -10,3 +11,7 @@ Trix.Inspector.registerView class extends Trix.Inspector.View
   render: ->
     {@undoEntries, @redoEntries} = @editor.undoManager
     super
+
+
+
+Inspector.registerView

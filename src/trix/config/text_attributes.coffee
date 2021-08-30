@@ -1,4 +1,5 @@
-# import { findClosestElementFromNode } from "../core/helpers/dom.coffee"
+import { findClosestElementFromNode } from "../core/helpers/dom.coffee"
+import AttachmentView from "../views/attachment_view.coffee"
 
 export default textAttributes =
   bold:
@@ -16,7 +17,7 @@ export default textAttributes =
   href:
     groupTagName: "a"
     parser: (element) ->
-      {attachmentSelector} = Trix.AttachmentView
+      {attachmentSelector} = AttachmentView
       matchingSelector = "a:not(#{attachmentSelector})"
       if link = findClosestElementFromNode(element, {matchingSelector})
         link.getAttribute("href")

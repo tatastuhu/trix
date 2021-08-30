@@ -1,4 +1,7 @@
-class Trix.Piece extends Trix.Object
+import TrixObject from "../core/object.coffee" # Don't override global Object
+import Hash from "../core/collections/hash.coffee"
+
+class export default Piece extends TrixObject
   @types: {}
 
   @registerType: (type, constructor) ->
@@ -11,7 +14,7 @@ class Trix.Piece extends Trix.Object
 
   constructor: (value, attributes = {}) ->
     super
-    @attributes = Trix.Hash.box(attributes)
+    @attributes = Hash.box(attributes)
 
   copyWithAttributes: (attributes) ->
     new @constructor @getValue(), attributes

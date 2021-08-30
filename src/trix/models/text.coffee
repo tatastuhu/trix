@@ -1,26 +1,30 @@
-#= require trix/models/attachment_piece
-#= require trix/models/string_piece
-#= require trix/models/splittable_list
-
 import { getDirection } from "../core/helpers/bidi.coffee"
 
-class Trix.Text extends Trix.Object
+import TrixObject from "../core/object.coffee" # Don't override global Object
+import Hash from "../core/collections/hash.coffee"
+
+import Piece from "piece.coffee"
+import AttachmentPiece from "./attachment_piece.coffee"
+import StringPiece from "./string_piece.coffee"
+import SplittableList from "./splittable_list.coffee"
+
+export class Text extends TrixObject
   @textForAttachmentWithAttributes: (attachment, attributes) ->
-    piece = new Trix.AttachmentPiece attachment, attributes
+    piece = new AttachmentPiece attachment, attributes
     new this [piece]
 
   @textForStringWithAttributes: (string, attributes) ->
-    piece = new Trix.StringPiece string, attributes
+    piece = new StringPiece string, attributes
     new this [piece]
 
   @fromJSON: (textJSON) ->
     pieces = for pieceJSON in textJSON
-      Trix.Piece.fromJSON pieceJSON
+      Piece.fromJSON pieceJSON
     new this pieces
 
   constructor: (pieces = []) ->
     super
-    @pieceList = new Trix.SplittableList (piece for piece in pieces when not piece.isEmpty())
+    @pieceList = new SplittableList (piece for piece in pieces when not piece.isEmpty())
 
   copy: ->
     @copyWithPieceList @pieceList
@@ -74,7 +78,7 @@ class Trix.Text extends Trix.Object
 
   getCommonAttributes: ->
     objects = (piece.getAttributes() for piece in @pieceList.toArray())
-    Trix.Hash.fromCommonAttributesOfObjects(objects).toObject()
+    Hash.fromCommonAttributesOfObjects(objects).toObject()
 
   getCommonAttributesAtRange: (range) ->
     @getTextAtRange(range).getCommonAttributes() ? {}

@@ -1,4 +1,6 @@
 import { removeNode } from "../core/helpers/dom.coffee"
+import Document from "../models/document.coffee"
+import DocumentView from "../views/document_view.coffee"
 
 unserializableElementSelector = "[data-trix-serialize=false]"
 unserializableAttributeNames = ["contenteditable", "data-trix-id", "data-trix-store-key", "data-trix-mutable", "data-trix-placeholder", "tabindex"]
@@ -10,18 +12,18 @@ blockCommentPattern = new RegExp("<!--block-->", "g")
 serialization =
   serializers:
     "application/json": (serializable) ->
-      if serializable instanceof Trix.Document
+      if serializable instanceof Document
         document = serializable
       else if serializable instanceof HTMLElement
-        document = Trix.Document.fromHTML(serializable.innerHTML)
+        document = Document.fromHTML(serializable.innerHTML)
       else
         throw new Error "unserializable object"
 
       document.toSerializableDocument().toJSONString()
 
     "text/html": (serializable) ->
-      if serializable instanceof Trix.Document
-        element = Trix.DocumentView.render(serializable)
+      if serializable instanceof Document
+        element = DocumentView.render(serializable)
       else if serializable instanceof HTMLElement
         element = serializable.cloneNode(true)
       else
@@ -47,10 +49,10 @@ serialization =
 
   deserializers:
     "application/json": (string) ->
-      Trix.Document.fromJSONString(string)
+      Document.fromJSONString(string)
 
     "text/html": (string) ->
-      Trix.Document.fromHTML(string)
+      Document.fromHTML(string)
 
   serializeToContentType: (serializable, contentType) ->
     if serializer = serialization.serializers[contentType]

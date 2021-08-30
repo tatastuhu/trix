@@ -1,11 +1,13 @@
-#= require trix/controllers/input_controller
-
 import { getAllAttributeNames } from "../core/helpers/config.coffee"
 import { dataTransferIsPlainText, keyEventIsKeyboardCommand } from "../core/helpers/events.coffee"
 import { objectsAreEqual } from "../core/helpers/objects.coffee"
 import { squishBreakableWhitespace } from "../core/helpers/strings.coffee"
 
-class Trix.Level2InputController extends Trix.InputController
+import { selectionChangeObserver } from "../observers/selection_change_observer.coffee"
+
+import InputController from "./input_controller.coffee"
+
+export default class Level2InputController extends InputController
   elementDidMutate: ->
     if @scheduledRender
       @delegate?.inputControllerDidAllowUnhandledInput?() if @composing
@@ -74,7 +76,7 @@ class Trix.Level2InputController extends Trix.InputController
         @scheduleRender()
 
     input: (event) ->
-      Trix.selectionChangeObserver.reset()
+      selectionChangeObserver.reset()
 
     dragstart: (event) ->
       if @responder?.selectionContainsAttachments()
@@ -389,7 +391,7 @@ class Trix.Level2InputController extends Trix.InputController
     if domRange
       @responder?.withTargetDOMRange(domRange, fn.bind(this))
     else
-      Trix.selectionChangeObserver.reset()
+      selectionChangeObserver.reset()
       fn.call(this)
 
   getTargetDOMRange: ({minLength} = {minLength: 0}) ->

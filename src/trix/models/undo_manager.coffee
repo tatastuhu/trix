@@ -1,4 +1,6 @@
-class Trix.UndoManager extends Trix.BasicObject
+import BasicObject from "../core/basic_object.coffee"
+
+export default class UndoManager extends BasicObject
   constructor: (@composition) ->
     @undoEntries = []
     @redoEntries = []
