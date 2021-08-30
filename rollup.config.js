@@ -24,7 +24,7 @@ export default {
     filesize(),
     includePaths({
       paths: ["src/trix"],
-      extensions: ['.js', '.coffee']
+      extensions: [".js", ".coffee"]
     })
   ],
   watch: {
