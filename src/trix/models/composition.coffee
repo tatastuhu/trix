@@ -1,6 +1,8 @@
 #= require trix/models/document
 #= require trix/models/line_break_insertion
 
+import { OBJECT_REPLACEMENT_CHARACTER } from "../index.coffee"
+
 import { arrayStartsWith, summarizeArrayChange } from "../core/helpers/arrays.coffee"
 import { getAllAttributeNames, getBlockConfig, getTextConfig } from "../core/helpers/config.coffee"
 import { objectsAreEqual } from "../core/helpers/objects.coffee"
@@ -556,7 +558,7 @@ class Trix.Composition extends Trix.BasicObject
 
   getAttachmentAtRange: (range) ->
     document = @document.getDocumentAtRange(range)
-    if document.toString() is "#{Trix.OBJECT_REPLACEMENT_CHARACTER}\n"
+    if document.toString() is "#{OBJECT_REPLACEMENT_CHARACTER}\n"
       document.getAttachments()[0]
 
   notifyDelegateOfCurrentAttributesChange: ->

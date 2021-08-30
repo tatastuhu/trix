@@ -1,6 +1,8 @@
 #= require trix/views/attachment_view
 #= require trix/views/previewable_attachment_view
 
+import { NON_BREAKING_SPACE } from "../../index.coffee"
+
 import { getTextConfig } from "../core/helpers/config.coffee"
 import { findInnerElement, makeElement } from "../core/helpers/dom.coffee"
 
@@ -83,7 +85,7 @@ class Trix.PieceView extends Trix.ObjectView
         attributes[key] = value
         return makeElement(config.groupTagName, attributes)
 
-  nbsp = Trix.NON_BREAKING_SPACE
+  nbsp = NON_BREAKING_SPACE
 
   preserveSpaces: (string) ->
     if @context.isLast

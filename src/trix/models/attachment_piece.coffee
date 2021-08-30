@@ -1,6 +1,8 @@
 #= require trix/models/attachment
 #= require trix/models/piece
 
+import { OBJECT_REPLACEMENT_CHARACTER } from "../index.coffee"
+
 Trix.Piece.registerType "attachment", class Trix.AttachmentPiece extends Trix.Piece
   @fromJSON: (pieceJSON) ->
     new this Trix.Attachment.fromJSON(pieceJSON.attachment), pieceJSON.attributes
@@ -37,7 +39,7 @@ Trix.Piece.registerType "attachment", class Trix.AttachmentPiece extends Trix.Pi
     super and @attachment.id is piece?.attachment?.id
 
   toString: ->
-    Trix.OBJECT_REPLACEMENT_CHARACTER
+    OBJECT_REPLACEMENT_CHARACTER
 
   toJSON: ->
     json = super

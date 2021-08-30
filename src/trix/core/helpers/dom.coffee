@@ -1,4 +1,5 @@
 import { extend } from "./extend.coffee"
+import { ZERO_WIDTH_SPACE } from "../../index.coffee"
 
 html = document.documentElement
 match = html.matchesSelector ? html.webkitMatchesSelector ? html.msMatchesSelector ? html.mozMatchesSelector
@@ -166,7 +167,7 @@ export nodeIsCommentNode = (node) ->
 export nodeIsCursorTarget = (node, {name} = {}) ->
   return unless node
   if dom.nodeIsTextNode(node)
-    if node.data is Trix.ZERO_WIDTH_SPACE
+    if node.data is ZERO_WIDTH_SPACE
       if name
         node.parentNode.dataset.trixCursorTarget is name
       else

@@ -1,3 +1,5 @@
+import { ZERO_WIDTH_SPACE } from "../../index.coffee"
+
 import { makeElement } from "../core/helpers/dom.coffee"
 import { copyObject } from "../core/helpers/objects.coffee"
 
@@ -108,7 +110,7 @@ class Trix.AttachmentView extends Trix.ObjectView
   createCursorTarget = (name) ->
     makeElement
       tagName: "span"
-      textContent: Trix.ZERO_WIDTH_SPACE
+      textContent: ZERO_WIDTH_SPACE
       data:
         trixCursorTarget: name
         trixSerialize: false

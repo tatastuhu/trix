@@ -4,7 +4,7 @@
 import { registerElement } from "../core/helpers/custom_elements.coffee"
 import { handleEvent, handleEventOnce, triggerEvent, findClosestElementFromNode, makeElement } from "../core/helpers/dom.coffee"
 
-{browser} = Trix
+import { browser } from "../index.coffee"
 
 {attachmentSelector} = Trix.AttachmentView
 

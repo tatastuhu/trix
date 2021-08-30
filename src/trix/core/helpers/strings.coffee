@@ -1,13 +1,14 @@
+import { ZERO_WIDTH_SPACE, NON_BREAKING_SPACE } from "../../index.coffee"
 
 export normalizeSpaces = (string) ->
   string
-    .replace(///#{Trix.ZERO_WIDTH_SPACE}///g, "")
-    .replace(///#{Trix.NON_BREAKING_SPACE}///g, " ")
+    .replace(///#{ZERO_WIDTH_SPACE}///g, "")
+    .replace(///#{NON_BREAKING_SPACE}///g, " ")
 
 export normalizeNewlines = (string) ->
   string.replace(/\r\n/g, "\n")
 
-export breakableWhitespacePattern = ///[^\S#{Trix.NON_BREAKING_SPACE}]///
+export breakableWhitespacePattern = ///[^\S#{NON_BREAKING_SPACE}]///
 
 export squishBreakableWhitespace = (string) ->
   string

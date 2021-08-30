@@ -1,10 +1,11 @@
-# import { removeNode, makeElement } from "../core/helpers/dom.coffee"
+import { browser } from "../index.coffee"
+import { removeNode, makeElement } from "../core/helpers/dom.coffee"
 
 input =
   level2Enabled: true
 
   getLevel: ->
-    if @level2Enabled and Trix.browser.supportsInputEvents
+    if @level2Enabled and browser.supportsInputEvents
       2
     else
       0

@@ -4,8 +4,8 @@ import { removeNode, tagName, makeElement } from "../core/helpers/dom.coffee"
 import { dataTransferIsPlainText, dataTransferIsWritable, keyEventIsKeyboardCommand } from "../core/helpers/events.coffee"
 import { objectsAreEqual } from "../core/helpers/objects.coffee"
 
-{browser } = Trix
-{keyNames} = Trix.config
+import { browser } from "../index.coffee"
+import { keyNames } from "../config/index.coffee"
 
 class Trix.Level0InputController extends Trix.InputController
   pastedFileCount = 0
