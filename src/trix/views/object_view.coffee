@@ -1,6 +1,6 @@
-import BasicObject from "../core/basic_object.coffee"
-import ObjectGroup from "../core/collections/object_group.coffee"
-import ObjectGroupView from "./object_group_view.coffee"
+import BasicObject from "core/basic_object"
+import ObjectGroup from "core/collections/object_group"
+import ObjectGroupView from "views/object_group_view"
 
 export default class ObjectView extends BasicObject
   constructor: (@object, @options = {}) ->

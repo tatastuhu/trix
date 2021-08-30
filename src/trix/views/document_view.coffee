@@ -1,10 +1,10 @@
-import { makeElement } from "../core/helpers/dom.coffee"
-import { defer } from "../core/helpers/functions.coffee"
+import { makeElement } from "core/helpers/dom"
+import { defer } from "core/helpers/functions"
 
-import ObjectView from "./object_view.coffee"
-import BlockView from "./block_view.coffee"
-import ObjectGroup from "../core/collections/object_group.coffee"
-import ElementStore from "../core/collections/element_store.coffee"
+import ObjectView from "views/object_view"
+import BlockView from "views/block_view"
+import ObjectGroup from "core/collections/object_group"
+import ElementStore from "core/collections/element_store"
 
 export default class DocumentView extends ObjectView
   @render: (document) ->

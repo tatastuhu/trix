@@ -1,8 +1,8 @@
-import { arraysAreEqual, spliceArray } from "../core/helpers/arrays.coffee"
-import { getBlockConfig, getBlockAttributeNames, getListAttributeNames } from "../core/helpers/config.coffee"
+import { arraysAreEqual, spliceArray } from "core/helpers/arrays"
+import { getBlockConfig, getBlockAttributeNames, getListAttributeNames } from "core/helpers/config"
 
-import TrixObject from "../core/object.coffee" # Don't override global Object
-import Text from "./text.coffee"
+import TrixObject from "core/object" # Don't override global Object
+import Text from "models/text"
 
 export default class Block extends TrixObject
   @fromJSON: (blockJSON) ->

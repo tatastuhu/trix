@@ -1,6 +1,6 @@
-import { removeNode } from "../core/helpers/dom.coffee"
-import Document from "../models/document.coffee"
-import DocumentView from "../views/document_view.coffee"
+import { removeNode } from "core/helpers/dom"
+import Document from "models/document"
+import DocumentView from "views/document_view"
 
 unserializableElementSelector = "[data-trix-serialize=false]"
 unserializableAttributeNames = ["contenteditable", "data-trix-id", "data-trix-store-key", "data-trix-mutable", "data-trix-placeholder", "tabindex"]

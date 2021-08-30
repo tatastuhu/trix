@@ -1,6 +1,6 @@
-import { makeElement } from "../core/helpers/dom.coffee"
-import { lang } from from "../config/index.coffee"
-import AttachmentView from "./attachment_view.coffee"
+import { makeElement } from "core/helpers/dom"
+import { lang } from from "config/index"
+import AttachmentView from "views/attachment_view"
 
 export default class PreviewableAttachmentView extends AttachmentView
   constructor: ->

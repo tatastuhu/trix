@@ -1,4 +1,4 @@
-import { selectionChangeObserver } from "../../observers/selection_change_observer.coffee"
+import { selectionChangeObserver } from "observers/selection_change_observer"
 
 export getDOMSelection = ->
     selection = window.getSelection()

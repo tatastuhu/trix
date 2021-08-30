@@ -1,13 +1,13 @@
-import lang from "./lang.coffee"
-import css from "./css.coffee"
-import blockAttributes from "./block_attributes.coffee"
-import fileSize from "./file_size_formatting.coffee"
-import textAttributes from "./text_attributes.coffee"
-import undoInterval from "./undo_interval.coffee"
-import attachments from "./attachments.coffee"
-import keyNames from "./key_names.coffee"
-import toolbar from "./toolbar.coffee"
-import input from "./input.coffee"
+import lang from "config/lang"
+import css from "config/css"
+import blockAttributes from "config/block_attributes"
+import fileSize from "config/file_size_formatting"
+import textAttributes from "config/text_attributes"
+import undoInterval from "config/undo_interval"
+import attachments from "config/attachments"
+import keyNames from "config/key_names"
+import toolbar from "config/toolbar"
+import input from "config/input"
 
 config = {
   lang,

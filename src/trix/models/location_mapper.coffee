@@ -1,6 +1,6 @@
 import { elementContainsNode, findChildIndexOfNode, walkTree, tagName,
   nodeIsBlockContainer, nodeIsBlockStart, nodeIsBlockStartComment, nodeIsCursorTarget,
-  nodeIsAttachmentElement, nodeIsEmptyTextNode, nodeIsTextNode } from "../core/helpers/dom.coffee"
+  nodeIsAttachmentElement, nodeIsEmptyTextNode, nodeIsTextNode } from "core/helpers/dom"
 
 export default class LocationMapper
   constructor: (@element) ->

@@ -1,5 +1,5 @@
-import Inspector from "../index.coffee"
-import View "../view.coffee"
+import Inspector from "inspector/index"
+import View "inspector/view"
 
 export default class PerformanceView extends View
   title: "Performance"

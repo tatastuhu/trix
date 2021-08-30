@@ -1,7 +1,7 @@
 # This file is not included in the main Trix bundle and
 # should be explicitly required to enable the debugger.
 
-import { findClosestElementFromNode } from "../core/helpers/dom.coffee"
+import { findClosestElementFromNode } from "core/helpers/dom"
 
 DEBUG_METHODS =
   "Trix.AttachmentEditorController": "

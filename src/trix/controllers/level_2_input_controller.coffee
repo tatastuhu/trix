@@ -1,11 +1,11 @@
-import { getAllAttributeNames } from "../core/helpers/config.coffee"
-import { dataTransferIsPlainText, keyEventIsKeyboardCommand } from "../core/helpers/events.coffee"
-import { objectsAreEqual } from "../core/helpers/objects.coffee"
-import { squishBreakableWhitespace } from "../core/helpers/strings.coffee"
+import { getAllAttributeNames } from "core/helpers/config"
+import { dataTransferIsPlainText, keyEventIsKeyboardCommand } from "core/helpers/events"
+import { objectsAreEqual } from "core/helpers/objects"
+import { squishBreakableWhitespace } from "core/helpers/strings"
 
-import { selectionChangeObserver } from "../observers/selection_change_observer.coffee"
+import { selectionChangeObserver } from "observers/selection_change_observer"
 
-import InputController from "./input_controller.coffee"
+import InputController from "controllers/input_controller"
 
 export default class Level2InputController extends InputController
   elementDidMutate: ->

@@ -1,4 +1,4 @@
-import Deserializer from "./deserializer.coffee"
+import Deserializer from "inspector/watchdog/deserializer"
 
 export default class PlayerView
   @documentClassName: "trix-watchdog-player"

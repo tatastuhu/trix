@@ -1,5 +1,5 @@
-import BasicObject from "../core/basic_object.coffee"
-import ManagedAttachment from "./managed_attachment.coffee"
+import BasicObject from "core/basic_object"
+import ManagedAttachment from "models/managed_attachment"
 
 export default class AttachmentManager extends BasicObject
   constructor: (attachments = []) ->

@@ -1,4 +1,4 @@
-import ObjectView from "./object_view.coffee"
+import ObjectView from "views/object_view"
 
 export default class ObjectGroupView extends ObjectView
   constructor: ->

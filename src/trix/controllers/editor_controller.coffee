@@ -1,23 +1,23 @@
-import config from "../config/index.coffee"
+import config from "config/index"
 
-import { getBlockConfig } from "../core/helpers/config.coffee"
-import { serializeToContentType } from "../core/config/serialization.coffee"
-import { objectsAreEqual } from "../core/helpers/objects.coffee"
-import { rangeIsCollapsed, rangesAreEqual } from "../core/helpers/ranges.coffee"
+import { getBlockConfig } from "core/helpers/config"
+import { serializeToContentType } from "core/config/serialization"
+import { objectsAreEqual } from "core/helpers/objects"
+import { rangeIsCollapsed, rangesAreEqual } from "core/helpers/ranges"
 
-import Controller from "./controller.coffee"
-import SelectionManager from "../models/selection_manager.coffee"
+import Controller from "controllers/controller"
+import SelectionManager from "models/selection_manager"
 
-import AttachmentManager from "../attachment_manager.coffee"
-import Composition from "../models/composition.coffee"
-import Editor from "../models/editor.coffee"
+import AttachmentManager from "models/attachment_manager"
+import Composition from "models/composition"
+import Editor from "models/editor"
 
-import CompositionController from "../controllers/composition_controller.coffee"
-import ToolbarController from "../controllers/toolbar_controller.coffee"
-import Level0InputController from "../controllers/level_0_input_controller.coffee"
-import Level2InputController from "../controllers/level_2_input_controller.coffee"
+import CompositionController from "controllers/composition_controller"
+import ToolbarController from "controllers/toolbar_controller"
+import Level0InputController from "controllers/level_0_input_controller"
+import Level2InputController from "controllers/level_2_input_controller"
 
-import { selectionChangeObserver } from "../observers/selection_change_observer.coffee"
+import { selectionChangeObserver } from "observers/selection_change_observer"
 
 export default class EditorController extends Controller
   constructor: ({@editorElement, document, html}) ->

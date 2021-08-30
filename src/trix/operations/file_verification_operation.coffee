@@ -1,4 +1,4 @@
-import "./operation.coffee"
+import "operations/operation"
 
 export default class FileVerificationOperation extends Operation
   constructor: (@file) ->

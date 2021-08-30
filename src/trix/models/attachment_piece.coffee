@@ -1,7 +1,7 @@
-import { OBJECT_REPLACEMENT_CHARACTER } from "../index.coffee"
+import { OBJECT_REPLACEMENT_CHARACTER } from "index"
 
-import Attachment from "./attachment.coffee"
-import Piece from "./piece.coffee"
+import Attachment from "models/attachment"
+import Piece from "models/piece"
 
 export default class AttachmentPiece extends Piece
   @fromJSON: (pieceJSON) ->

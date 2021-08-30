@@ -1,7 +1,7 @@
-import { findClosestElementFromNode, tagName, nodeIsBlockStartComment, nodeIsEmptyTextNode } from "../core/helpers/dom.coffee"
-import { normalizeSpaces, summarizeStringChange } from "../helpers/strings.coffee"
+import { findClosestElementFromNode, tagName, nodeIsBlockStartComment, nodeIsEmptyTextNode } from "core/helpers/dom"
+import { normalizeSpaces, summarizeStringChange } from "core/helpers/strings"
 
-import BasicObject from "../core/basic_object.coffee"
+import BasicObject from "core/basic_object"
 
 export default class MutationObserver extends BasicObject
   mutableAttributeName = "data-trix-mutable"

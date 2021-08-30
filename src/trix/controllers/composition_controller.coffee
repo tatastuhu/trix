@@ -1,10 +1,10 @@
-import { handleEvent, innerElementIsActive, findClosestElementFromNode } from "../core/helpers/dom.coffee"
-import { defer } from "../core/helpers/functions.coffee"
+import { handleEvent, innerElementIsActive, findClosestElementFromNode } from "core/helpers/dom"
+import { defer } from "core/helpers/functions"
 
-import BasicObject from "../core/basic_object.coffee"
-import DocumentView from "../views/document_view.coffee"
-import AttachmentView from "../views/attachment_view.coffee"
-import AttachmentEditorController from "../controllers/attachment_editor_controller.coffee"
+import BasicObject from "core/basic_object"
+import DocumentView from "views/document_view"
+import AttachmentView from "views/attachment_view"
+import AttachmentEditorController from "controllers/attachment_editor_controller"
 
 { attachmentSelector } = AttachmentView
 

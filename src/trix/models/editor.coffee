@@ -1,8 +1,8 @@
 
 import { attachmentGalleryFilter } from "../filters/attachment_gallery_filter"
 
-import Document from "./document.coffee"
-import UndoManager from "./undo_manager.coffee"
+import Document from "models/document"
+import UndoManager from "models/undo_manager"
 
 export default class Editor
   DEFAULT_FILTERS = [ attachmentGalleryFilter ]

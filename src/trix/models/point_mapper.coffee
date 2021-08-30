@@ -1,4 +1,4 @@
-import { getDOMRange, setDOMRange } from "../core/helpers/selection.coffee"
+import { getDOMRange, setDOMRange } from "core/helpers/selection"
 
 export default class PointMapper
   createDOMRangeFromPoint: ({x, y}) ->

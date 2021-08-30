@@ -1,4 +1,4 @@
-import BasicObject from "../basic_object.coffee"
+import BasicObject from "core/basic_object"
 
 export default class ObjectMap extends BasicObject
   constructor: (objects = []) ->

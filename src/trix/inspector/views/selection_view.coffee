@@ -1,7 +1,7 @@
-import Inspector from "../index.coffee"
-import View "../view.coffee"
+import Inspector from "inspector/index"
+import View "inspector/view"
 
-import UTF16String from "../../core/utilities/utf16_string.coffee"
+import UTF16String from "core/utilities/utf16_string"
 
 export default class SelectionView extends View
   title: "Selection"

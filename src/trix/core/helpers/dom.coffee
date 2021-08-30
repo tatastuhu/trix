@@ -1,7 +1,7 @@
-import config from "../../config/index.coffee"
-import { extend } from "./extend.coffee"
-import { ZERO_WIDTH_SPACE } from "../../index.coffee"
-import AttachmentView from "../../views/attachment_view.coffee"
+import config from "config/index"
+import { extend } from "core/helper/extend"
+import { ZERO_WIDTH_SPACE } from "index"
+import AttachmentView from "views/attachment_view"
 
 html = document.documentElement
 match = html.matchesSelector ? html.webkitMatchesSelector ? html.msMatchesSelector ? html.mozMatchesSelector

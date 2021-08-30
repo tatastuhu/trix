@@ -1,4 +1,4 @@
-import Inspector from "../index.coffee"
+import Inspector from "inspector/index"
 
 export default DocumentView class extends View
   title: "Document"

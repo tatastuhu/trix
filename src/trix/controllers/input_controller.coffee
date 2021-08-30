@@ -1,8 +1,8 @@
-import { handleEvent, innerElementIsActive } from "../core/helpers/dom.coffee"
+import { handleEvent, innerElementIsActive } from "core/helpers/dom"
 
-import BasicObject from "../core/basic_object.coffee"
-import MutationObserver from "../observers/mutation_observer.coffee"
-import FileVerificationOperation from "../operations/file_verification_operation.coffee"
+import BasicObject from "core/basic_object"
+import MutationObserver from "observers/mutation_observer"
+import FileVerificationOperation from "operations/file_verification_operation"
 
 class InputController extends BasicObject
   constructor: (@element) ->

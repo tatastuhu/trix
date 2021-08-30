@@ -1,10 +1,10 @@
-import { handleEvent, innerElementIsActive, elementContainsNode, nodeIsCursorTarget } from "../core/helpers/dom.coffee"
-import { normalizeRange, rangeIsCollapsed, rangesAreEqual } from "../core/helpers/ranges.coffee"
-import { getDOMSelection, getDOMRange, setDOMRange } from "../core/helpers/selection.coffee"
+import { handleEvent, innerElementIsActive, elementContainsNode, nodeIsCursorTarget } from "core/helpers/dom"
+import { normalizeRange, rangeIsCollapsed, rangesAreEqual } from "core/helpers/ranges"
+import { getDOMSelection, getDOMRange, setDOMRange } from "core/helpers/selection"
 
-import BasicObject from "../core/basic_object.coffee"
-import LocationMapper from "./location_mapper.coffee"
-import PointMapper from "./point_mapper.coffee"
+import BasicObject from "core/basic_object"
+import LocationMapper from "models/location_mapper"
+import PointMapper from "models/point_mapper"
 
 export default class SelectionManager extends BasicObject
   constructor: (@element) ->

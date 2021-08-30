@@ -1,11 +1,11 @@
-import config from "../config/index.coffee"
+import config from "config/index"
 
-import { getBlockConfig } from "../core/helpers/config.coffee"
-import { makeElement } from "../core/helpers/dom.coffee"
-import { css } from "../config/index.coffee"
+import { getBlockConfig } from "core/helpers/config"
+import { makeElement } from "core/helpers/dom"
+import { css } from "config/index"
 
-import ObjectView from "./object_view.coffee"
-import TextView from "./text_view.coffee"
+import ObjectView from "views/object_view"
+import TextView from "views/text_view"
 
 export default class BlockView extends ObjectView
   constructor: ->

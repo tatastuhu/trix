@@ -1,7 +1,7 @@
-import { registerElement } from "../../core/helpers/custom_elements.coffee"
+import { registerElement } from "core/helpers/custom_elements"
 
-import Recording from "./recording.coffee"
-import PlayerController from "./player_controller.coffee"
+import Recording from "inspector/recording"
+import PlayerController from "inspector/player_controller"
 
 registerElement "trix-watchdog-player",
   defaultCSS: """

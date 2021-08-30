@@ -1,5 +1,5 @@
-import config from "../config/index.coffee"
-import { registerElement } from "../core/helpers/custom_elements.coffee"
+import config from "config/index"
+import { registerElement } from "core/helpers/custom_elements"
 
 registerElement "trix-toolbar",
   defaultCSS: """

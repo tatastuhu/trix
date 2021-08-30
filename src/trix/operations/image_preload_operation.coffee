@@ -1,4 +1,4 @@
-import Operation from "./operation.coffee"
+import Operation from "operations/operation"
 
 export default class ImagePreloadOperation extends Operation
   constructor: (@url) ->

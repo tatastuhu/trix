@@ -1,4 +1,4 @@
-import lang from "./lang.coffee"
+import lang from "config/lang"
 
 sizes = [lang.bytes, lang.KB, lang.MB, lang.GB, lang.TB, lang.PB]
 

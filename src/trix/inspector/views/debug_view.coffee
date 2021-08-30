@@ -1,8 +1,8 @@
-import { handleEvent } from "../../core/helpers/dom.coffee"
+import { handleEvent } from "core/helpers/dom"
 
-import Inspector from "./index.coffee"
-import View "../view.coffee"
-import ControlElement "../control_element.coffee"
+import Inspector from "inspector/index"
+import View "inspector/view"
+import ControlElement "inspector/control_element"
 
 export default class DebugView extends View
   title: "Debug"

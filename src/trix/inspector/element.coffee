@@ -1,5 +1,5 @@
-import { registerElement } from "../core/helpers/custom_elements.coffee"
-import Inspector from "../index.coffee"
+import { registerElement } from "core/helpers/custom_elements"
+import Inspector from "inspector/index"
 
 registerElement "trix-inspector",
   defaultCSS: """

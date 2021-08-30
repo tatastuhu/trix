@@ -1,6 +1,6 @@
-import { removeNode, walkTree, tagName, nodeIsAttachmentElement } from "../core/helpers/dom.coffee"
+import { removeNode, walkTree, tagName, nodeIsAttachmentElement } from "core/helpers/dom"
 
-import BasicObject from "../core/basic_object.coffee"
+import BasicObject from "core/basic_object"
 
 export default class HTMLSanitizer extends BasicObject
   DEFAULT_ALLOWED_ATTRIBUTES = "style href src width height class".split(" ")

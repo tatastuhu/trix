@@ -1,12 +1,12 @@
-import { getDirection } from "../core/helpers/bidi.coffee"
+import { getDirection } from "core/helpers/bidi"
 
-import TrixObject from "../core/object.coffee" # Don't override global Object
-import Hash from "../core/collections/hash.coffee"
+import TrixObject from "core/object" # Don't override global Object
+import Hash from "core/collections/hash"
 
-import Piece from "piece.coffee"
-import AttachmentPiece from "./attachment_piece.coffee"
-import StringPiece from "./string_piece.coffee"
-import SplittableList from "./splittable_list.coffee"
+import Piece from "models/piece"
+import AttachmentPiece from "models/attachment_piece"
+import StringPiece from "models/string_piece"
+import SplittableList from "models/splittable_list"
 
 export class Text extends TrixObject
   @textForAttachmentWithAttributes: (attachment, attributes) ->

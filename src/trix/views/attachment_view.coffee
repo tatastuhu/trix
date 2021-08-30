@@ -1,9 +1,9 @@
-import { ZERO_WIDTH_SPACE } from "../index.coffee"
-import config from "../config/index.coffee"
+import { ZERO_WIDTH_SPACE } from "index"
+import config from "config/index"
 
-import { makeElement } from "../core/helpers/dom.coffee"
-import { copyObject } from "../core/helpers/objects.coffee"
-import ObjectView from "./object_view.coffee"
+import { makeElement } from "core/helpers/dom"
+import { copyObject } from "core/helpers/objects"
+import ObjectView from "views/object_view"
 
 { css } = config
 

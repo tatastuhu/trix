@@ -1,6 +1,7 @@
 import coffeescript from 'rollup-plugin-coffee-script'
 import json from '@rollup/plugin-json'
 import filesize from 'rollup-plugin-filesize'
+import includePaths from 'rollup-plugin-includepaths'
 
 import { version } from "./package.json"
 const year = new Date().getFullYear()
@@ -20,7 +21,11 @@ export default {
   plugins: [
     coffeescript(),
     json(),
-    filesize()
+    filesize(),
+    includePaths({
+      paths: ["src/trix"],
+      extensions: ['.js', '.coffee']
+    })
   ],
   watch: {
     include: "src/**"

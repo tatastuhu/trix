@@ -1,6 +1,6 @@
-import ObjectView from "./object_view.coffe"
-import PieceView from "./piece_view.coffee"
-import ObjectGroup from "../core/collections/object_group.coffee"
+import ObjectView from "views/object_view"
+import PieceView from "views/piece_view"
+import ObjectGroup from "core/collections/object_group"
 
 export deault class TextView extends ObjectView
   constructor: ->

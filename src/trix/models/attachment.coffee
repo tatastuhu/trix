@@ -1,8 +1,8 @@
-import config from "../config/index.coffee"
+import config from "config/index"
 
-import TrixObject from "../core/object.coffee" # Don't override global Object
-import Hash from "../core/collections/hash.coffee"
-import ImagePreloadOperation from "../operations/image_preload_operation.coffee"
+import TrixObject from "core/object" # Don't override global Object
+import Hash from "core/collections/hash"
+import ImagePreloadOperation from "operations/image_preload_operation"
 
 export default class Attachment extends TrixObject
   @previewablePattern: /^image(\/(gif|png|jpe?g)|$)/

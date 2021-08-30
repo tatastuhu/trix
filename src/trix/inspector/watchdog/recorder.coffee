@@ -1,5 +1,5 @@
-import Recording from "./recording.coffee"
-import Serializer from "./serializer.coffee"
+import Recording from "inspector/watchdog/recording"
+import Serializer from "inspector/watchdog/serializer"
 
 export default class Recorder
   constructor: (@element, {@snapshotLimit} = {}) ->

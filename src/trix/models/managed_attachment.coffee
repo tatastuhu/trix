@@ -1,4 +1,4 @@
-import BasicObject from "../core/basic_object.coffee"
+import BasicObject from "core/basic_object"
 
 export default class ManagedAttachment extends BasicObject
   constructor: (@attachmentManager, @attachment) ->

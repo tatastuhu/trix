@@ -1,13 +1,13 @@
-import config from "../config/index.coffee"
+import config from "config/index"
 
-import { arraysAreEqual } from "../helpers/arrays.coffee"
-import { normalizeSpaces, breakableWhitespacePattern, squishBreakableWhitespace } from "../helpers/strings.coffee"
+import { arraysAreEqual } from "core/helpers/arrays"
+import { normalizeSpaces, breakableWhitespacePattern, squishBreakableWhitespace } from "core/helpers/strings"
 import { elementContainsNode, findClosestElementFromNode, removeNode, walkTree,
-  tagName, makeElement, getBlockTagNames, nodeIsAttachmentElement } from "../core/helpers/dom.coffee"
+  tagName, makeElement, getBlockTagNames, nodeIsAttachmentElement } from "core/helpers/dom"
 
-import BasicObject from "../core/basic_object.coffee"
-import Document from "./document.coffee"
-import HTMLSanitizer from "./html_sanitizer.coffee"
+import BasicObject from "core/basic_object"
+import Document from "models/document"
+import HTMLSanitizer from "models/html_sanitizer"
 
 export default class HTMLParser extends BasicObject
   @parse: (html, options) ->

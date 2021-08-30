@@ -1,4 +1,4 @@
-import { handleEvent } from "../core/helpers/dom.coffee"
+import { handleEvent } from "core/helpers/dom"
 
 export default class View
   constructor: (@editorElement) ->

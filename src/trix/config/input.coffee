@@ -1,5 +1,5 @@
-import { browser } from "../index.coffee"
-import { removeNode, makeElement } from "../core/helpers/dom.coffee"
+import { browser } from "index"
+import { removeNode, makeElement } from "core/helpers/dom"
 
 input =
   level2Enabled: true

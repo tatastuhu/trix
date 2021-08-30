@@ -1,20 +1,20 @@
-import { removeNode, tagName, makeElement } from "../core/helpers/dom.coffee"
-import { dataTransferIsPlainText, dataTransferIsWritable, keyEventIsKeyboardCommand } from "../core/helpers/events.coffee"
-import { objectsAreEqual } from "../core/helpers/objects.coffee"
-import { squishBreakableWhitespace } from "../core/helpers/strings.coffee"
+import { removeNode, tagName, makeElement } from "core/helpers/dom"
+import { dataTransferIsPlainText, dataTransferIsWritable, keyEventIsKeyboardCommand } from "core/helpers/events"
+import { objectsAreEqual } from "core/helpers/objects"
+import { squishBreakableWhitespace } from "core/helpers/strings"
 
-import { browser } from "../index.coffee"
-import { keyNames } from "../config/index.coffee"
+import { browser } from "index"
+import { keyNames } from "config/index"
 
-import { selectionChangeObserver } from "../observers/selection_change_observer.coffee"
+import { selectionChangeObserver } from "observers/selection_change_observer"
 
-import BasicObject from "../core/basic_object.coffee"
-import InputController from "./input_controller.coffee"
+import BasicObject from "core/basic_object"
+import InputController from "controllers/input_controller"
 
-import DocumentView from "../views/document_view.coffee"
-import Document from "../models/document.coffee"
+import DocumentView from "views/document_view"
+import Document from "models/document"
 
-import UTF16String from "../core/utilities/utf16_string.coffee"
+import UTF16String from "core/utilities/utf16_string"
 
 export default class Level0InputController extends InputController
   pastedFileCount = 0

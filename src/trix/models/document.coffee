@@ -1,19 +1,19 @@
 
-import config from "../config/index.coffee"
+import config from "config/index"
 
-import { spliceArray, arraysAreEqual } from "../core/helpers/arrays.coffee"
-import { getBlockConfig } from "../core/helpers/config.coffee"
-import { normalizeRange, rangeIsCollapsed } from "../core/helpers/config.coffee"
+import { spliceArray, arraysAreEqual } from "core/helpers/arrays"
+import { getBlockConfig } from "core/helpers/config"
+import { normalizeRange, rangeIsCollapsed } from "core/helpers/config"
 
-import TrixObject from "./core/object.coffee" # Don't override global Object
-import HTMLParser from "./html_parser.coffee"
+import TrixObject from "core/object" # Don't override global Object
+import HTMLParser from "models/html_parser"
 
-import Block from "./block.coffee"
-import Text from "./text.coffee"
-import SplittableList from "./splittable_list.coffee"
+import Block from "models/block"
+import Text from "models/text"
+import SplittableList from "models/splittable_list"
 
-import ObjectMap from "../core/collections/object_map.coffee"
-import Hash from "../core/collections/hash.coffee"
+import ObjectMap from "core/collections/object_map"
+import Hash from "core/collections/hash"
 
 export default class Document extends TrixObject
   @fromJSON: (documentJSON) ->

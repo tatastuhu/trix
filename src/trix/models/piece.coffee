@@ -1,5 +1,5 @@
-import TrixObject from "../core/object.coffee" # Don't override global Object
-import Hash from "../core/collections/hash.coffee"
+import TrixObject from "core/object" # Don't override global Object
+import Hash from "core/collections/hash"
 
 class export default Piece extends TrixObject
   @types: {}

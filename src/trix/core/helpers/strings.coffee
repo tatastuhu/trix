@@ -1,5 +1,5 @@
-import { ZERO_WIDTH_SPACE, NON_BREAKING_SPACE } from "../../index.coffee"
-import UTF16String from "../utilities/utf16_string.coffee"
+import { ZERO_WIDTH_SPACE, NON_BREAKING_SPACE } from "index"
+import UTF16String from "core/utilities/utf16_string"
 
 export normalizeSpaces = (string) ->
   string

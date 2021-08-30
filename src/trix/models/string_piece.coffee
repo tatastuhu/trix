@@ -1,5 +1,5 @@
-import Piece from "./piece.coffee"
-import { normalizeNewlines } from "../core/helpers/strings.coffee"
+import Piece from "models/piece"
+import { normalizeNewlines } from "core/helpers/strings"
 
 export default class StringPiece extends Piece
   @fromJSON: (pieceJSON) ->

@@ -1,19 +1,19 @@
-import { OBJECT_REPLACEMENT_CHARACTER } from "../index.coffee"
+import { OBJECT_REPLACEMENT_CHARACTER } from "index"
 
-import config from "../config/index.coffee"
+import config from "config/index"
 
-import { arrayStartsWith, summarizeArrayChange } from "../core/helpers/arrays.coffee"
-import { getAllAttributeNames, getBlockConfig, getTextConfig } from "../core/helpers/config.coffee"
-import { objectsAreEqual } from "../core/helpers/objects.coffee"
-import { extend } from "../core/helpers/extend.coffee"
-import { normalizeRange, rangesAreEqual, rangeIsCollapsed } from "../core/helpers/ranges.coffee"
+import { arrayStartsWith, summarizeArrayChange } from "core/helpers/arrays"
+import { getAllAttributeNames, getBlockConfig, getTextConfig } from "core/helpers/config"
+import { objectsAreEqual } from "core/helpers/objects"
+import { extend } from "core/helpers/extend"
+import { normalizeRange, rangesAreEqual, rangeIsCollapsed } from "core/helpers/ranges"
 
-import BasicObject from "../core/basicc_object.coffee"
-import Document from "./document.coffee"
-import Attachment from "./attachment.coffee"
-import Block from "./block.coffee"
-import Text from "./text.coffee"
-import LineBreakInsertion from "./line_break_insertion.coffee"
+import BasicObject from "core/basic_object"
+import Document from "models/document"
+import Attachment from "models/attachment"
+import Block from "models/block"
+import Text from "models/text"
+import LineBreakInsertion from "models/line_break_insertion"
 
 export default class Composition extends BasicObject
   constructor: ->

@@ -1,12 +1,12 @@
-import config from "../config/index.coffee"
+import config from "config/index"
 
-import { registerElement } from "../core/helpers/custom_elements.coffee"
-import { handleEvent, handleEventOnce, triggerEvent, findClosestElementFromNode, makeElement } from "../core/helpers/dom.coffee"
+import { registerElement } from "core/helpers/custom_elements"
+import { handleEvent, handleEventOnce, triggerEvent, findClosestElementFromNode, makeElement } from "core/helpers/dom"
 
-import { browser } from "../index.coffee"
+import { browser } from "index"
 
-import EditorController from "../controllers/editor_controller.coffee"
-import AttachmentView from "../views/attachment_view.coffee"
+import EditorController from "controllers/editor_controller"
+import AttachmentView from "views/attachment_view"
 
 { attachmentSelector } = AttachmentView
 

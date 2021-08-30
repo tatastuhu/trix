@@ -1,4 +1,4 @@
-import lang from "./lang.coffee"
+import lang from "config/lang"
 
 export default toolbar =
   getDefaultHTML: ->

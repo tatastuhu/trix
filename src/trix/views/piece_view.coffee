@@ -1,11 +1,11 @@
-import { NON_BREAKING_SPACE } from "../../index.coffee"
+import { NON_BREAKING_SPACE } from "index"
 
-import { getTextConfig } from "../core/helpers/config.coffee"
-import { findInnerElement, makeElement } from "../core/helpers/dom.coffee"
+import { getTextConfig } from "core/helpers/config"
+import { findInnerElement, makeElement } from "core/helpers/dom"
 
-import ObjectView from "./object_view.coffe"
-import AttachmentView from "./attachment_view.coffee"
-import PreviewableAttachementView from "./previewable_attachment_view.coffee"
+import ObjectView from "views/object_view"
+import AttachmentView from "views/attachment_view"
+import PreviewableAttachementView from "views/previewable_attachment_view"
 
 class PieceView extends ObjectView
   constructor: ->

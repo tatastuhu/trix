@@ -1,5 +1,5 @@
-import { getDOMRange } from "../core/helpers/selection.coffee"
-import { BasicObject } from "../core/basic_object.coffee"
+import { getDOMRange } from "core/helpers/selection"
+import { BasicObject } from "core/basic_object"
 
 export default class SelectionChangeObserver extends BasicObject
   constructor: ->

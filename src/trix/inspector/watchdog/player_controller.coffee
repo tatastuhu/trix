@@ -1,5 +1,5 @@
-import Player from "./player.coffee"
-import PlayerView from "./player_view.coffee"
+import Player from "inspector/player"
+import PlayerView from "inspector/player_view"
 
 export default class PlayerController
   constructor: (@element, @recording) ->

@@ -1,7 +1,7 @@
-import { handleEvent, removeNode, tagName, makeElement } from "../core/helpers/dom.coffee"
-import { defer } from "../core/helpers/functions.coffee"
-import { lang, css, keyNames } from "../config/index.coffee"
-import BasicObject from "../core/basic_object.coffee"
+import { handleEvent, removeNode, tagName, makeElement } from "core/helpers/dom"
+import { defer } from "core/helpers/functions"
+import { lang, css, keyNames } from "config/index"
+import BasicObject from "core/basic_object"
 
 export default class AttachmentEditorController extends BasicObject
   constructor: (@attachmentPiece, @element, @container, @options = {}) ->

@@ -1,5 +1,5 @@
-import { arraysAreEqual } from "../helpers/arrays.coffee"
-import Object from "../object.coffee"
+import { arraysAreEqual } from "core/helpers/arrays"
+import Object from "core/object"
 
 export default class Hash extends Object
   @fromCommonAttributesOfObjects: (objects = []) ->

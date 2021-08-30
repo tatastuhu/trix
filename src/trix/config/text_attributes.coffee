@@ -1,5 +1,5 @@
-import { findClosestElementFromNode } from "../core/helpers/dom.coffee"
-import AttachmentView from "../views/attachment_view.coffee"
+import { findClosestElementFromNode } from "core/helpers/dom"
+import AttachmentView from "views/attachment_view"
 
 export default textAttributes =
   bold:

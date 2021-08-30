@@ -1,4 +1,4 @@
-import { tagName } from "../core/helpers/dom.coffee"
+import { tagName } from "core/helpers/dom"
 
 attributes =
   default:

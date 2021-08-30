@@ -1,5 +1,5 @@
-import BasicObject from "./basic_object.coffee"
-import UTF16String from "./utilities/utf16_string.coffee"
+import BasicObject from "core/basic_object"
+import UTF16String from "core/utilities/utf16_string"
 
 export default class Object extends BasicObject
   id = 0
