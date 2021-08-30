@@ -1,1 +1,1 @@
-import "../src/trix/index.coffee"
+import "trix"

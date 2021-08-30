@@ -1,4 +1,4 @@
-import { OBJECT_REPLACEMENT_CHARACTER } from "index"
+import { OBJECT_REPLACEMENT_CHARACTER } from "trix"
 
 import Attachment from "models/attachment"
 import Piece from "models/piece"

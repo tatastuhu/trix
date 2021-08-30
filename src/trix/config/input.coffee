@@ -1,4 +1,4 @@
-import { browser } from "index"
+import { browser } from "trix"
 import { removeNode, makeElement } from "core/helpers/dom"
 
 input =

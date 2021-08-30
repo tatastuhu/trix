@@ -1,4 +1,4 @@
-import { ZERO_WIDTH_SPACE } from "index"
+import { ZERO_WIDTH_SPACE } from "trix"
 import config from "config"
 
 import { makeElement } from "core/helpers/dom"

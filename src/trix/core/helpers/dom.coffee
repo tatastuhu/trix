@@ -1,6 +1,6 @@
 import config from "config"
 import { extend } from "core/helper/extend"
-import { ZERO_WIDTH_SPACE } from "index"
+import { ZERO_WIDTH_SPACE } from "trix"
 import AttachmentView from "views/attachment_view"
 
 html = document.documentElement

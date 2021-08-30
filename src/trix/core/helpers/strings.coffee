@@ -1,4 +1,4 @@
-import { ZERO_WIDTH_SPACE, NON_BREAKING_SPACE } from "index"
+import { ZERO_WIDTH_SPACE, NON_BREAKING_SPACE } from "trix"
 import UTF16String from "core/utilities/utf16_string"
 
 export normalizeSpaces = (string) ->
