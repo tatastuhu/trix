@@ -1,4 +1,4 @@
-import config from "config/index"
+import config from "config"
 
 import TrixObject from "core/object" # Don't override global Object
 import Hash from "core/collections/hash"

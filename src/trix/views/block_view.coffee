@@ -1,8 +1,8 @@
-import config from "config/index"
+import config from "config"
 
 import { getBlockConfig } from "core/helpers/config"
 import { makeElement } from "core/helpers/dom"
-import { css } from "config/index"
+import { css } from "config"
 
 import ObjectView from "views/object_view"
 import TextView from "views/text_view"

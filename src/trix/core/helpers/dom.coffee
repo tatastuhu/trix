@@ -1,4 +1,4 @@
-import config from "config/index"
+import config from "config"
 import { extend } from "core/helper/extend"
 import { ZERO_WIDTH_SPACE } from "index"
 import AttachmentView from "views/attachment_view"

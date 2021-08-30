@@ -1,4 +1,4 @@
-import config from "config/index"
+import config from "config"
 
 import { arraysAreEqual } from "core/helpers/arrays"
 import { normalizeSpaces, breakableWhitespacePattern, squishBreakableWhitespace } from "core/helpers/strings"

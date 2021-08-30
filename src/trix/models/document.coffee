@@ -1,5 +1,5 @@
 
-import config from "config/index"
+import config from "config"
 
 import { spliceArray, arraysAreEqual } from "core/helpers/arrays"
 import { getBlockConfig } from "core/helpers/config"

@@ -1,5 +1,5 @@
 import { ZERO_WIDTH_SPACE } from "index"
-import config from "config/index"
+import config from "config"
 
 import { makeElement } from "core/helpers/dom"
 import { copyObject } from "core/helpers/objects"

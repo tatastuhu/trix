@@ -1,6 +1,6 @@
 import { OBJECT_REPLACEMENT_CHARACTER } from "index"
 
-import config from "config/index"
+import config from "config"
 
 import { arrayStartsWith, summarizeArrayChange } from "core/helpers/arrays"
 import { getAllAttributeNames, getBlockConfig, getTextConfig } from "core/helpers/config"

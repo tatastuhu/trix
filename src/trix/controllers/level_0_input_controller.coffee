@@ -4,7 +4,7 @@ import { objectsAreEqual } from "core/helpers/objects"
 import { squishBreakableWhitespace } from "core/helpers/strings"
 
 import { browser } from "index"
-import { keyNames } from "config/index"
+import { keyNames } from "config"
 
 import { selectionChangeObserver } from "observers/selection_change_observer"
 

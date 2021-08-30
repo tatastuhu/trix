@@ -1,5 +1,5 @@
 import { makeElement } from "core/helpers/dom"
-import { lang } from from "config/index"
+import { lang } from from "config"
 import AttachmentView from "views/attachment_view"
 
 export default class PreviewableAttachmentView extends AttachmentView

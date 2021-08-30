@@ -1,4 +1,4 @@
-import config from "config/index"
+import config from "config"
 
 import { getBlockConfig } from "core/helpers/config"
 import { serializeToContentType } from "core/config/serialization"

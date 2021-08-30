@@ -1,4 +1,4 @@
-import config from "config/index"
+import config from "config"
 import { registerElement } from "core/helpers/custom_elements"
 
 registerElement "trix-toolbar",
