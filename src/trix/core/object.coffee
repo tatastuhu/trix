@@ -1,13 +1,15 @@
 import BasicObject from "core/basic_object"
 import UTF16String from "core/utilities/utf16_string"
 
+id = 0
+
 export default class Object extends BasicObject
-  id = 0
 
   @fromJSONString: (jsonString) ->
     @fromJSON JSON.parse(jsonString)
 
   constructor: ->
+    super()
     @id = ++id
 
   hasSameConstructorAs: (object) ->

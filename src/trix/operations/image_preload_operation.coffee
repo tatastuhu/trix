@@ -1,7 +1,10 @@
-import Operation from "operations/operation"
+import Operation from "core/utilities/operation"
 
 export default class ImagePreloadOperation extends Operation
-  constructor: (@url) ->
+  constructor: (url) ->
+    super()
+    @url = url
+
 
   perform: (callback) ->
     image = new Image

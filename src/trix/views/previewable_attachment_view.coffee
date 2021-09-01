@@ -1,10 +1,10 @@
 import { makeElement } from "core/helpers/dom"
-import { lang } from from "config"
+import { lang } from "config"
 import AttachmentView from "views/attachment_view"
 
 export default class PreviewableAttachmentView extends AttachmentView
   constructor: ->
-    super
+    super()
     @attachment.previewDelegate = this
 
   createContentNodes: ->
@@ -19,7 +19,7 @@ export default class PreviewableAttachmentView extends AttachmentView
     [@image]
 
   createCaptionElement: ->
-    figcaption = super
+    figcaption = super()
     unless figcaption.textContent
       figcaption.setAttribute("data-trix-placeholder", lang.captionPlaceholder)
     figcaption

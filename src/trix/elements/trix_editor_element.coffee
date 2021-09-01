@@ -1,4 +1,4 @@
-import config from "config"
+import { blockAttributes } from "config"
 
 import { registerElement } from "core/helpers/custom_elements"
 import { handleEvent, handleEventOnce, triggerEvent, findClosestElementFromNode, makeElement } from "core/helpers/dom"
@@ -36,7 +36,7 @@ registerElement "trix-editor", do ->
 
   setDefaultParagraphSeparator = (element) ->
     if document.queryCommandSupported?("DefaultParagraphSeparator")
-      { tagName } = config.blockAttributes.default
+      { tagName } = blockAttributes.default
       if tagName in ["div", "p"]
         document.execCommand("DefaultParagraphSeparator", false, tagName)
 

@@ -1,6 +1,6 @@
 import BasicObject from "core/basic_object"
 
-export class Operation extends BasicObject
+export default class Operation extends BasicObject
   isPerforming: ->
     @performing is true
 

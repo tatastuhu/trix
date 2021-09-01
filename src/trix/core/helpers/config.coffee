@@ -1,4 +1,5 @@
-import config from "config"
+import blockAttributes from "config/block_attributes"
+import textAttributes from "config/text_attributes"
 
 allAttributeNames = null
 blockAttributeNames = null
@@ -6,20 +7,20 @@ textAttributeNames = null
 listAttributeNames = null
 
 export getAllAttributeNames = ->
-    allAttributeNames ?= config.getTextAttributeNames().concat getBlockAttributeNames()
+  allAttributeNames ?= getTextAttributeNames().concat getBlockAttributeNames()
 
 export getBlockConfig = (attributeName) ->
-    config.blockAttributes[attributeName]
+  blockAttributes[attributeName]
 
 export getBlockAttributeNames = ->
-    blockAttributeNames ?= Object.keys(config.blockAttributes)
+  blockAttributeNames ?= Object.keys(blockAttributes)
 
 export getTextConfig = (attributeName) ->
-    config.textAttributes[attributeName]
+  textAttributes[attributeName]
 
 export getTextAttributeNames = ->
-    textAttributeNames ?= Object.keys(config.textAttributes)
+  textAttributeNames ?= Object.keys(textAttributes)
 
 export getListAttributeNames = ->
-    listAttributeNames ?= (listAttribute for key, {listAttribute} of config.blockAttributes when listAttribute?)
+  listAttributeNames ?= (listAttribute for key, {listAttribute} of blockAttributes when listAttribute?)
 

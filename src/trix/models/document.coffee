@@ -1,5 +1,5 @@
 
-import config from "config"
+import { textAttributes } from "config"
 
 import { spliceArray, arraysAreEqual } from "core/helpers/arrays"
 import { getBlockConfig } from "core/helpers/config"
@@ -30,7 +30,7 @@ export default class Document extends TrixObject
 
 
   constructor: (blocks = []) ->
-    super
+    super()
     blocks = [new Block] if blocks.length is 0
     @blockList = SplittableList.box(blocks)
 
@@ -426,7 +426,7 @@ export default class Document extends TrixObject
     commonAttributes = attributesForBlock(block)
     attributes = block.text.getAttributesAtPosition(offset)
     attributesLeft = block.text.getAttributesAtPosition(offset - 1)
-    inheritableAttributes = (key for key, value of config.textAttributes when value.inheritable)
+    inheritableAttributes = (key for key, value of textAttributes when value.inheritable)
 
     for key, value of attributesLeft
       if value is attributes[key] or key in inheritableAttributes

@@ -1,4 +1,4 @@
-import config from "config"
+import { input, undoInterval } from "config"
 
 import { getBlockConfig } from "core/helpers/config"
 import { serializeToContentType } from "core/config/serialization"
@@ -30,7 +30,7 @@ export default class EditorController extends Controller
     @attachmentManager = new AttachmentManager @composition.getAttachments()
     @attachmentManager.delegate = this
 
-    @inputController = switch config.input.getLevel()
+    @inputController = switch input.getLevel()
       when 0 then new Level0InputController(@editorElement)
       when 2 then new Level2InputController(@editorElement)
 
@@ -327,7 +327,7 @@ export default class EditorController extends Controller
       perform: -> @editor.decreaseNestingLevel() and @render()
     attachFiles:
       test: -> true
-      perform: -> config.input.pickFiles(@editor.insertFiles)
+      perform: -> input.pickFiles(@editor.insertFiles)
 
   canInvokeAction: (actionName) ->
     if @actionIsExternal(actionName)
@@ -420,8 +420,8 @@ export default class EditorController extends Controller
       locationRange
 
   getTimeContext: ->
-    if config.undoInterval > 0
-      Math.floor(new Date().getTime() / config.undoInterval)
+    if undoInterval > 0
+      Math.floor(new Date().getTime() / undoInterval)
     else
       0
 

@@ -1,11 +1,9 @@
 import { ZERO_WIDTH_SPACE } from "trix"
-import config from "config"
+import { css, attachments } from "config"
 
 import { makeElement } from "core/helpers/dom"
 import { copyObject } from "core/helpers/objects"
 import ObjectView from "views/object_view"
-
-{ css } = config
 
 export default class AttachmentView extends ObjectView
   @attachmentSelector: "[data-trix-attachment]"
@@ -101,7 +99,7 @@ export default class AttachmentView extends ObjectView
 
   getCaptionConfig: ->
     type = @attachment.getType()
-    captionConfig = copyObject(config.attachments[type]?.caption)
+    captionConfig = copyObject(attachments[type]?.caption)
     captionConfig.name = true if type is "file"
     captionConfig
 

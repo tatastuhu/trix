@@ -10,7 +10,7 @@ export default class AttachmentPiece extends Piece
   @permittedAttributes: ["caption", "presentation"]
 
   constructor: (@attachment) ->
-    super
+    super()
     @length = 1
     @ensureAttachmentExclusivelyHasAttribute("href")
     @removeProhibitedAttributes() unless @attachment.hasContent()
@@ -42,7 +42,7 @@ export default class AttachmentPiece extends Piece
     OBJECT_REPLACEMENT_CHARACTER
 
   toJSON: ->
-    json = super
+    json = super()
     json.attachment = @attachment
     json
 

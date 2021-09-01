@@ -1,4 +1,4 @@
-import config from "config"
+import { fileSize } from "config"
 
 import TrixObject from "core/object" # Don't override global Object
 import Hash from "core/collections/hash"
@@ -23,7 +23,7 @@ export default class Attachment extends TrixObject
     new this attachmentJSON
 
   constructor: (attributes = {}) ->
-    super
+    super()
     @attributes = Hash.box(attributes)
     @didChangeAttributes()
 
@@ -80,7 +80,7 @@ export default class Attachment extends TrixObject
   getFormattedFilesize: ->
     filesize = @attributes.get("filesize")
     if typeof filesize is "number"
-      config.fileSize.formatter(filesize)
+      fileSize.formatter(filesize)
     else
       ""
 
@@ -125,7 +125,7 @@ export default class Attachment extends TrixObject
     @getAttributes()
 
   getCacheKey: ->
-    [super, @attributes.getCacheKey(), @getPreviewURL()].join("/")
+    [super(), @attributes.getCacheKey(), @getPreviewURL()].join("/")
 
   # Previewable
 

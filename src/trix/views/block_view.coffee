@@ -1,15 +1,13 @@
-import config from "config"
-
+import { css, blockAttributes } from "config"
 import { getBlockConfig } from "core/helpers/config"
 import { makeElement } from "core/helpers/dom"
-import { css } from "config"
 
 import ObjectView from "views/object_view"
 import TextView from "views/text_view"
 
 export default class BlockView extends ObjectView
   constructor: ->
-    super
+    super()
     @block = @object
     @attributes = @block.getAttributes()
 
@@ -27,7 +25,7 @@ export default class BlockView extends ObjectView
     if @attributes.length
       nodes
     else
-      { tagName } = config.blockAttributes.default
+      { tagName } = blockAttributes.default
       attributes = dir: "rtl" if @block.isRTL()
 
       element = makeElement({tagName, attributes})

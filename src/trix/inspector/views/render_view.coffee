@@ -16,7 +16,7 @@ export default RenderView class extends View
   constructor: ->
     @renderCount = 0
     @syncCount = 0
-    super
+    super()
 
   getTitle: ->
     "#{@title} (#{@renderCount})"

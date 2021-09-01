@@ -2,9 +2,9 @@ import ObjectView from "views/object_view"
 import PieceView from "views/piece_view"
 import ObjectGroup from "core/collections/object_group"
 
-export deault class TextView extends ObjectView
+export default class TextView extends ObjectView
   constructor: ->
-    super
+    super()
     @text = @object
     {@textConfig} = @options
 

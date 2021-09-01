@@ -7,9 +7,9 @@ import ObjectView from "views/object_view"
 import AttachmentView from "views/attachment_view"
 import PreviewableAttachementView from "views/previewable_attachment_view"
 
-class PieceView extends ObjectView
+export default class PieceView extends ObjectView
   constructor: ->
-    super
+    super()
     @piece = @object
     @attributes = @piece.getAttributes()
     {@textConfig, @context} = @options

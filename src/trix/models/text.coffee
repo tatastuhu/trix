@@ -23,7 +23,7 @@ export class Text extends TrixObject
     new this pieces
 
   constructor: (pieces = []) ->
-    super
+    super()
     @pieceList = new SplittableList (piece for piece in pieces when not piece.isEmpty())
 
   copy: ->

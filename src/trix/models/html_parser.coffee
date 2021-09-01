@@ -1,4 +1,4 @@
-import config from "config"
+import { textAttributes, blockAttributes } from "config"
 
 import { arraysAreEqual } from "core/helpers/arrays"
 import { normalizeSpaces, breakableWhitespacePattern, squishBreakableWhitespace } from "core/helpers/strings"
@@ -198,7 +198,7 @@ export default class HTMLParser extends BasicObject
 
   getTextAttributes: (element) ->
     attributes = {}
-    for attribute, value of config.textAttributes
+    for attribute, value of textAttributes
       if value.tagName and findClosestElementFromNode(element, matchingSelector: value.tagName, untilNode: @containerElement)
         attributes[attribute] = true
 
@@ -225,7 +225,7 @@ export default class HTMLParser extends BasicObject
   getBlockAttributes: (element) ->
     attributes = []
     while element and element isnt @containerElement
-      for attribute, value of config.blockAttributes when value.parse isnt false
+      for attribute, value of blockAttributes when value.parse isnt false
         if tagName(element) is value.tagName
           if value.test?(element) or not value.test
             attributes.push(attribute)

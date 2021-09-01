@@ -1,4 +1,4 @@
-import { copyObject, objectsAreEqua l} from "core/helpers/objects"
+import { copyObject, objectsAreEqual } from "core/helpers/objects"
 
 export normalizeRange = (range) ->
   return unless range?

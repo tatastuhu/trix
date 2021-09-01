@@ -20,7 +20,7 @@ export default class Level0InputController extends InputController
   pastedFileCount = 0
 
   constructor: ->
-    super
+    super()
     @resetInputSummary()
 
   setInputSummary: (summary = {}) ->

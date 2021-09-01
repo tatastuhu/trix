@@ -13,7 +13,7 @@ class export default Piece extends TrixObject
       constructor.fromJSON(pieceJSON)
 
   constructor: (value, attributes = {}) ->
-    super
+    super()
     @attributes = Hash.box(attributes)
 
   copyWithAttributes: (attributes) ->

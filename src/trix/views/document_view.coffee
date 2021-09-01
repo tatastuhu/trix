@@ -15,7 +15,7 @@ export default class DocumentView extends ObjectView
     element
 
   constructor: ->
-    super
+    super()
     {@element} = @options
     @elementStore = new ElementStore
     @setDocument(@object)

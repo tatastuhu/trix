@@ -1,7 +1,7 @@
 import { arraysAreEqual } from "core/helpers/arrays"
-import Object from "core/object"
+import TrixObject from "core/object" # Don't override global Object
 
-export default class Hash extends Object
+export default class Hash extends TrixObject
   @fromCommonAttributesOfObjects: (objects = []) ->
     return new this unless objects.length
     hash = box(objects[0])
@@ -16,8 +16,9 @@ export default class Hash extends Object
     box(values)
 
   constructor: (values = {}) ->
+    super()
     @values = copy(values)
-    super
+
 
   add: (key, value) ->
     @merge(object(key, value))

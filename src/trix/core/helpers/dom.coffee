@@ -1,5 +1,5 @@
-import config from "config"
-import { extend } from "core/helper/extend"
+import { blockAttributes } from "config"
+import { extend } from "core/helpers/extend"
 import { ZERO_WIDTH_SPACE } from "trix"
 import AttachmentView from "views/attachment_view"
 
@@ -144,7 +144,7 @@ export makeElement = (tagName, options = {}) ->
   element
 
 export getBlockTagNames = ->
-  blockTagNames ?= (tagName for key, {tagName} of config.blockAttributes when tagName)
+  blockTagNames ?= (tagName for key, {tagName} of blockAttributes when tagName)
 
 export nodeIsBlockContainer = (node) ->
   nodeIsBlockStartComment(node?.firstChild)

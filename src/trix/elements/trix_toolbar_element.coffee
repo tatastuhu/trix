@@ -1,4 +1,4 @@
-import config from "config"
+import { toolbar } from "config"
 import { registerElement } from "core/helpers/custom_elements"
 
 registerElement "trix-toolbar",
@@ -28,4 +28,4 @@ registerElement "trix-toolbar",
 
   initialize: ->
     if @innerHTML is ""
-      @innerHTML = config.toolbar.getDefaultHTML()
+      @innerHTML = toolbar.getDefaultHTML()

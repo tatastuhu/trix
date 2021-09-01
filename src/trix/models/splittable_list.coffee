@@ -10,7 +10,7 @@ export class SplittableList extends TrixObject
       new this objects
 
   constructor: (objects = []) ->
-    super
+    super()
     @objects = objects.slice(0)
     @length = @objects.length
 

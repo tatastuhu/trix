@@ -22,4 +22,17 @@ config = {
   input,
 }
 
+export {
+  lang,
+  css,
+  blockAttributes,
+  fileSize,
+  textAttributes,
+  toolbar,
+  undoInterval,
+  attachments,
+  keyNames,
+  input,
+}
+
 export default config

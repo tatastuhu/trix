@@ -10,7 +10,7 @@ export default class Block extends TrixObject
     new this text, blockJSON.attributes
 
   constructor: (text = new Text, attributes = []) ->
-    super
+    super()
     @text = applyBlockBreakToText(text)
     @attributes = attributes
 
