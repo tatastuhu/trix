@@ -119,8 +119,8 @@ export default class HTMLParser extends BasicObject
     if nodeIsAttachmentElement(element)
       attributes = parseTrixDataAttribute(element, "attachment")
       if Object.keys(attributes).length
-        textAttributes = @getTextAttributes(element)
-        @appendAttachmentWithAttributes(attributes, textAttributes)
+        txtAttributes = @getTextAttributes(element)
+        @appendAttachmentWithAttributes(attributes, txtAttributes)
         # We have everything we need so avoid processing inner nodes
         element.innerHTML = ""
       @processedElements.push(element)

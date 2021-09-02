@@ -7,13 +7,13 @@ export normalizeRange = (range) ->
 
 export rangeIsCollapsed = (range) ->
   return unless range?
-  [start, end] = ranges.normalizeRange(range)
+  [start, end] = normalizeRange(range)
   rangeValuesAreEqual(start, end)
 
 export rangesAreEqual = (leftRange, rightRange) ->
   return unless leftRange? and rightRange?
-  [leftStart, leftEnd] = ranges.normalizeRange(leftRange)
-  [rightStart, rightEnd] = ranges.normalizeRange(rightRange)
+  [leftStart, leftEnd] = normalizeRange(leftRange)
+  [rightStart, rightEnd] = normalizeRange(rightRange)
   rangeValuesAreEqual(leftStart, rightStart) and
     rangeValuesAreEqual(leftEnd, rightEnd)
 

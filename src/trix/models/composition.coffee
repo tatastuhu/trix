@@ -124,11 +124,11 @@ export default class Composition extends BasicObject
     @insertFiles([file])
 
   insertFiles: (files) ->
-    attachments = []
+    attachmentsToInsert = []
     for file in files when @delegate?.compositionShouldAcceptFile(file)
       attachment = Attachment.attachmentForFile(file)
-      attachments.push(attachment)
-    @insertAttachments(attachments)
+      attachmentsToInsert.push(attachment)
+    @insertAttachments(attachmentsToInsert)
 
   insertAttachment: (attachment) ->
     @insertAttachments([attachment])
@@ -487,9 +487,9 @@ export default class Composition extends BasicObject
     @attachments.slice(0)
 
   refreshAttachments: ->
-    attachments = @document.getAttachments()
-    {added, removed} = summarizeArrayChange(@attachments, attachments)
-    @attachments = attachments
+    currentAttachments = @document.getAttachments()
+    {added, removed} = summarizeArrayChange(@attachments, currentAttachments)
+    @attachments = currentAttachments
 
     for attachment in removed
       attachment.delegate = null

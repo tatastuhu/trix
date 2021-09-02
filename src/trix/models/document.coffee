@@ -24,8 +24,8 @@ export default class Document extends TrixObject
   @fromHTML: (html, options) ->
     HTMLParser.parse(html, options).getDocument()
 
-  @fromString: (string, textAttributes) ->
-    text = Text.textForStringWithAttributes(string, textAttributes)
+  @fromString: (string, txtAttributes) ->
+    text = Text.textForStringWithAttributes(string, txtAttributes)
     new this [new Block text]
 
 
@@ -406,15 +406,15 @@ export default class Document extends TrixObject
     if rangeIsCollapsed(range)
       @getCommonAttributesAtPosition(startPosition)
     else
-      textAttributes = []
+      txtAttributes = []
       blockAttributes = []
 
       @eachBlockAtRange range, (block, textRange) ->
         unless textRange[0] is textRange[1]
-          textAttributes.push(block.text.getCommonAttributesAtRange(textRange))
+          txtAttributes.push(block.text.getCommonAttributesAtRange(textRange))
           blockAttributes.push(attributesForBlock(block))
 
-      Hash.fromCommonAttributesOfObjects(textAttributes)
+      Hash.fromCommonAttributesOfObjects(txtAttributes)
         .merge(Hash.fromCommonAttributesOfObjects(blockAttributes))
         .toObject()
 
