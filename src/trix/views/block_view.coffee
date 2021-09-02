@@ -7,7 +7,7 @@ import TextView from "views/text_view"
 
 export default class BlockView extends ObjectView
   constructor: ->
-    super()
+    super(arguments...)
     @block = @object
     @attributes = @block.getAttributes()
 

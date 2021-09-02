@@ -4,7 +4,7 @@ import ObjectGroup from "core/collections/object_group"
 
 export default class TextView extends ObjectView
   constructor: ->
-    super()
+    super(arguments...)
     @text = @object
     {@textConfig} = @options
 

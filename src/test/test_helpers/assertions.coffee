@@ -42,4 +42,4 @@ assert.documentHTMLEqual = (trixDocument, html) ->
 getHTML = (trixDocument) ->
   DocumentView.render(trixDocument).innerHTML
 
-export { assert }
+export { assert, getHTML }

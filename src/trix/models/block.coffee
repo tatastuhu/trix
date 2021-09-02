@@ -10,7 +10,7 @@ export default class Block extends TrixObject
     new this text, blockJSON.attributes
 
   constructor: (text = new Text, attributes = []) ->
-    super()
+    super(arguments...)
     @text = applyBlockBreakToText(text)
     @attributes = attributes
 
@@ -18,7 +18,7 @@ export default class Block extends TrixObject
     @text.isBlockBreak()
 
   isEqualTo: (block) ->
-    super() or (
+    super(arguments...) or (
       @text.isEqualTo(block?.text) and
       arraysAreEqual(@attributes, block?.attributes)
     )

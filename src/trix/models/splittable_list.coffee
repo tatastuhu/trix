@@ -10,7 +10,7 @@ export default class SplittableList extends TrixObject
       new this objects
 
   constructor: (objects = []) ->
-    super()
+    super(arguments...)
     @objects = objects.slice(0)
     @length = @objects.length
 
@@ -152,7 +152,7 @@ export default class SplittableList extends TrixObject
     @toArray()
 
   isEqualTo: (splittableList) ->
-    super() or objectArraysAreEqual(@objects, splittableList?.objects)
+    super(arguments...) or objectArraysAreEqual(@objects, splittableList?.objects)
 
   objectArraysAreEqual = (left, right = []) ->
     return false unless left.length is right.length

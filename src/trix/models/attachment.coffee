@@ -23,7 +23,7 @@ export default class Attachment extends TrixObject
     new this attachmentJSON
 
   constructor: (attributes = {}) ->
-    super()
+    super(arguments...)
     @attributes = Hash.box(attributes)
     @didChangeAttributes()
 
@@ -125,7 +125,7 @@ export default class Attachment extends TrixObject
     @getAttributes()
 
   getCacheKey: ->
-    [super(), @attributes.getCacheKey(), @getPreviewURL()].join("/")
+    [super(arguments...), @attributes.getCacheKey(), @getPreviewURL()].join("/")
 
   # Previewable
 

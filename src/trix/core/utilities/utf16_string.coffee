@@ -14,7 +14,7 @@ export default class UTF16String extends BasicObject
     new this ucs2encode(codepoints), codepoints
 
   constructor: (@ucs2String, @codepoints) ->
-    super()
+    super(arguments...)
     @length = @codepoints.length
     @ucs2Length = @ucs2String.length
 

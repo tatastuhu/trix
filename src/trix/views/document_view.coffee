@@ -9,13 +9,14 @@ import ElementStore from "core/collections/element_store"
 export default class DocumentView extends ObjectView
   @render: (document) ->
     element = makeElement("div")
-    view = new this document, {element}
+    view = new DocumentView document, {element}
     view.render()
     view.sync()
     element
 
-  constructor: ->
-    super()
+  constructor: (object, options = {}) ->
+    super(arguments...)
+    @options = options
     {@element} = @options
     @elementStore = new ElementStore
     @setDocument(@object)

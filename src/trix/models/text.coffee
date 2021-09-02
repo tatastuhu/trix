@@ -23,7 +23,7 @@ export default class Text extends TrixObject
     new this pieces
 
   constructor: (pieces = []) ->
-    super()
+    super(arguments...)
     @pieceList = new SplittableList (piece for piece in pieces when not piece.isEmpty())
 
   copy: ->
@@ -143,7 +143,7 @@ export default class Text extends TrixObject
     @getLength() is 0
 
   isEqualTo: (text) ->
-    super() or text?.pieceList?.isEqualTo(@pieceList)
+    super(arguments...) or text?.pieceList?.isEqualTo(@pieceList)
 
   isBlockBreak: ->
     @getLength() is 1 and @pieceList.getObjectAtIndex(0).isBlockBreak()

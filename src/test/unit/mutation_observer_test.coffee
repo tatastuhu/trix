@@ -1,4 +1,4 @@
-{assert, defer, test, testGroup} = Trix.TestHelpers
+import { assert, defer, test, testGroup } from "test_helper"
 
 observer = null
 element = null

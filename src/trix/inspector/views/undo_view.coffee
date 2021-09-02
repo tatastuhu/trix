@@ -10,7 +10,7 @@ export default class UndoView extends View
 
   render: ->
     {@undoEntries, @redoEntries} = @editor.undoManager
-    super()
+    super(arguments...)
 
 
 

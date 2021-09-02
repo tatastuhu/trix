@@ -16,7 +16,7 @@ export default class Hash extends TrixObject
     box(values)
 
   constructor: (values = {}) ->
-    super()
+    super(arguments...)
     @values = copy(values)
 
 

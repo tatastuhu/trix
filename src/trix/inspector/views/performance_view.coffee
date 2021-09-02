@@ -6,7 +6,7 @@ export default class PerformanceView extends View
   template: "performance"
 
   constructor: ->
-    super()
+    super(arguments...)
     {@documentView} = @compositionController
 
     @data = {}

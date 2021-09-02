@@ -2,7 +2,7 @@ import ObjectView from "views/object_view"
 
 export default class ObjectGroupView extends ObjectView
   constructor: ->
-    super()
+    super(arguments...)
     @objectGroup = @object
     {@viewClass} = @options
     delete @options.viewClass

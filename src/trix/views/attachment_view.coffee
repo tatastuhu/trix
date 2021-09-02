@@ -8,7 +8,7 @@ import ObjectView from "views/object_view"
 export default class AttachmentView extends ObjectView
 
   constructor: ->
-    super()
+    super(arguments...)
     @attachment = @object
     @attachment.uploadProgressDelegate = this
     @attachmentPiece = @options.piece

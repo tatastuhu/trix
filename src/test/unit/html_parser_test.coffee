@@ -1,4 +1,4 @@
-{after, assert, createCursorTarget, getHTML, test, testGroup} = Trix.TestHelpers
+import {after, assert, createCursorTarget, getHTML, test, testGroup, eachFixture } from "test_helper"
 
 cursorTargetLeft = createCursorTarget("left").outerHTML
 cursorTargetRight = createCursorTarget("right").outerHTML

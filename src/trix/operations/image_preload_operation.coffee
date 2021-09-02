@@ -2,7 +2,7 @@ import Operation from "core/utilities/operation"
 
 export default class ImagePreloadOperation extends Operation
   constructor: (url) ->
-    super()
+    super(arguments...)
     @url = url
 
 

@@ -9,7 +9,7 @@ export default class Object extends BasicObject
     @fromJSON JSON.parse(jsonString)
 
   constructor: ->
-    super()
+    super(arguments...)
     @id = ++id
 
   hasSameConstructorAs: (object) ->

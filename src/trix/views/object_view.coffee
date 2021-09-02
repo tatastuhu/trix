@@ -1,10 +1,12 @@
 import BasicObject from "core/basic_object"
 import ObjectGroup from "core/collections/object_group"
-# import ObjectGroupView from "views/object_group_view"
+import ObjectGroupView from "views/object_group_view"
 
 export default class ObjectView extends BasicObject
-  constructor: (@object, @options = {}) ->
-    super()
+  constructor: (object, options = {}) ->
+    super(arguments...)
+    @object = object
+    @options = options
     @childViews = []
     @rootView = this
 

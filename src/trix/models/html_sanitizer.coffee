@@ -13,7 +13,7 @@ export default class HTMLSanitizer extends BasicObject
     sanitizer
 
   constructor: (html, {allowedAttributes, forbiddenProtocols, forbiddenElements} = {}) ->
-    super()
+    super(arguments...)
     @allowedAttributes  = allowedAttributes  or DEFAULT_ALLOWED_ATTRIBUTES
     @forbiddenProtocols = forbiddenProtocols or DEFAULT_FORBIDDEN_PROTOCOLS
     @forbiddenElements  = forbiddenElements  or DEFAULT_FORBIDDEN_ELEMENTS

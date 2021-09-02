@@ -20,7 +20,7 @@ export default class HTMLParser extends BasicObject
     HTMLParser.parse(html, options).getDocument()
 
   constructor: (@html, {@referenceElement} = {}) ->
-    super()
+    super(arguments...)
     @blocks = []
     @blockElements = []
     @processedElements = []

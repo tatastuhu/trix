@@ -10,7 +10,7 @@ export default class AttachmentPiece extends Piece
   @permittedAttributes: ["caption", "presentation"]
 
   constructor: (@attachment) ->
-    super()
+    super(arguments...)
     @length = 1
     @ensureAttachmentExclusivelyHasAttribute("href")
     @removeProhibitedAttributes() unless @attachment.hasContent()
@@ -36,18 +36,18 @@ export default class AttachmentPiece extends Piece
     @attributes.get("caption") ? ""
 
   isEqualTo: (piece) ->
-    super() and @attachment.id is piece?.attachment?.id
+    super(arguments...) and @attachment.id is piece?.attachment?.id
 
   toString: ->
     OBJECT_REPLACEMENT_CHARACTER
 
   toJSON: ->
-    json = super()
+    json = super(arguments...)
     json.attachment = @attachment
     json
 
   getCacheKey: ->
-    [super(), @attachment.getCacheKey()].join("/")
+    [super(arguments...), @attachment.getCacheKey()].join("/")
 
   toConsole: ->
     JSON.stringify(@toString())

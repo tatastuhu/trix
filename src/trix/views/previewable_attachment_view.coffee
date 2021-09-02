@@ -4,7 +4,7 @@ import AttachmentView from "views/attachment_view"
 
 export default class PreviewableAttachmentView extends AttachmentView
   constructor: ->
-    super()
+    super(arguments...)
     @attachment.previewDelegate = this
 
   createContentNodes: ->
@@ -19,7 +19,7 @@ export default class PreviewableAttachmentView extends AttachmentView
     [@image]
 
   createCaptionElement: ->
-    figcaption = super()
+    figcaption = super(arguments...)
     unless figcaption.textContent
       figcaption.setAttribute("data-trix-placeholder", lang.captionPlaceholder)
     figcaption

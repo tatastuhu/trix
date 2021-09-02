@@ -1,7 +1,9 @@
-import { assert, test, testGroup } from "test_helper"
+import { assert, test, testGroup, eachFixture } from "test_helper"
+import { serializeToContentType } from "core/helpers/serialization"
 
-testGroup "Trix.serializeToContentType", ->
+testGroup "serializeToContentType", ->
   eachFixture (name, details) ->
     if details.serializedHTML
       test name, ->
-        assert.equal Trix.serializeToContentType(details.document, "text/html"), details.serializedHTML
+        console.log("Serializing", details.document)
+        assert.equal serializeToContentType(details.document, "text/html"), details.serializedHTML

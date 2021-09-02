@@ -26,7 +26,7 @@ export default class Document extends TrixObject
 
 
   constructor: (blocks = []) ->
-    super()
+    super(arguments...)
     blocks = [new Block] if blocks.length is 0
     @blockList = SplittableList.box(blocks)
 

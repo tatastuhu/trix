@@ -9,6 +9,6 @@ export default DocumentView class extends View
 
   render: ->
     @document = @editor.getDocument()
-    super()
+    super(arguments...)
 
 Inspector.registerView DocumentView

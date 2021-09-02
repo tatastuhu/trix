@@ -6,7 +6,7 @@ export default class StringPiece extends Piece
     new this pieceJSON.string, pieceJSON.attributes
 
   constructor: (string) ->
-    super()
+    super(arguments...)
     @string = normalizeNewlines(string)
     @length = @string.length
 
@@ -20,7 +20,7 @@ export default class StringPiece extends Piece
     @toString() is "\n" and @getAttribute("blockBreak") is true
 
   toJSON: ->
-    result = super()
+    result = super(arguments...)
     result.string = @string
     result
 
