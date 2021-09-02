@@ -1,4 +1,4 @@
-{pressKey, test, testGroup, typeCharacters} = Trix.TestHelpers
+import { pressKey, test, testGroup, typeCharacters } from "test_helper"
 
 testOptions =
   template: "editor_empty"

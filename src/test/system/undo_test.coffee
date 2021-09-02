@@ -1,4 +1,4 @@
-{assert, clickToolbarButton, expandSelection, moveCursor, test, testGroup, typeCharacters} = Trix.TestHelpers
+import { assert, clickToolbarButton, expandSelection, moveCursor, test, testGroup, typeCharacters } from "test_helper"
 
 testGroup "Undo/Redo", template: "editor_empty", ->
   test "typing and undoing", (done) ->

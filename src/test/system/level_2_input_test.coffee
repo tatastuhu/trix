@@ -1,4 +1,4 @@
-{assert, after, clickToolbarButton, defer, insertString, insertNode, isToolbarButtonActive, selectAll, selectNode, test, testIf, testGroup, triggerEvent, triggerInputEvent, typeCharacters} = Trix.TestHelpers
+import { assert, after, clickToolbarButton, defer, insertString, insertNode, isToolbarButtonActive, selectAll, selectNode, test, testIf, testGroup, triggerEvent, triggerInputEvent, typeCharacters } from "test_helper"
 
 test = ->
   testIf(Trix.config.input.getLevel() is 2, arguments...)

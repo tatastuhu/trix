@@ -1,4 +1,4 @@
-{assert, clickToolbarButton, defer, endComposition, insertNode, pressKey, selectNode, startComposition, test, testIf, testGroup, triggerEvent, triggerInputEvent, typeCharacters, updateComposition} = Trix.TestHelpers
+import { assert, clickToolbarButton, defer, endComposition, insertNode, pressKey, selectNode, startComposition, test, testIf, testGroup, triggerEvent, triggerInputEvent, typeCharacters, updateComposition } from "test_helper"
 {browser} = Trix
 
 testGroup "Composition input", template: "editor_empty", ->

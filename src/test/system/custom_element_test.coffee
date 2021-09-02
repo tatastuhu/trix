@@ -1,4 +1,4 @@
-{after, assert, clickElement, clickToolbarButton, createFile, defer, insertImageAttachment, moveCursor, pasteContent, skip, test, testIf, testGroup, triggerEvent, typeCharacters, typeInToolbarDialog} = Trix.TestHelpers
+import { after, assert, clickElement, clickToolbarButton, createFile, defer, insertImageAttachment, moveCursor, pasteContent, skip, test, testIf, testGroup, triggerEvent, typeCharacters, typeInToolbarDialog } from "test_helper"
 
 testGroup "Custom element API", template: "editor_empty", ->
   test "element triggers trix-initialize on first connect", (done) ->

@@ -1,4 +1,4 @@
-{assert, clickElement, clickToolbarButton, clickToolbarDialogButton, collapseSelection, expandSelection, insertString, insertText, isToolbarButtonActive, isToolbarButtonDisabled, isToolbarDialogActive, moveCursor, pressKey, test, testIf, testGroup, typeCharacters, typeInToolbarDialog, typeToolbarKeyCommand} = Trix.TestHelpers
+import { assert, clickElement, clickToolbarButton, clickToolbarDialogButton, collapseSelection, expandSelection, insertString, insertText, isToolbarButtonActive, isToolbarButtonDisabled, isToolbarDialogActive, moveCursor, pressKey, test, testIf, testGroup, typeCharacters, typeInToolbarDialog, typeToolbarKeyCommand } from "test_helper"
 
 testGroup "Text formatting", template: "editor_empty", ->
   test "applying attributes to text", (done) ->

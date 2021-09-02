@@ -1,4 +1,4 @@
-{assert, createFile, expandSelection, insertFile, insertString, moveCursor, test, testGroup} = Trix.TestHelpers
+import { assert, createFile, expandSelection, insertFile, insertString, moveCursor, test, testGroup } from "test_helper"
 
 testGroup "Cursor movement", template: "editor_empty", ->
   test "move cursor around attachment", (done) ->

@@ -1,4 +1,4 @@
-{assert, test, testGroup, triggerEvent} = Trix.TestHelpers
+import { assert, test, testGroup, triggerEvent } from "test_helper"
 
 testGroup "Accessibility attributes", template: "editor_default_aria_label", ->
   test "sets the role to textbox", ->

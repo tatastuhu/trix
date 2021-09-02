@@ -1,4 +1,4 @@
-{assert, clickToolbarButton, defer, moveCursor, pressKey, test, testIf, testGroup, triggerEvent, typeCharacters} = Trix.TestHelpers
+import { assert, clickToolbarButton, defer, moveCursor, pressKey, test, testIf, testGroup, triggerEvent, typeCharacters } from "test_helper"
 
 testGroup "List formatting", template: "editor_empty", ->
   test "creating a new list item", (done) ->

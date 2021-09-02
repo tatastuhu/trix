@@ -1,4 +1,4 @@
-{assert, insertImageAttachment, test, testGroup} = Trix.TestHelpers
+import { assert, insertImageAttachment, test, testGroup } from "test_helper"
 
 testGroup "Attachment captions", template: "editor_empty", ->
   test "default caption includes file name and size", ->

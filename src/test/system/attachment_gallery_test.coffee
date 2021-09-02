@@ -1,4 +1,4 @@
-{assert, clickToolbarButton, createImageAttachment, defer, insertAttachments, moveCursor, pressKey, test, testGroup, typeCharacters} = Trix.TestHelpers
+import { assert, clickToolbarButton, createImageAttachment, defer, insertAttachments, moveCursor, pressKey, test, testGroup, typeCharacters } from "test_helper"
 
 ORC = Trix.OBJECT_REPLACEMENT_CHARACTER
 

@@ -1,4 +1,4 @@
-{after, assert, test, testGroup} = Trix.TestHelpers
+import { after, assert, test, testGroup } from "test_helper"
 
 testGroup "HTML loading", ->
   testGroup "inline elements", template: "editor_with_styled_content", ->

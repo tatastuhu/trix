@@ -1,4 +1,4 @@
-{assert, test, testGroup} = Trix.TestHelpers
+import { assert, test, testGroup } from "test_helper"
 
 testGroup "HTML Reparsing", template: "editor_empty", ->
   test "mutation resulting in identical blocks", (expectDocument) ->
