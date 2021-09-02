@@ -1,6 +1,5 @@
 import BasicObject from "core/basic_object"
 import ObjectGroup from "core/collections/object_group"
-import ObjectGroupView from "views/object_group_view"
 
 export default class ObjectView extends BasicObject
   constructor: (object, options = {}) ->
@@ -88,3 +87,28 @@ export default class ObjectView extends BasicObject
       views = @getAllChildViews().concat(this)
       objectKeys = (view.object.getCacheKey() for view in views)
       delete cache[key] for key of cache when key not in objectKeys
+
+
+class ObjectGroupView extends ObjectView
+  constructor: ->
+    super(arguments...)
+    @objectGroup = @object
+    {@viewClass} = @options
+    delete @options.viewClass
+
+  getChildViews: ->
+    unless @childViews.length
+      for object in @objectGroup.getObjects()
+        @findOrCreateCachedChildView(@viewClass, object, @options)
+    @childViews
+
+  createNodes: ->
+    element = @createContainerElement()
+
+    for view in @getChildViews()
+      element.appendChild(node) for node in view.getNodes()
+
+    [element]
+
+  createContainerElement: (depth = @objectGroup.getDepth()) ->
+    @getChildViews()[0].createContainerElement(depth)
