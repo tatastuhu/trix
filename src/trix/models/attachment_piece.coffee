@@ -36,7 +36,7 @@ export default class AttachmentPiece extends Piece
     @attributes.get("caption") ? ""
 
   isEqualTo: (piece) ->
-    super and @attachment.id is piece?.attachment?.id
+    super() and @attachment.id is piece?.attachment?.id
 
   toString: ->
     OBJECT_REPLACEMENT_CHARACTER
@@ -47,7 +47,7 @@ export default class AttachmentPiece extends Piece
     json
 
   getCacheKey: ->
-    [super, @attachment.getCacheKey()].join("/")
+    [super(), @attachment.getCacheKey()].join("/")
 
   toConsole: ->
     JSON.stringify(@toString())

@@ -3,7 +3,7 @@ import { textAttributes } from "config"
 
 import { spliceArray, arraysAreEqual } from "core/helpers/arrays"
 import { getBlockConfig } from "core/helpers/config"
-import { normalizeRange, rangeIsCollapsed } from "core/helpers/config"
+import { normalizeRange, rangeIsCollapsed } from "core/helpers/ranges"
 
 import TrixObject from "core/object" # Don't override global Object
 import HTMLParser from "models/html_parser"

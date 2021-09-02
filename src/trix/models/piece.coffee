@@ -1,7 +1,7 @@
 import TrixObject from "core/object" # Don't override global Object
 import Hash from "core/collections/hash"
 
-class export default Piece extends TrixObject
+export default class Piece extends TrixObject
   @types: {}
 
   @registerType: (type, constructor) ->
@@ -61,7 +61,7 @@ class export default Piece extends TrixObject
     false
 
   isEqualTo: (piece) ->
-    super or (
+    super() or (
       @hasSameConstructorAs(piece) and
       @hasSameStringValueAsPiece(piece) and
       @hasSameAttributesAsPiece(piece)

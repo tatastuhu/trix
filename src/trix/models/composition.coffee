@@ -17,6 +17,7 @@ import LineBreakInsertion from "models/line_break_insertion"
 
 export default class Composition extends BasicObject
   constructor: ->
+    super()
     @document = new Document
     @attachments = []
     @currentAttributes = {}

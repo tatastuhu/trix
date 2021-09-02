@@ -18,7 +18,7 @@ export default class Block extends TrixObject
     @text.isBlockBreak()
 
   isEqualTo: (block) ->
-    super or (
+    super() or (
       @text.isEqualTo(block?.text) and
       arraysAreEqual(@attributes, block?.attributes)
     )

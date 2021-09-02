@@ -16,6 +16,7 @@ export default class HTMLParser extends BasicObject
     parser
 
   constructor: (@html, {@referenceElement} = {}) ->
+    super()
     @blocks = []
     @blockElements = []
     @processedElements = []

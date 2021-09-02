@@ -8,7 +8,7 @@ import AttachmentPiece from "models/attachment_piece"
 import StringPiece from "models/string_piece"
 import SplittableList from "models/splittable_list"
 
-export class Text extends TrixObject
+export default class Text extends TrixObject
   @textForAttachmentWithAttributes: (attachment, attributes) ->
     piece = new AttachmentPiece attachment, attributes
     new this [piece]
@@ -143,7 +143,7 @@ export class Text extends TrixObject
     @getLength() is 0
 
   isEqualTo: (text) ->
-    super or text?.pieceList?.isEqualTo(@pieceList)
+    super() or text?.pieceList?.isEqualTo(@pieceList)
 
   isBlockBreak: ->
     @getLength() is 1 and @pieceList.getObjectAtIndex(0).isBlockBreak()

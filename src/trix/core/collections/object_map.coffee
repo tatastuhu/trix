@@ -2,6 +2,7 @@ import BasicObject from "core/basic_object"
 
 export default class ObjectMap extends BasicObject
   constructor: (objects = []) ->
+    super()
     @objects = {}
     for object in objects
       hash = JSON.stringify(object)

@@ -2,7 +2,7 @@ import { spliceArray } from "core/helpers/arrays"
 
 import TrixObject from "core/object" # Don't override global Object
 
-export class SplittableList extends TrixObject
+export default class SplittableList extends TrixObject
   @box: (objects) ->
     if objects instanceof this
       objects
@@ -152,7 +152,7 @@ export class SplittableList extends TrixObject
     @toArray()
 
   isEqualTo: (splittableList) ->
-    super or objectArraysAreEqual(@objects, splittableList?.objects)
+    super() or objectArraysAreEqual(@objects, splittableList?.objects)
 
   objectArraysAreEqual = (left, right = []) ->
     return false unless left.length is right.length
