@@ -3,7 +3,7 @@ import { assert, test, testGroup } from "test_helper"
 import Block from "models/block"
 import Text from "models/text"
 
-testGroup "Trix.Block", ->
+testGroup "Block", ->
   test "consolidating blocks creates text with one blockBreak piece", ->
     blockA = new Block Text.textForStringWithAttributes("a")
     blockB = new Block Text.textForStringWithAttributes("b")

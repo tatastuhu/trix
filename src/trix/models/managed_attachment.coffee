@@ -2,6 +2,7 @@ import BasicObject from "core/basic_object"
 
 export default class ManagedAttachment extends BasicObject
   constructor: (@attachmentManager, @attachment) ->
+    super(arguments...)
     {@id, @file} = @attachment
 
   remove: ->

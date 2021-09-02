@@ -36,13 +36,13 @@ export default class AttachmentPiece extends Piece
     @attributes.get("caption") ? ""
 
   isEqualTo: (piece) ->
-    super(arguments...) and @attachment.id is piece?.attachment?.id
+    super.isEqualTo(piece) and @attachment.id is piece?.attachment?.id
 
   toString: ->
     OBJECT_REPLACEMENT_CHARACTER
 
   toJSON: ->
-    json = super(arguments...)
+    json = super.toJSON(arguments...)
     json.attachment = @attachment
     json
 

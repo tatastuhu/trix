@@ -143,7 +143,7 @@ export default class Text extends TrixObject
     @getLength() is 0
 
   isEqualTo: (text) ->
-    super(arguments...) or text?.pieceList?.isEqualTo(@pieceList)
+    super.isEqualTo(text) or text?.pieceList?.isEqualTo(@pieceList)
 
   isBlockBreak: ->
     @getLength() is 1 and @pieceList.getObjectAtIndex(0).isBlockBreak()

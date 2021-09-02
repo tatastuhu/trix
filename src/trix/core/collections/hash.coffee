@@ -19,7 +19,6 @@ export default class Hash extends TrixObject
     super(arguments...)
     @values = copy(values)
 
-
   add: (key, value) ->
     @merge(object(key, value))
 

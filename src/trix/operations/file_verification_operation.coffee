@@ -2,6 +2,7 @@ import "operations/operation"
 
 export default class FileVerificationOperation extends Operation
   constructor: (@file) ->
+    super(arguments...)
 
   perform: (callback) ->
     reader = new FileReader

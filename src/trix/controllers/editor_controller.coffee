@@ -22,6 +22,7 @@ import { selectionChangeObserver } from "observers/selection_change_observer"
 
 export default class EditorController extends Controller
   constructor: ({@editorElement, document, html}) ->
+    super(arguments...)
     @selectionManager = new SelectionManager @editorElement
     @selectionManager.delegate = this
 

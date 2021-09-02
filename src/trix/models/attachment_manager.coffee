@@ -3,6 +3,7 @@ import ManagedAttachment from "models/managed_attachment"
 
 export default class AttachmentManager extends BasicObject
   constructor: (attachments = []) ->
+    super(arguments...)
     @managedAttachments = {}
     @manageAttachment(attachment) for attachment in attachments
 

@@ -9,6 +9,7 @@ import AttachmentEditorController from "controllers/attachment_editor_controller
 
 export default class CompositionController extends BasicObject
   constructor: (@element, @composition) ->
+    super(arguments...)
     @documentView = new DocumentView @composition.document, {@element}
 
     handleEvent "focus", onElement: @element, withCallback: @didFocus

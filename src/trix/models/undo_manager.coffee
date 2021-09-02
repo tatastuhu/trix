@@ -2,6 +2,7 @@ import BasicObject from "core/basic_object"
 
 export default class UndoManager extends BasicObject
   constructor: (@composition) ->
+    super(arguments...)
     @undoEntries = []
     @redoEntries = []
 

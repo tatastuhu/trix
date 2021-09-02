@@ -3,6 +3,7 @@ import { BasicObject } from "core/basic_object"
 
 export default class SelectionChangeObserver extends BasicObject
   constructor: ->
+    super(arguments...)
     @selectionManagers = []
 
   start: ->

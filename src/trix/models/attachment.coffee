@@ -125,7 +125,7 @@ export default class Attachment extends TrixObject
     @getAttributes()
 
   getCacheKey: ->
-    [super(arguments...), @attributes.getCacheKey(), @getPreviewURL()].join("/")
+    [super.getCacheKey(arguments...), @attributes.getCacheKey(), @getPreviewURL()].join("/")
 
   # Previewable
 

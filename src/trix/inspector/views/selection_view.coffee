@@ -17,7 +17,7 @@ export default class SelectionView extends View
     @range = @editor.getSelectedRange()
     @locationRange = @composition.getLocationRange()
     @characters = @getCharacters()
-    super(arguments...)
+    super.render(arguments...)
 
   getCharacters: ->
     chars = []

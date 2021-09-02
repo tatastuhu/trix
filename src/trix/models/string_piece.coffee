@@ -20,7 +20,7 @@ export default class StringPiece extends Piece
     @toString() is "\n" and @getAttribute("blockBreak") is true
 
   toJSON: ->
-    result = super(arguments...)
+    result = super.toJSON(arguments...)
     result.string = @string
     result
 

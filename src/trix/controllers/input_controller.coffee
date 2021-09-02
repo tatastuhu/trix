@@ -6,6 +6,7 @@ import FileVerificationOperation from "operations/file_verification_operation"
 
 class InputController extends BasicObject
   constructor: (@element) ->
+    super(arguments...)
     @mutationObserver = new MutationObserver @element
     @mutationObserver.delegate = this
     for eventName of @events

@@ -12,6 +12,4 @@ export default class UndoView extends View
     {@undoEntries, @redoEntries} = @editor.undoManager
     super(arguments...)
 
-
-
-Inspector.registerView
+Inspector.registerView UndoView

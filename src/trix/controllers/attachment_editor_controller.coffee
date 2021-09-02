@@ -5,6 +5,7 @@ import BasicObject from "core/basic_object"
 
 export default class AttachmentEditorController extends BasicObject
   constructor: (@attachmentPiece, @element, @container, @options = {}) ->
+    super(arguments...)
     {@attachment} = @attachmentPiece
     @element = @element.firstChild if tagName(@element) is "a"
     @install()

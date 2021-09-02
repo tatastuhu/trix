@@ -8,6 +8,7 @@ import PointMapper from "models/point_mapper"
 
 export default class SelectionManager extends BasicObject
   constructor: (@element) ->
+    super(arguments...)
     @locationMapper = new LocationMapper @element
     @pointMapper = new PointMapper
     @lockCount = 0
