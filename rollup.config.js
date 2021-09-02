@@ -31,6 +31,7 @@ export default [
       }),
       filesize()
     ],
+    context: "window",
     watch: {
       include: "src/**"
     }
@@ -58,7 +59,7 @@ export default [
         extensions: ['.js', '.coffee']
       }),
     ],
-
+    context: "window",
     treeshake: false,
     watch: {
       include: "src/**"
