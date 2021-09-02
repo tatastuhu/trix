@@ -33,7 +33,7 @@ blockComment = "<!--block-->"
 removeWhitespace = (string) ->
   string.replace(/\s/g, "")
 
-fixtures =
+export fixtures =
   "bold text":
     document: createDocument(["abc", bold: true])
     html: "<div>#{blockComment}<strong>abc</strong></div>"

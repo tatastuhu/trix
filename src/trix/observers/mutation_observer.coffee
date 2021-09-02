@@ -15,6 +15,7 @@ export default class MutationObserver extends BasicObject
     subtree: true
 
   constructor: (@element) ->
+    super(arguments...)
     @observer = new window.MutationObserver @didMutate
     @start()
 

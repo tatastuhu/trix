@@ -4,7 +4,8 @@ import { arraysAreEqual } from "core/helpers/arrays"
 import { normalizeSpaces, breakableWhitespacePattern, squishBreakableWhitespace } from "core/helpers/strings"
 import { elementContainsNode, findClosestElementFromNode, removeNode, walkTree,
   tagName, makeElement, getBlockTagNames, nodeIsAttachmentElement } from "core/helpers/dom"
-import attributeParsers from "core/helpers/attribute_parsers"
+
+import "core/helpers/attribute_parsers"
 
 import BasicObject from "core/basic_object"
 import Document from "models/document"
@@ -207,11 +208,11 @@ export default class HTMLParser extends BasicObject
       if value.tagName and findClosestElementFromNode(element, matchingSelector: value.tagName, untilNode: @containerElement)
         attributes[attribute] = true
 
-      else if parser = attributeParsers[attribute]
-        if value = parser(element)
+      else if value.parser
+        if value = value.parser(element)
           attributeInheritedFromBlock = false
           for blockElement in @findBlockElementAncestors(element)
-            if parser(blockElement) is value
+            if value.parser(blockElement) is value
               attributeInheritedFromBlock = true
               break
           unless attributeInheritedFromBlock
@@ -307,7 +308,7 @@ export default class HTMLParser extends BasicObject
           getBlockElementMargin(element)
 
   getMarginOfDefaultBlockElement: ->
-    element = makeElement(config.blockAttributes.default.tagName)
+    element = makeElement(blockAttributes.default.tagName)
     @containerElement.appendChild(element)
     getBlockElementMargin(element)
 

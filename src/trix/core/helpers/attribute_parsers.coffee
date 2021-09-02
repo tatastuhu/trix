@@ -1,5 +1,6 @@
 import { findClosestElementFromNode } from "core/helpers/dom"
 import { attachmentSelector } from "config/attachments"
+import textAttributes from "config/text_attributes"
 
 export default attributeParsers =
   bold: (element) ->
@@ -12,3 +13,7 @@ export default attributeParsers =
     matchingSelector = "a:not(#{attachmentSelector})"
     if link = findClosestElementFromNode(element, {matchingSelector})
       link.getAttribute("href")
+
+for attribute, parser of attributeParsers
+  textAttributes[attribute].parser = parser
+

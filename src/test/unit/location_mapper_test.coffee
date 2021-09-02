@@ -1,6 +1,10 @@
 import { assert, test, testGroup } from "test_helper"
 
-testGroup "Trix.LocationMapper", ->
+import Document from "models/document"
+import DocumentView from "views/document_view"
+import LocationMapper from "models/location_mapper"
+
+testGroup "LocationMapper", ->
   test "findLocationFromContainerAndOffset", ->
     setDocument [
       # <trix-editor>
@@ -166,9 +170,9 @@ element = null
 mapper = null
 
 setDocument = (json) ->
-  document = Trix.Document.fromJSON(json)
-  element = Trix.DocumentView.render(document)
-  mapper = new Trix.LocationMapper element
+  document = Document.fromJSON(json)
+  element = DocumentView.render(document)
+  mapper = new LocationMapper element
 
 findContainer = (path) ->
   el = element

@@ -1,5 +1,6 @@
 import { assert, test, testGroup } from "test_helper"
 
+import Document from "models/document"
 import HTMLParser from "models/html_parser"
 import Attachment from "models/attachment"
 import Text from "models/text"

@@ -144,7 +144,7 @@ export makeElement = (tagName, options = {}) ->
   element
 
 export getBlockTagNames = ->
-  blockTagNames ?= (tagName for key, {tagName} of blockAttributes when tagName)
+  blockTagNames ?= (tName for key, {tName} of blockAttributes when tName)
 
 export nodeIsBlockContainer = (node) ->
   nodeIsBlockStartComment(node?.firstChild)

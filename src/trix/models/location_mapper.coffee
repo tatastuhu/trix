@@ -1,6 +1,8 @@
-import { elementContainsNode, findChildIndexOfNode, walkTree, tagName,
+import { elementContainsNode, findChildIndexOfNode, walkTree,
   nodeIsBlockContainer, nodeIsBlockStart, nodeIsBlockStartComment, nodeIsCursorTarget,
   nodeIsAttachmentElement, nodeIsEmptyTextNode, nodeIsTextNode } from "core/helpers/dom"
+
+import { tagName } from "core/helpers/dom"
 
 export default class LocationMapper
   constructor: (@element) ->
