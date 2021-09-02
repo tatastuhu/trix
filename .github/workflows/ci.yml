@@ -19,5 +19,5 @@ jobs:
         path: test/node_modules
         key: ${{ runner.os }}-${{ hashFiles('test/yarn.lock') }}
 
-    - run: cd test && yarn install
+    - run: yarn install
     - run: bin/ci
