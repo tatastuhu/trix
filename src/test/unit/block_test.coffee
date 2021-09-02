@@ -1,9 +1,12 @@
-{assert, test, testGroup} = Trix.TestHelpers
+import { assert, test, testGroup } from "test_helper"
+
+import Block from "models/block"
+import Text from "models/text"
 
 testGroup "Trix.Block", ->
   test "consolidating blocks creates text with one blockBreak piece", ->
-    blockA = new Trix.Block Trix.Text.textForStringWithAttributes("a")
-    blockB = new Trix.Block Trix.Text.textForStringWithAttributes("b")
+    blockA = new Block Text.textForStringWithAttributes("a")
+    blockB = new Block Text.textForStringWithAttributes("b")
     consolidatedBlock = blockA.consolidateWith(blockB)
     pieces = consolidatedBlock.text.getPieces()
 
@@ -13,7 +16,7 @@ testGroup "Trix.Block", ->
     assert.equal consolidatedBlock.toString(), "a\nb\n"
 
   test "consolidating empty blocks creates text with one blockBreak piece", ->
-    consolidatedBlock = new Trix.Block().consolidateWith(new Trix.Block)
+    consolidatedBlock = new Block().consolidateWith(new Block)
     pieces = consolidatedBlock.text.getPieces()
 
     assert.equal pieces.length, 2, JSON.stringify(pieces)

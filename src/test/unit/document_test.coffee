@@ -1,17 +1,22 @@
-{assert, test, testGroup} = Trix.TestHelpers
+import { assert, test, testGroup } from "test_helper"
 
-testGroup "Trix.Document", ->
+import HTMLParser from "models/html_parser"
+import Attachment from "models/attachment"
+import Text from "models/text"
+import Block from "models/block"
+
+testGroup "Document", ->
   createDocumentWithAttachment = (attachment) ->
-    text = Trix.Text.textForAttachmentWithAttributes(attachment)
-    new Trix.Document [new Trix.Block text]
+    text = Text.textForAttachmentWithAttributes(attachment)
+    new Document [new Block text]
 
   test "documents with different attachments are not equal", ->
-    a = createDocumentWithAttachment(new Trix.Attachment url: "a")
-    b = createDocumentWithAttachment(new Trix.Attachment url: "b")
+    a = createDocumentWithAttachment(new Attachment url: "a")
+    b = createDocumentWithAttachment(new Attachment url: "b")
     assert.notOk a.isEqualTo(b)
 
   test "getStringAtRange does not leak trailing block breaks", ->
-    document = Trix.Document.fromString("Hey")
+    document = Document.fromString("Hey")
     assert.equal document.getStringAtRange([0, 0]), ""
     assert.equal document.getStringAtRange([0, 1]), "H"
     assert.equal document.getStringAtRange([0, 2]), "He"
@@ -19,7 +24,7 @@ testGroup "Trix.Document", ->
     assert.equal document.getStringAtRange([0, 4]), "Hey\n"
 
   test "findRangesForTextAttribute", ->
-    document = Trix.Document.fromHTML """
+    document = HTMLParser.documentFromHTML """
       <div>Hello <strong>world, <em>this</em> is</strong> a <strong>test</strong>.<br></div>
     """
     assert.deepEqual document.findRangesForTextAttribute("bold"),   [[6, 20], [23, 27]]
@@ -27,7 +32,7 @@ testGroup "Trix.Document", ->
     assert.deepEqual document.findRangesForTextAttribute("href"),   []
 
   test "findRangesForTextAttribute withValue", ->
-    document = Trix.Document.fromHTML """
+    document = HTMLParser.documentFromHTML """
       <div>Hello <a href="http://google.com/">world, <em>this</em> is</a> a <a href="http://basecamp.com/">test</a>.<br></div>
     """
     assert.deepEqual document.findRangesForTextAttribute("href"),                                    [[6, 20], [23, 27]]

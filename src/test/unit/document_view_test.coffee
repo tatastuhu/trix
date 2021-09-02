@@ -1,4 +1,4 @@
-{assert, test, testGroup} = Trix.TestHelpers
+import { assert, test, testGroup } from "test_helper"
 
 testGroup "Trix.DocumentView", ->
   eachFixture (name, details) ->
