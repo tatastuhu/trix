@@ -42,7 +42,7 @@ attributes =
     parse: false
     group: false
 
-export tagName = (element) ->
+tagName = (element) ->
   element?.tagName?.toLowerCase()
 
 export default attributes

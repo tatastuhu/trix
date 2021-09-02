@@ -1,4 +1,4 @@
-import { blockAttributes } from "config"
+import blockAttributes from "config/block_attributes"
 import { extend } from "core/helpers/extend"
 import { ZERO_WIDTH_SPACE } from "trix"
 import { attachmentSelector } from "config/attachments"
