@@ -15,7 +15,7 @@ export handleEvent = (eventName, {onElement, matchingSelector, withCallback, inP
 
   handler = (event) ->
     handler.destroy() if times? and --times is 0
-    target = dom.findClosestElementFromNode(event.target, matchingSelector: selector)
+    target = findClosestElementFromNode(event.target, matchingSelector: selector)
     if target?
       withCallback?.call(target, event, target)
       event.preventDefault() if preventDefault
@@ -53,7 +53,7 @@ export findClosestElementFromNode = (node, {matchingSelector, untilNode} = {}) -
       node.closest(matchingSelector)
     else
       while node and node isnt untilNode
-        return node if dom.elementMatchesSelector(node, matchingSelector)
+        return node if elementMatchesSelector(node, matchingSelector)
         node = node.parentNode
   else
     node
@@ -63,7 +63,7 @@ export findInnerElement = (element) ->
   element
 
 export innerElementIsActive = (element) ->
-    document.activeElement isnt element and dom.elementContainsNode(element, document.activeElement)
+    document.activeElement isnt element and elementContainsNode(element, document.activeElement)
 
 export elementContainsNode = (element, node) ->
   return unless element and node
@@ -81,8 +81,8 @@ export findNodeFromContainerAndOffset = (container, offset) ->
     container.childNodes.item(offset - 1)
 
 export findElementFromContainerAndOffset = (container, offset) ->
-  node = dom.findNodeFromContainerAndOffset(container, offset)
-  dom.findClosestElementFromNode(node)
+  node = findNodeFromContainerAndOffset(container, offset)
+  findClosestElementFromNode(node)
 
 export findChildIndexOfNode = (node) ->
   return unless node?.parentNode
@@ -150,15 +150,15 @@ export nodeIsBlockContainer = (node) ->
   nodeIsBlockStartComment(node?.firstChild)
 
 export nodeProbablyIsBlockContainer = (node) ->
-  tagName(node) in dom.getBlockTagNames() and
-    tagName(node.firstChild) not in dom.getBlockTagNames()
+  tagName(node) in getBlockTagNames() and
+    tagName(node.firstChild) not in getBlockTagNames()
 
 export nodeIsBlockStart = (node, {strict} = strict: true) ->
   if strict
-    dom.nodeIsBlockStartComment(node)
+    nodeIsBlockStartComment(node)
   else
-    dom.nodeIsBlockStartComment(node) or
-      (not dom.nodeIsBlockStartComment(node.firstChild) and dom.nodeProbablyIsBlockContainer(node))
+    nodeIsBlockStartComment(node) or
+      (not nodeIsBlockStartComment(node.firstChild) and nodeProbablyIsBlockContainer(node))
 
 export nodeIsBlockStartComment = (node) ->
   nodeIsCommentNode(node) and node?.data is "block"
@@ -168,14 +168,14 @@ export nodeIsCommentNode = (node) ->
 
 export nodeIsCursorTarget = (node, {name} = {}) ->
   return unless node
-  if dom.nodeIsTextNode(node)
+  if nodeIsTextNode(node)
     if node.data is ZERO_WIDTH_SPACE
       if name
         node.parentNode.dataset.trixCursorTarget is name
       else
         true
   else
-    dom.nodeIsCursorTarget(node.firstChild)
+    nodeIsCursorTarget(node.firstChild)
 
 export nodeIsAttachmentElement = (node) ->
   elementMatchesSelector(node, AttachmentView.attachmentSelector)
