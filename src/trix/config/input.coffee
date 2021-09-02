@@ -1,5 +1,5 @@
 import { browser } from "trix"
-import { removeNode, makeElement } from "core/helpers/dom"
+import { browser } from "trix"
 
 input =
   level2Enabled: true
@@ -9,18 +9,5 @@ input =
       2
     else
       0
-
-  pickFiles: (callback) ->
-    input = makeElement("input", type: "file", multiple: true, hidden: true, id: @fileInputId)
-
-    input.addEventListener "change", ->
-      callback(input.files)
-      removeNode(input)
-
-    removeNode(document.getElementById(@fileInputId))
-    document.body.appendChild(input)
-    input.click()
-
-  fileInputId: "trix-file-input-#{Date.now().toString(16)}"
 
 export default input

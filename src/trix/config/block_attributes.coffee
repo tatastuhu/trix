@@ -1,5 +1,3 @@
-import { tagName } from "core/helpers/dom"
-
 attributes =
   default:
     tagName: "div"
@@ -43,5 +41,8 @@ attributes =
     terminal: true
     parse: false
     group: false
+
+export tagName = (element) ->
+  element?.tagName?.toLowerCase()
 
 export default attributes

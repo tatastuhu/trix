@@ -1,9 +1,10 @@
 import { input, undoInterval } from "config"
 
 import { getBlockConfig } from "core/helpers/config"
-import { serializeToContentType } from "core/config/serialization"
+import { serializeToContentType } from "core/helpers/serialization"
 import { objectsAreEqual } from "core/helpers/objects"
 import { rangeIsCollapsed, rangesAreEqual } from "core/helpers/ranges"
+import { fileInput } from "core/helpers/file_input"
 
 import Controller from "controllers/controller"
 import SelectionManager from "models/selection_manager"
@@ -327,7 +328,7 @@ export default class EditorController extends Controller
       perform: -> @editor.decreaseNestingLevel() and @render()
     attachFiles:
       test: -> true
-      perform: -> input.pickFiles(@editor.insertFiles)
+      perform: -> fileInput.pickFiles(@editor.insertFiles)
 
   canInvokeAction: (actionName) ->
     if @actionIsExternal(actionName)
