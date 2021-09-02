@@ -15,6 +15,9 @@ export default class HTMLParser extends BasicObject
     parser.parse()
     parser
 
+  @documentFromHTML: (html, options) ->
+    HTMLParser.parse(html, options).getDocument()
+
   constructor: (@html, {@referenceElement} = {}) ->
     super()
     @blocks = []

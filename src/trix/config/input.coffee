@@ -1,5 +1,4 @@
-import { browser } from "trix"
-import { browser } from "trix"
+import { browser } from "config/browser"
 
 input =
   level2Enabled: true

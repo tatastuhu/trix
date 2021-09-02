@@ -3,7 +3,7 @@ import { blockAttributes } from "config"
 import { registerElement } from "core/helpers/custom_elements"
 import { handleEvent, handleEventOnce, triggerEvent, findClosestElementFromNode, makeElement } from "core/helpers/dom"
 
-import { browser } from "trix"
+import { browser } from "config/browser"
 
 import EditorController from "controllers/editor_controller"
 import AttachmentView from "views/attachment_view"

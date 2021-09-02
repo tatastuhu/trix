@@ -15,7 +15,7 @@ serialization =
       if serializable instanceof Document
         document = serializable
       else if serializable instanceof HTMLElement
-        document = Document.fromHTML(serializable.innerHTML)
+        document = HTMLParser.documentFromHTML(serializable.innerHTML)
       else
         throw new Error "unserializable object"
 
@@ -52,7 +52,7 @@ serialization =
       Document.fromJSONString(string)
 
     "text/html": (string) ->
-      Document.fromHTML(string)
+      HTMLParser.documentFromHTML(string)
 
   serializeToContentType: (serializable, contentType) ->
     if serializer = serialization.serializers[contentType]

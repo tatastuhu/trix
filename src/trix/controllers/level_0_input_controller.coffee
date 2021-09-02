@@ -3,7 +3,7 @@ import { dataTransferIsPlainText, dataTransferIsWritable, keyEventIsKeyboardComm
 import { objectsAreEqual } from "core/helpers/objects"
 import { squishBreakableWhitespace } from "core/helpers/strings"
 
-import { browser } from "trix"
+import { browser } from "config/browser"
 import { keyNames } from "config"
 
 import { selectionChangeObserver } from "observers/selection_change_observer"

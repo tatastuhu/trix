@@ -102,7 +102,7 @@ export default class Composition extends BasicObject
       @insertString("\n")
 
   insertHTML: (html) ->
-    document = Document.fromHTML(html)
+    document = HTMLParser.documentFromHTML(html)
     selectedRange = @getSelectedRange()
 
     @setDocument(@document.mergeDocumentAtRange(document, selectedRange))
@@ -114,7 +114,7 @@ export default class Composition extends BasicObject
     @notifyDelegateOfInsertionAtRange([startPosition, endPosition])
 
   replaceHTML: (html) ->
-    document = Document.fromHTML(html).copyUsingObjectsFromDocument(@document)
+    document = HTMLParser.documentFromHTML(html).copyUsingObjectsFromDocument(@document)
     locationRange = @getLocationRange(strict: false)
     selectedRange = @document.rangeFromLocationRange(locationRange)
     @setDocument(document)

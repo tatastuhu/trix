@@ -15,7 +15,7 @@ export default class Editor
     @loadSnapshot({document, selectedRange: [0, 0]})
 
   loadHTML: (html = "") ->
-    @loadDocument(Document.fromHTML(html, referenceElement: @element))
+    @loadDocument(HTMLParser.documentFromHTML(html, referenceElement: @element))
 
   loadJSON: ({document, selectedRange}) ->
     document = Document.fromJSON(document)

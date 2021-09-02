@@ -6,7 +6,6 @@ import { getBlockConfig } from "core/helpers/config"
 import { normalizeRange, rangeIsCollapsed } from "core/helpers/ranges"
 
 import TrixObject from "core/object" # Don't override global Object
-import HTMLParser from "models/html_parser"
 
 import Block from "models/block"
 import Text from "models/text"
@@ -20,9 +19,6 @@ export default class Document extends TrixObject
     blocks = for blockJSON in documentJSON
       Block.fromJSON blockJSON
     new this blocks
-
-  @fromHTML: (html, options) ->
-    HTMLParser.parse(html, options).getDocument()
 
   @fromString: (string, txtAttributes) ->
     text = Text.textForStringWithAttributes(string, txtAttributes)
