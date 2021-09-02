@@ -1,5 +1,5 @@
 import { findClosestElementFromNode } from "core/helpers/dom"
-import AttachmentView from "views/attachment_view"
+import { attachmentSelector } from "config/attachments"
 
 export default textAttributes =
   bold:
@@ -17,7 +17,6 @@ export default textAttributes =
   href:
     groupTagName: "a"
     parser: (element) ->
-      {attachmentSelector} = AttachmentView
       matchingSelector = "a:not(#{attachmentSelector})"
       if link = findClosestElementFromNode(element, {matchingSelector})
         link.getAttribute("href")

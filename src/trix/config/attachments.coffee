@@ -1,3 +1,5 @@
+export attachmentSelector = "[data-trix-attachment]"
+
 export default attachments =
   preview:
     presentation: "gallery"

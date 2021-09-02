@@ -1,7 +1,7 @@
 import { blockAttributes } from "config"
 import { extend } from "core/helpers/extend"
 import { ZERO_WIDTH_SPACE } from "trix"
-import AttachmentView from "views/attachment_view"
+import { attachmentSelector } from "config/attachments"
 
 html = document.documentElement
 match = html.matchesSelector ? html.webkitMatchesSelector ? html.msMatchesSelector ? html.mozMatchesSelector
@@ -178,7 +178,7 @@ export nodeIsCursorTarget = (node, {name} = {}) ->
     nodeIsCursorTarget(node.firstChild)
 
 export nodeIsAttachmentElement = (node) ->
-  elementMatchesSelector(node, AttachmentView.attachmentSelector)
+  elementMatchesSelector(node, attachmentSelector)
 
 export nodeIsEmptyTextNode = (node) ->
   nodeIsTextNode(node) and node?.data is ""

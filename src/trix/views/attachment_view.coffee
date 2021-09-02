@@ -6,7 +6,6 @@ import { copyObject } from "core/helpers/objects"
 import ObjectView from "views/object_view"
 
 export default class AttachmentView extends ObjectView
-  @attachmentSelector: "[data-trix-attachment]"
 
   constructor: ->
     super()

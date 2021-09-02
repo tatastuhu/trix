@@ -1,12 +1,11 @@
+import { attachmentSelector } from "config/attachments"
+
 import { handleEvent, innerElementIsActive, findClosestElementFromNode } from "core/helpers/dom"
 import { defer } from "core/helpers/functions"
 
 import BasicObject from "core/basic_object"
 import DocumentView from "views/document_view"
-import AttachmentView from "views/attachment_view"
 import AttachmentEditorController from "controllers/attachment_editor_controller"
-
-{ attachmentSelector } = AttachmentView
 
 export default class CompositionController extends BasicObject
   constructor: (@element, @composition) ->

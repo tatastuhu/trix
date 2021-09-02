@@ -1,4 +1,5 @@
 import { blockAttributes } from "config"
+import { attachmentSelector } from "config/attachments"
 
 import { registerElement } from "core/helpers/custom_elements"
 import { handleEvent, handleEventOnce, triggerEvent, findClosestElementFromNode, makeElement } from "core/helpers/dom"
@@ -6,9 +7,6 @@ import { handleEvent, handleEventOnce, triggerEvent, findClosestElementFromNode,
 import { browser } from "config/browser"
 
 import EditorController from "controllers/editor_controller"
-import AttachmentView from "views/attachment_view"
-
-{ attachmentSelector } = AttachmentView
 
 registerElement "trix-editor", do ->
   id = 0
