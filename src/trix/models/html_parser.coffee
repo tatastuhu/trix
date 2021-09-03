@@ -5,8 +5,6 @@ import { normalizeSpaces, breakableWhitespacePattern, squishBreakableWhitespace 
 import { elementContainsNode, findClosestElementFromNode, removeNode, walkTree,
   tagName, makeElement, getBlockTagNames, nodeIsAttachmentElement } from "core/helpers/dom"
 
-import textAttributeParsers from "core/helpers/text_attribute_parsers"
-
 import BasicObject from "core/basic_object"
 import Document from "models/document"
 import HTMLSanitizer from "models/html_sanitizer"
@@ -204,10 +202,10 @@ export default class HTMLParser extends BasicObject
 
   getTextAttributes: (element) ->
     attributes = {}
-    for attribute, value of textAttributes
-      parser = textAttributeParsers[attribute]
+    for attribute, props of textAttributes
+      parser = props.parser
 
-      if value.tagName and findClosestElementFromNode(element, matchingSelector: value.tagName, untilNode: @containerElement)
+      if props.tagName and findClosestElementFromNode(element, matchingSelector: props.tagName, untilNode: @containerElement)
         attributes[attribute] = true
 
       else if parser
@@ -220,8 +218,8 @@ export default class HTMLParser extends BasicObject
           unless attributeInheritedFromBlock
             attributes[attribute] = value
 
-      else if value.styleProperty
-        if value = element.style[value.styleProperty]
+      else if props.styleProperty
+        if value = element.style[props.styleProperty]
           attributes[attribute] = value
 
     if nodeIsAttachmentElement(element)
