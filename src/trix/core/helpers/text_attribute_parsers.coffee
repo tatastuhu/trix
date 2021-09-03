@@ -14,6 +14,3 @@ export default attributeParsers =
     if link = findClosestElementFromNode(element, {matchingSelector})
       link.getAttribute("href")
 
-for attribute, parser of attributeParsers
-  textAttributes[attribute].parser = parser
-

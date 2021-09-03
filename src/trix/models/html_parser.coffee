@@ -5,7 +5,7 @@ import { normalizeSpaces, breakableWhitespacePattern, squishBreakableWhitespace 
 import { elementContainsNode, findClosestElementFromNode, removeNode, walkTree,
   tagName, makeElement, getBlockTagNames, nodeIsAttachmentElement } from "core/helpers/dom"
 
-import "core/helpers/attribute_parsers"
+import textAttributeParsers from "core/helpers/text_attribute_parsers"
 
 import BasicObject from "core/basic_object"
 import Document from "models/document"
@@ -205,14 +205,16 @@ export default class HTMLParser extends BasicObject
   getTextAttributes: (element) ->
     attributes = {}
     for attribute, value of textAttributes
+      parser = textAttributeParsers[attribute]
+
       if value.tagName and findClosestElementFromNode(element, matchingSelector: value.tagName, untilNode: @containerElement)
         attributes[attribute] = true
 
-      else if value.parser
-        if value = value.parser(element)
+      else if parser
+        if value = parser(element)
           attributeInheritedFromBlock = false
           for blockElement in @findBlockElementAncestors(element)
-            if value.parser(blockElement) is value
+            if parser(blockElement) is value
               attributeInheritedFromBlock = true
               break
           unless attributeInheritedFromBlock
