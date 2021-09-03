@@ -5,7 +5,6 @@ import { attachmentSelector } from "config/attachments"
 
 html = document.documentElement
 match = html.matchesSelector ? html.webkitMatchesSelector ? html.msMatchesSelector ? html.mozMatchesSelector
-blockTagNames = undefined
 
 export handleEvent = (eventName, {onElement, matchingSelector, withCallback, inPhase, preventDefault, times} = {}) ->
   element = onElement ? html
