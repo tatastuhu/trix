@@ -42,6 +42,7 @@
   },
   "scripts": {
     "build": "rollup -c",
+    "watch": "rollup -c -w",
     "test": "yarn run build && karma start"
   },
   "dependencies": {}
