@@ -1,5 +1,5 @@
-import { getDOMRange } from "core/helpers/selection"
-import { BasicObject } from "core/basic_object"
+import { getDOMRange, setSelectionChangeObserver } from "core/helpers/selection"
+import BasicObject from "core/basic_object"
 
 export default class SelectionChangeObserver extends BasicObject
   constructor: ->
@@ -55,4 +55,5 @@ export default class SelectionChangeObserver extends BasicObject
       left?.endContainer is right?.endContainer and
       left?.endOffset is right?.endOffset
 
-export { selectionChangeObserver: new SelectionChangeObserver() }
+export selectionChangeObserver = new SelectionChangeObserver()
+setSelectionChangeObserver(selectionChangeObserver)

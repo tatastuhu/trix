@@ -1,5 +1,3 @@
-import { selectionChangeObserver } from "observers/selection_change_observer"
-
 export getDOMSelection = ->
     selection = window.getSelection()
     selection if selection.rangeCount > 0
@@ -13,7 +11,14 @@ export setDOMRange = (domRange) ->
     selection = window.getSelection()
     selection.removeAllRanges()
     selection.addRange(domRange)
-    selectionChangeObserver.update()
+
+    if selectionChangeObserver?
+      selectionChangeObserver.update()
+
+selectionChangeObserver = null
+
+export setSelectionChangeObserver = (observer) =>
+  selectionChangeObserver = observer
 
 # In Firefox, clicking certain <input> elements changes the selection to a
 # private element used to draw its UI. Attempting to access properties of those
