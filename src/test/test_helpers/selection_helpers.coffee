@@ -1,10 +1,12 @@
+import { triggerEvent, defer } from "test_helper"
 #= require rangy-core
 #= require rangy-textrange
 
-helpers = Trix.TestHelpers
+import { selectionChangeObserver } from "observers/selection_change_observer"
+import keyNames from "config/key_names"
 
 keyCodes = {}
-for code, name of Trix.config.keyNames
+for code, name of keyNames
   keyCodes[name] = code
 
 keys =
@@ -21,18 +23,18 @@ export moveCursor = (options, callback) ->
 
   times ?= 1
 
-  do move = -> helpers.defer ->
-    if helpers.triggerEvent(document.activeElement, "keydown", keyCode: keyCodes[direction], key: keys[direction])
+  do move = -> defer ->
+    if triggerEvent(document.activeElement, "keydown", keyCode: keyCodes[direction], key: keys[direction])
       selection = rangy.getSelection()
       selection.move("character", if direction is "right" then 1 else -1)
-      Trix.selectionChangeObserver.update()
+      selectionChangeObserver.update()
 
     if --times is 0
-      helpers.defer -> callback(getCursorCoordinates())
+      defer -> callback(getCursorCoordinates())
     else
       move()
 
-export expandSelection = (options, callback) -> helpers.defer ->
+export expandSelection = (options, callback) -> defer ->
   if typeof options is "string"
     direction = options
   else
@@ -41,12 +43,12 @@ export expandSelection = (options, callback) -> helpers.defer ->
 
   times ?= 1
 
-  do expand = -> helpers.defer ->
-    if helpers.triggerEvent(document.activeElement, "keydown", keyCode: keyCodes[direction], key: keys[direction], shiftKey: true)
+  do expand = -> defer ->
+    if triggerEvent(document.activeElement, "keydown", keyCode: keyCodes[direction], key: keys[direction], shiftKey: true)
       getComposition().expandSelectionInDirection(if direction is "left" then "backward" else "forward")
 
     if --times is 0
-      helpers.defer(callback)
+      defer(callback)
     else
       expand()
 
@@ -56,18 +58,18 @@ export collapseSelection = (direction, callback) ->
     selection.collapseToStart()
   else
     selection.collapseToEnd()
-  Trix.selectionChangeObserver.update()
-  helpers.defer(callback)
+  selectionChangeObserver.update()
+  defer(callback)
 
 export selectAll = (callback) ->
   rangy.getSelection().selectAllChildren(document.activeElement)
-  Trix.selectionChangeObserver.update()
-  helpers.defer(callback)
+  selectionChangeObserver.update()
+  defer(callback)
 
 export deleteSelection = ->
   selection = rangy.getSelection()
   selection.getRangeAt(0).deleteContents()
-  Trix.selectionChangeObserver.update()
+  selectionChangeObserver.update()
 
 export selectionIsCollapsed = ->
   rangy.getSelection().isCollapsed
@@ -80,13 +82,13 @@ export insertNode = (node, callback) ->
   range.setStartAfter(node)
   range.deleteContents()
   selection.setSingleRange(range)
-  Trix.selectionChangeObserver.update()
+  selectionChangeObserver.update()
   requestAnimationFrame(callback) if callback
 
 export selectNode = (node, callback) ->
   selection = rangy.getSelection()
   selection.selectAllChildren(node)
-  Trix.selectionChangeObserver.update()
+  selectionChangeObserver.update()
   callback?()
 
 export createDOMRangeFromPoint = (x, y) ->

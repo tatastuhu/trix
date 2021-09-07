@@ -138,7 +138,7 @@ export default class Composition extends BasicObject
 
     for attachment in attachments
       type = attachment.getType()
-      presentation = config.attachments[type]?.presentation
+      presentation = attachments[type]?.presentation
 
       attributes = @getCurrentTextAttributes()
       attributes.presentation = presentation if presentation

@@ -1,4 +1,5 @@
 import keyNames from "config/key_names"
+import input from "config/input"
 
 keyCodes = {}
 for code, name of keyNames
@@ -18,7 +19,7 @@ export triggerEvent = (element, type, properties) ->
   element.dispatchEvent(createEvent(type, properties))
 
 export triggerInputEvent = (element, type, properties = {}) ->
-  if Trix.config.input.getLevel() is 2
+  if input.getLevel() is 2
     if properties.ranges
       ranges = properties.ranges
       delete properties.ranges

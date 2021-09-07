@@ -1,23 +1,20 @@
-# Explicitly require this file (not included in the main
-# Trix bundle) to install the following global helpers.
-
-@getEditorElement = ->
+export getEditorElement = ->
   document.querySelector("trix-editor")
 
-@getToolbarElement = ->
+export getToolbarElement = ->
   getEditorElement().toolbarElement
 
-@getEditorController = ->
+export getEditorController = ->
   getEditorElement().editorController
 
-@getEditor = ->
+export getEditor = ->
   getEditorController().editor
 
-@getComposition = ->
+export getComposition = ->
   getEditorController().composition
 
-@getDocument = ->
+export getDocument = ->
   getComposition().document
 
-@getSelectionManager = ->
+export getSelectionManager = ->
   getEditorController().selectionManager

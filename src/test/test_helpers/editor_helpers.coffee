@@ -1,5 +1,5 @@
-
-
+import { getComposition, getEditorController } from "core/helpers/global"
+import Attachment from "models/attachment"
 
 export insertString = (string) ->
   getComposition().insertString(string)
@@ -26,8 +26,8 @@ export insertAttachments = (attachments) ->
   render()
 
 export insertImageAttachment = (attributes) ->
-  attachment = helpers.createImageAttachment(attributes)
-  helpers.insertAttachment(attachment)
+  attachment = createImageAttachment(attributes)
+  insertAttachment(attachment)
 
 export createImageAttachment = (attributes) ->
   attributes ?=
@@ -38,7 +38,7 @@ export createImageAttachment = (attributes) ->
     filesize: 35
     contentType: "image/gif"
 
-  new Trix.Attachment attributes
+  new Attachment attributes
 
 export replaceDocument = (document) ->
   getComposition().setDocument(document)

@@ -1,4 +1,6 @@
 import { after, assert, clickElement, clickToolbarButton, createFile, defer, dragToCoordinates, moveCursor, pressKey, test, testGroup, triggerEvent, typeCharacters } from "test_helper"
+import { OBJECT_REPLACEMENT_CHARACTER } from "core/constants"
+import lang from "config/lang"
 
 testGroup "Attachments", template: "editor_with_image", ->
   test "moving an image by drag and drop", (expectDocument) ->
@@ -8,7 +10,7 @@ testGroup "Attachments", template: "editor_with_image", ->
         triggerEvent(img, "mousedown")
         defer ->
           dragToCoordinates coordinates, ->
-            expectDocument "!a#{Trix.OBJECT_REPLACEMENT_CHARACTER}b\n"
+            expectDocument "!a#{OBJECT_REPLACEMENT_CHARACTER}b\n"
 
   test "removing an image", (expectDocument) ->
     after 20, ->
@@ -36,18 +38,18 @@ testGroup "Attachments", template: "editor_with_image", ->
                   assert.notOk findElement("textarea")
                   assert.textAttributes [2, 3], caption: "my caption"
                   assert.locationRange index: 0, offset: 3
-                  expectDocument "ab#{Trix.OBJECT_REPLACEMENT_CHARACTER}\n"
+                  expectDocument "ab#{OBJECT_REPLACEMENT_CHARACTER}\n"
 
   test "editing an attachment caption with no filename", (done) ->
     after 20, ->
       captionElement = findElement("figcaption")
       assert.ok captionElement.clientHeight > 0
-      assert.equal captionElement.getAttribute("data-trix-placeholder"), Trix.config.lang.captionPlaceholder
+      assert.equal captionElement.getAttribute("data-trix-placeholder"), lang.captionPlaceholder
 
       clickElement findElement("figure"), ->
         captionElement = findElement("figcaption")
         assert.ok captionElement.clientHeight > 0
-        assert.equal captionElement.getAttribute("data-trix-placeholder"), Trix.config.lang.captionPlaceholder
+        assert.equal captionElement.getAttribute("data-trix-placeholder"), lang.captionPlaceholder
         done()
 
   test "updating an attachment's href attribute while editing its caption", (expectDocument) ->
@@ -70,7 +72,7 @@ testGroup "Attachments", template: "editor_with_image", ->
                 assert.notOk findElement("textarea")
                 assert.textAttributes [2, 3], caption: "my caption"
                 assert.locationRange index: 0, offset: 3
-                expectDocument "ab#{Trix.OBJECT_REPLACEMENT_CHARACTER}\n"
+                expectDocument "ab#{OBJECT_REPLACEMENT_CHARACTER}\n"
 
   testGroup "File insertion", template: "editor_empty", ->
     test "inserting a file in a formatted block", (expectDocument) ->
@@ -79,7 +81,7 @@ testGroup "Attachments", template: "editor_with_image", ->
           getComposition().insertFile(createFile())
           assert.blockAttributes([0, 1], ["bulletList", "bullet"])
           assert.textAttributes([0, 1], {})
-          expectDocument("#{Trix.OBJECT_REPLACEMENT_CHARACTER}\n")
+          expectDocument("#{OBJECT_REPLACEMENT_CHARACTER}\n")
 
     test "inserting a files in a formatted block", (expectDocument) ->
       clickToolbarButton attribute: "quote", ->
@@ -88,7 +90,7 @@ testGroup "Attachments", template: "editor_with_image", ->
           assert.blockAttributes([0, 2], ["quote"])
           assert.textAttributes([0, 1], {})
           assert.textAttributes([1, 2], {})
-          expectDocument("#{Trix.OBJECT_REPLACEMENT_CHARACTER}#{Trix.OBJECT_REPLACEMENT_CHARACTER}\n")
+          expectDocument("#{OBJECT_REPLACEMENT_CHARACTER}#{OBJECT_REPLACEMENT_CHARACTER}\n")
 
 getFigure = ->
   findElement("figure")

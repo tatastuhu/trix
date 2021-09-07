@@ -1,4 +1,6 @@
-class Trix.ObjectGroupView extends Trix.ObjectView
+import ObjectView from "views/object_view"
+
+class ObjectGroupView extends ObjectView
   constructor: ->
     super(arguments...)
     @objectGroup = @object

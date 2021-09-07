@@ -1,4 +1,5 @@
 import { after, assert, clickElement, clickToolbarButton, createFile, defer, insertImageAttachment, moveCursor, pasteContent, skip, test, testIf, testGroup, triggerEvent, typeCharacters, typeInToolbarDialog } from "test_helper"
+import { rangesAreEqual } from "core/helpers/ranges"
 
 testGroup "Custom element API", template: "editor_empty", ->
   test "element triggers trix-initialize on first connect", (done) ->
@@ -237,7 +238,7 @@ testGroup "Custom element API", template: "editor_empty", ->
       pasteContent "text/html", "<strong>hello</strong>", ->
         assert.equal eventCount, 1
         assert.equal paste.type, "text/html"
-        assert.ok Trix.rangesAreEqual([0, 5], paste.range)
+        assert.ok rangesAreEqual([0, 5], paste.range)
         done()
 
   test "element triggers attribute change events", (done) ->

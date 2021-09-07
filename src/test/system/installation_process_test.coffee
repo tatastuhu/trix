@@ -1,8 +1,9 @@
 import { assert, defer, test, testGroup } from "test_helper"
+import EditorController from "controllers/editor_controller"
 
 testGroup "Installation process", template: "editor_html", ->
   test "element.editorController", ->
-    assert.ok getEditorController() instanceof Trix.EditorController
+    assert.ok getEditorController() instanceof EditorController
 
   test "creates a contenteditable element", ->
     assert.ok getEditorElement()

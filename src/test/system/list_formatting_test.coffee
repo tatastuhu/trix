@@ -1,4 +1,5 @@
 import { assert, clickToolbarButton, defer, moveCursor, pressKey, test, testIf, testGroup, triggerEvent, typeCharacters } from "test_helper"
+import input from "config/input"
 
 testGroup "List formatting", template: "editor_empty", ->
   test "creating a new list item", (done) ->
@@ -42,7 +43,7 @@ testGroup "List formatting", template: "editor_empty", ->
                 assert.blockAttributes([2, 3], ["bulletList", "bullet"])
                 expectDocument("a\nb\n")
 
-  testIf Trix.config.input.getLevel() is 0, "pressing shift-return at the end of a list item", (expectDocument) ->
+  testIf input.getLevel() is 0, "pressing shift-return at the end of a list item", (expectDocument) ->
     clickToolbarButton attribute: "bullet", ->
       typeCharacters "a", ->
         pressShiftReturn = triggerEvent(document.activeElement, "keydown", charCode: 0, keyCode: 13, which: 13, shiftKey: true)

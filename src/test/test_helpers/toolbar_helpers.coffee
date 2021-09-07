@@ -1,6 +1,8 @@
 
+import { selectionChangeObserver } from "observers/selection_change_observer"
+
 export clickToolbarButton = (selector, callback) ->
-  Trix.selectionChangeObserver.update()
+  selectionChangeObserver.update()
   button = getToolbarButton(selector)
   helpers.triggerEvent(button, "mousedown")
   helpers.defer(callback)

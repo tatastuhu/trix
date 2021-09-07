@@ -1,7 +1,9 @@
 import { assert, after, clickToolbarButton, defer, insertString, insertNode, isToolbarButtonActive, selectAll, selectNode, testIf, testGroup, triggerEvent, triggerInputEvent, typeCharacters } from "test_helper"
+import input from "config/input"
+import { OBJECT_REPLACEMENT_CHARACTER } from "core/constants"
 
 test = ->
-  testIf(Trix.config.input.getLevel() is 2, arguments...)
+  testIf(input.getLevel() is 2, arguments...)
 
 testOptions =
   template: "editor_empty"
@@ -145,7 +147,7 @@ testGroup "Level 2 Input", testOptions, ->
         attachments = getDocument().getAttachments()
         assert.equal attachments.length, 1
         assert.equal attachments[0].getFilename(), file.name
-        expectDocument "#{Trix.OBJECT_REPLACEMENT_CHARACTER}\n"
+        expectDocument "#{OBJECT_REPLACEMENT_CHARACTER}\n"
 
   # "insertFromPaste InputEvent missing pasted files in dataTransfer"
   # - https://bugs.webkit.org/show_bug.cgi?id=194921
@@ -157,7 +159,7 @@ testGroup "Level 2 Input", testOptions, ->
         attachments = getDocument().getAttachments()
         assert.equal attachments.length, 1
         assert.equal attachments[0].getFilename(), file.name
-        expectDocument "#{Trix.OBJECT_REPLACEMENT_CHARACTER}\n"
+        expectDocument "#{OBJECT_REPLACEMENT_CHARACTER}\n"
 
   # "insertFromPaste InputEvent missing text/uri-list in dataTransfer for pasted links"
   # - https://bugs.webkit.org/show_bug.cgi?id=196702

@@ -1,4 +1,6 @@
 import { after, assert, clickToolbarButton, createFile, defer, expandSelection, moveCursor, pasteContent, pressKey, test, testIf, testGroup, triggerEvent, typeCharacters } from "test_helper"
+import input from "config/input"
+import { OBJECT_REPLACEMENT_CHARACTER } from "core/constants"
 
 testGroup "Pasting", template: "editor_empty", ->
   test "paste plain text", (expectDocument) ->
@@ -258,7 +260,7 @@ testGroup "Pasting", template: "editor_empty", ->
       pasteContent "Files", (createFile()), ->
         expectDocument "a#{Trix.OBJECT_REPLACEMENT_CHARACTER}\n"
 
-  testIf Trix.config.input.getLevel() is 0, "paste event with no clipboardData", (expectDocument) ->
+  testIf input.getLevel() is 0, "paste event with no clipboardData", (expectDocument) ->
     typeCharacters "a", ->
       triggerEvent(document.activeElement, "paste")
       document.activeElement.insertAdjacentHTML("beforeend", "<span>bc</span>")
