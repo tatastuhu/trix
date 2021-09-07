@@ -71,8 +71,8 @@ export test = (name, callback) ->
 
 export testIf = (condition, args...) ->
   if condition
-    helpers.test(args...)
+    test(args...)
   else
-    helpers.skip(args...)
+    skip(args...)
 
  export skip = QUnit.skip

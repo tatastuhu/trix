@@ -1,5 +1,5 @@
 import { assert, clickToolbarButton, defer, endComposition, insertNode, pressKey, selectNode, startComposition, test, testIf, testGroup, triggerEvent, triggerInputEvent, typeCharacters, updateComposition } from "test_helper"
-{browser} = Trix
+import { browser } from "config/browser"
 
 testGroup "Composition input", template: "editor_empty", ->
   test "composing", (expectDocument) ->

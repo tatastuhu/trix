@@ -1,48 +1,48 @@
-helpers = Trix.TestHelpers
 
-helpers.extend
-  insertString: (string) ->
-    getComposition().insertString(string)
-    render()
 
-  insertText: (text) ->
-    getComposition().insertText(text)
-    render()
 
-  insertDocument: (document) ->
-    getComposition().insertDocument(document)
-    render()
+export insertString = (string) ->
+  getComposition().insertString(string)
+  render()
 
-  insertFile: (file) ->
-    getComposition().insertFile(file)
-    render()
+export insertText = (text) ->
+  getComposition().insertText(text)
+  render()
 
-  insertAttachment: (attachment) ->
-    getComposition().insertAttachment(attachment)
-    render()
+export insertDocument = (document) ->
+  getComposition().insertDocument(document)
+  render()
 
-  insertAttachments: (attachments) ->
-    getComposition().insertAttachments(attachments)
-    render()
+export insertFile = (file) ->
+  getComposition().insertFile(file)
+  render()
 
-  insertImageAttachment: (attributes) ->
-    attachment = helpers.createImageAttachment(attributes)
-    helpers.insertAttachment(attachment)
+export insertAttachment = (attachment) ->
+  getComposition().insertAttachment(attachment)
+  render()
 
-  createImageAttachment: (attributes) ->
-    attributes ?=
-      url: TEST_IMAGE_URL
-      width: 10
-      height: 10
-      filename: "image.gif"
-      filesize: 35
-      contentType: "image/gif"
+export insertAttachments = (attachments) ->
+  getComposition().insertAttachments(attachments)
+  render()
 
-    new Trix.Attachment attributes
+export insertImageAttachment = (attributes) ->
+  attachment = helpers.createImageAttachment(attributes)
+  helpers.insertAttachment(attachment)
 
-  replaceDocument: (document) ->
-    getComposition().setDocument(document)
-    render()
+export createImageAttachment = (attributes) ->
+  attributes ?=
+    url: TEST_IMAGE_URL
+    width: 10
+    height: 10
+    filename: "image.gif"
+    filesize: 35
+    contentType: "image/gif"
+
+  new Trix.Attachment attributes
+
+export replaceDocument = (document) ->
+  getComposition().setDocument(document)
+  render()
 
 render = ->
   getEditorController().render()
