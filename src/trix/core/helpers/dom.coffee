@@ -1,6 +1,6 @@
 import blockAttributes from "config/block_attributes"
 import { extend } from "core/helpers/extend"
-import { ZERO_WIDTH_SPACE } from "trix"
+import { ZERO_WIDTH_SPACE } from "core/constants"
 import { attachmentSelector } from "config/attachments"
 
 html = document.documentElement

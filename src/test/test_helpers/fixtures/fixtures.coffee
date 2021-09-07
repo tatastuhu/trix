@@ -1,5 +1,5 @@
 import css from "config/css"
-import { ZERO_WIDTH_SPACE } from "trix"
+import { ZERO_WIDTH_SPACE } from "core/constants"
 import { makeElement } from "core/helpers/dom"
 
 import Text from "models/text"

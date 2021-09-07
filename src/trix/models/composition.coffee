@@ -1,4 +1,4 @@
-import { OBJECT_REPLACEMENT_CHARACTER } from "trix"
+import { OBJECT_REPLACEMENT_CHARACTER } from "core/constants"
 
 import { attachments } from "config"
 

@@ -1,4 +1,4 @@
-import { NON_BREAKING_SPACE } from "trix"
+import { NON_BREAKING_SPACE } from "core/constants"
 
 import { getTextConfig } from "core/helpers/config"
 import { findInnerElement, makeElement } from "core/helpers/dom"

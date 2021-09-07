@@ -1,4 +1,4 @@
-import { ZERO_WIDTH_SPACE } from "trix"
+import { ZERO_WIDTH_SPACE } from "core/constants"
 import { css, attachments } from "config"
 
 import { makeElement } from "core/helpers/dom"
