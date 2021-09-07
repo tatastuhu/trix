@@ -1,4 +1,6 @@
-import { assert, clickToolbarButton, defer, expandSelection, isToolbarButtonActive, isToolbarButtonDisabled, moveCursor, pressKey, replaceDocument, selectAll, test, testGroup, typeCharacters } from "test_helper"
+import { assert, clickToolbarButton, defer, expandSelection, isToolbarButtonActive,
+  isToolbarButtonDisabled, moveCursor, pressKey, replaceDocument, selectAll, test, testGroup,
+  typeCharacters, getDocument, getEditor, getEditorController, getComposition, getSelectionManager } from "test_helper"
 
 import Block from "models/block"
 import Text from "models/text"

@@ -14,6 +14,7 @@ import Attachment from "models/attachment"
 import Block from "models/block"
 import Text from "models/text"
 import LineBreakInsertion from "models/line_break_insertion"
+import HTMLParser from "models/html_parser"
 
 export default class Composition extends BasicObject
   constructor: ->

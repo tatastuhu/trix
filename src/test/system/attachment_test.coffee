@@ -1,4 +1,7 @@
-import { after, assert, clickElement, clickToolbarButton, createFile, defer, dragToCoordinates, moveCursor, pressKey, test, testGroup, triggerEvent, typeCharacters } from "test_helper"
+import { after, assert, clickElement, clickToolbarButton, createFile, defer,
+  dragToCoordinates, moveCursor, pressKey, test, testGroup, triggerEvent,
+  typeCharacters, getEditorElement, getEditorController, getComposition } from "test_helper"
+
 import { OBJECT_REPLACEMENT_CHARACTER } from "core/constants"
 import lang from "config/lang"
 

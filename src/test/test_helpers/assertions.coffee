@@ -1,5 +1,6 @@
 import { normalizeRange, rangesAreEqual } from "core/helpers/ranges"
 import DocumentView from "views/document_view"
+import { getDocument, getEditorController, getEditor } from "core/helpers/global"
 
 assert = QUnit.assert
 

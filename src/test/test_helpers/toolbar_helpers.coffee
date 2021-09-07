@@ -1,23 +1,26 @@
 
 import { selectionChangeObserver } from "observers/selection_change_observer"
+import { getToolbarElement, getEditorElement } from "core/helpers/global"
+import { defer } from "core/helpers/functions"
+import { triggerEvent } from "./event_helpers"
 
 export clickToolbarButton = (selector, callback) ->
   selectionChangeObserver.update()
   button = getToolbarButton(selector)
-  helpers.triggerEvent(button, "mousedown")
-  helpers.defer(callback)
+  triggerEvent(button, "mousedown")
+  defer(callback)
 
 export typeToolbarKeyCommand = (selector, callback) ->
   button = getToolbarButton(selector)
   if {trixKey} = button.dataset
     keyCode = trixKey.toUpperCase().charCodeAt(0)
-    helpers.triggerEvent(getEditorElement(), "keydown", {keyCode, charCode: 0, metaKey: true, ctrlKey: true})
-  helpers.defer(callback)
+    triggerEvent(getEditorElement(), "keydown", {keyCode, charCode: 0, metaKey: true, ctrlKey: true})
+  defer(callback)
 
 export clickToolbarDialogButton = ({method}, callback) ->
   button = getToolbarElement().querySelector("[data-trix-dialog] [data-trix-method='#{method}']")
-  helpers.triggerEvent(button, "click")
-  helpers.defer(callback)
+  triggerEvent(button, "click")
+  defer(callback)
 
 export isToolbarButtonActive = (selector) ->
   button = getToolbarButton(selector)
@@ -31,8 +34,8 @@ export typeInToolbarDialog = (string, {attribute}, callback) ->
   input = dialog.querySelector("[data-trix-input][name='#{attribute}']")
   button = dialog.querySelector("[data-trix-method='setAttribute']")
   input.value = string
-  helpers.triggerEvent(button, "click")
-  helpers.defer(callback)
+  triggerEvent(button, "click")
+  defer(callback)
 
 export isToolbarDialogActive = (selector) ->
   dialog = getToolbarDialog(selector)

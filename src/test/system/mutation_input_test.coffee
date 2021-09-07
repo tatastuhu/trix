@@ -1,4 +1,5 @@
-import { assert, defer, testIf, testGroup, triggerEvent, typeCharacters, clickToolbarButton, isToolbarButtonActive, insertNode } from "test_helper"
+import { assert, defer, testIf, testGroup, triggerEvent,
+  typeCharacters, clickToolbarButton, isToolbarButtonActive, insertNode, getEditorElement } from "test_helper"
 import input from "config/input"
 
 test = ->

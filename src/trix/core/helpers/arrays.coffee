@@ -5,7 +5,7 @@ export arraysAreEqual = (a = [], b = []) ->
   true
 
 export arrayStartsWith = (a = [], b = []) ->
-  arrays.arraysAreEqual(a.slice(0, b.length), b)
+  arraysAreEqual(a.slice(0, b.length), b)
 
 export spliceArray = (array, args...) ->
   result = array.slice(0)

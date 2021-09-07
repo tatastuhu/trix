@@ -1,4 +1,7 @@
-import { assert, after, clickToolbarButton, defer, insertString, insertNode, isToolbarButtonActive, selectAll, selectNode, testIf, testGroup, triggerEvent, triggerInputEvent, typeCharacters } from "test_helper"
+import { assert, after, clickToolbarButton, defer, insertString, insertNode,
+  isToolbarButtonActive, selectAll, selectNode, testIf, testGroup, triggerEvent,
+  triggerInputEvent, typeCharacters, getDocument, getEditorElement, getComposition } from "test_helper"
+
 import input from "config/input"
 import { OBJECT_REPLACEMENT_CHARACTER } from "core/constants"
 

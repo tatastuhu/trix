@@ -1,4 +1,8 @@
-import { assert, clickElement, clickToolbarButton, clickToolbarDialogButton, collapseSelection, expandSelection, insertString, insertText, isToolbarButtonActive, isToolbarButtonDisabled, isToolbarDialogActive, moveCursor, pressKey, test, testIf, testGroup, typeCharacters, typeInToolbarDialog, typeToolbarKeyCommand } from "test_helper"
+import { assert, clickElement, clickToolbarButton, clickToolbarDialogButton,
+  collapseSelection, expandSelection, insertString, insertText, isToolbarButtonActive,
+  isToolbarButtonDisabled, isToolbarDialogActive, moveCursor, pressKey, test,
+  testIf, testGroup, typeCharacters, typeInToolbarDialog, typeToolbarKeyCommand, getEditorElement, fixtures } from "test_helper"
+
 import { makeElement } from "core/helpers/dom"
 import input from "config/input"
 import Text from "models/text"
@@ -149,7 +153,7 @@ testGroup "Text formatting", template: "editor_empty", ->
     clickToolbarButton attribute: "bold", ->
       typeCharacters "a", ->
         assert.textAttributes([0, 1], bold: true)
-        document.body.removeChild(input)
+        document.body.removeChild(inputElm)
         done()
 
   test "editing formatted text", (done) ->

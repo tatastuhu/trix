@@ -1,22 +1,17 @@
+import { triggerEvent } from "./event_helpers"
+import { selectionIsCollapsed, deleteSelection, insertNode, createDOMRangeFromPoint,
+  selectNode, collapseSelection } from "./selection_helpers"
+
 import keyNames from "config/key_names"
 import input from "config/input"
+import { defer } from "core/helpers/functions"
+import { getComposition } from "core/helpers/global"
 
 keyCodes = {}
 for code, name of keyNames
   keyCodes[name] = code
 
 isIE = /Windows.*Trident/.test(navigator.userAgent)
-
-
-export createEvent = (type, properties = {}) ->
-  event = document.createEvent("Events")
-  event.initEvent(type, true, true)
-  for key, value of properties
-    event[key] = value
-  event
-
-export triggerEvent = (element, type, properties) ->
-  element.dispatchEvent(createEvent(type, properties))
 
 export triggerInputEvent = (element, type, properties = {}) ->
   if input.getLevel() is 2

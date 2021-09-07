@@ -1,4 +1,4 @@
-import { assert, defer, test, testGroup } from "test_helper"
+import { assert, defer, test, testGroup, getEditorElement, getEditorController } from "test_helper"
 import EditorController from "controllers/editor_controller"
 
 testGroup "Installation process", template: "editor_html", ->

@@ -1,4 +1,5 @@
-import { assert, clickToolbarButton, defer, moveCursor, pressKey, test, testIf, testGroup, triggerEvent, typeCharacters } from "test_helper"
+import { assert, clickToolbarButton, defer, moveCursor, pressKey,
+  test, testIf, testGroup, triggerEvent, typeCharacters, getEditorController, getComposition, getSelectionManager } from "test_helper"
 import input from "config/input"
 
 testGroup "List formatting", template: "editor_empty", ->

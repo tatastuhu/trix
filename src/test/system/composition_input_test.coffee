@@ -1,6 +1,12 @@
-import { assert, clickToolbarButton, defer, endComposition, insertNode, pressKey, selectNode, startComposition, test, testIf, testGroup, triggerEvent, triggerInputEvent, typeCharacters, updateComposition } from "test_helper"
+import { assert, clickToolbarButton, defer, endComposition, insertNode, pressKey,
+  selectNode, startComposition, test, testIf, testGroup, triggerEvent,
+  triggerInputEvent, typeCharacters, updateComposition, getEditorElement } from "test_helper"
+
 import { browser } from "config/browser"
 import input from "config/input"
+
+import rangy from "rangy"
+import "rangy/lib/rangy-textrange"
 
 testGroup "Composition input", template: "editor_empty", ->
   test "composing", (expectDocument) ->

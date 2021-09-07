@@ -1,5 +1,10 @@
-import { after, assert, clickElement, clickToolbarButton, createFile, defer, insertImageAttachment, moveCursor, pasteContent, skip, test, testIf, testGroup, triggerEvent, typeCharacters, typeInToolbarDialog } from "test_helper"
+import { after, assert, clickElement, clickToolbarButton, createFile, defer,
+  insertImageAttachment, moveCursor, pasteContent, skip, test, testIf, testGroup,
+  triggerEvent, typeCharacters, typeInToolbarDialog, getEditorElement, getComposition } from "test_helper"
 import { rangesAreEqual } from "core/helpers/ranges"
+
+import rangy from "rangy"
+import "rangy/lib/rangy-textrange"
 
 testGroup "Custom element API", template: "editor_empty", ->
   test "element triggers trix-initialize on first connect", (done) ->

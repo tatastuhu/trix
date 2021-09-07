@@ -1,4 +1,6 @@
-import { assert, clickToolbarButton, createImageAttachment, defer, insertAttachments, moveCursor, pressKey, test, testGroup, typeCharacters } from "test_helper"
+import { assert, clickToolbarButton, createImageAttachment, defer,
+  insertAttachments, moveCursor, pressKey, test, testGroup, typeCharacters, getEditor } from "test_helper"
+
 import { OBJECT_REPLACEMENT_CHARACTER } from "core/constants"
 
 ORC = OBJECT_REPLACEMENT_CHARACTER

@@ -1,4 +1,5 @@
-import { assert, clickToolbarButton, moveCursor, test, testGroup, typeCharacters } from "test_helper"
+import { assert, clickToolbarButton, moveCursor, test, testGroup,
+  typeCharacters, getEditorElement, getEditorController } from "test_helper"
 
 testGroup "View caching", template: "editor_empty", ->
   test "reparsing and rendering identical texts", (done) ->

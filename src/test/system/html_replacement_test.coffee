@@ -1,5 +1,9 @@
-import { assert, clickToolbarButton, collapseSelection, defer, moveCursor, selectNode, typeCharacters, testIf, testGroup, triggerEvent } from "test_helper"
+import { assert, clickToolbarButton, collapseSelection, defer, moveCursor,
+  selectNode, typeCharacters, testIf, testGroup, triggerEvent, getEditor, getSelectionManager } from "test_helper"
 import input from "config/input"
+
+import rangy from "rangy"
+import "rangy/lib/rangy-textrange"
 
 test = ->
   testIf(input.getLevel() is 0, arguments...)

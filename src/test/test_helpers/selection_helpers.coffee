@@ -1,9 +1,11 @@
-import { triggerEvent, defer } from "test_helper"
-#= require rangy-core
-#= require rangy-textrange
-
+import { triggerEvent } from "./event_helpers"
+import { defer } from "core/helpers/functions"
+import { getComposition } from "core/helpers/global"
 import { selectionChangeObserver } from "observers/selection_change_observer"
 import keyNames from "config/key_names"
+
+import rangy from "rangy"
+import "rangy/lib/rangy-textrange"
 
 keyCodes = {}
 for code, name of keyNames
