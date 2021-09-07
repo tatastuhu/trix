@@ -1,4 +1,4 @@
-import "operations/operation"
+import Operation from "core/utilities/operation"
 
 export default class FileVerificationOperation extends Operation
   constructor: (@file) ->

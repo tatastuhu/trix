@@ -3,6 +3,7 @@ import { attachmentGalleryFilter } from "../filters/attachment_gallery_filter"
 
 import Document from "models/document"
 import UndoManager from "models/undo_manager"
+import HTMLParser from "models/html_parser"
 
 export default class Editor
   DEFAULT_FILTERS = [ attachmentGalleryFilter ]

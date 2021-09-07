@@ -4,7 +4,7 @@ import BasicObject from "core/basic_object"
 import MutationObserver from "observers/mutation_observer"
 import FileVerificationOperation from "operations/file_verification_operation"
 
-class InputController extends BasicObject
+export default class InputController extends BasicObject
   constructor: (@element) ->
     super(arguments...)
     @mutationObserver = new MutationObserver @element
