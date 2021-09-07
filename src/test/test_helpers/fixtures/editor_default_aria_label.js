@@ -1,3 +1,4 @@
+export default () => `
 <trix-editor id="editor-without-labels"></trix-editor>
 
 <label for="editor-with-aria-label"><span>Label text</span></label>
@@ -17,3 +18,5 @@
 
 <label id="modified-label" for="editor-with-modified-label">Original Value</label>
 <trix-editor id="editor-with-modified-label"></trix-editor>
+`
+

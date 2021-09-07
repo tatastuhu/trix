@@ -10,4 +10,4 @@ import "unit/serialization_test"
 import "unit/string_change_summary_test"
 import "unit/text_test"
 
-# import "system/accessibility_test"
+import "system/accessibility_test"
