@@ -1,14 +1,12 @@
 import { blockAttributes } from "config"
 import { attachmentSelector } from "config/attachments"
-
-import { registerElement } from "core/helpers/custom_elements"
 import { handleEvent, handleEventOnce, triggerEvent, findClosestElementFromNode, makeElement } from "core/helpers/dom"
 
 import { browser } from "config/browser"
 
 import EditorController from "controllers/editor_controller"
 
-registerElement "trix-editor", do ->
+export default trixEditorElement = do ->
   id = 0
 
   # Contenteditable support helpers

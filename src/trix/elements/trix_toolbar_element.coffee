@@ -1,7 +1,6 @@
 import { toolbar } from "config"
-import { registerElement } from "core/helpers/custom_elements"
 
-registerElement "trix-toolbar",
+export default trixToolbarElement =
   defaultCSS: """
     %t {
       display: block;
