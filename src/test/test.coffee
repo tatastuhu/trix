@@ -1,3 +1,5 @@
+import "trix"
+
 import "unit/attachment_test"
 import "unit/block_test"
 import "unit/composition_test"

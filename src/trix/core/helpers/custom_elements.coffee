@@ -8,7 +8,8 @@ export registerElement = (tagName, definition = {}) ->
     delete properties.defaultCSS
     installDefaultCSSForTagName(defaultCSS, tagName)
 
-  doRegisterElement(tagName, properties)
+  unless window.customElements.get(tagName)
+    doRegisterElement(tagName, properties)
 
 installDefaultCSSForTagName = (defaultCSS, tagName) ->
   styleElement = insertStyleElementForTagName(tagName)
