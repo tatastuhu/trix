@@ -1,3 +1,5 @@
+import { TEST_IMAGE_URL } from "test_helpers/fixtures/fixtures"
+
 import { getComposition, getEditorController } from "core/helpers/global"
 import Attachment from "models/attachment"
 

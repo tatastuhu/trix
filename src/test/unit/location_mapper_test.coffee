@@ -1,4 +1,4 @@
-import { assert, test, testGroup } from "test_helper"
+import { assert, test, testGroup, TEST_IMAGE_URL } from "test_helper"
 
 import Document from "models/document"
 import DocumentView from "views/document_view"

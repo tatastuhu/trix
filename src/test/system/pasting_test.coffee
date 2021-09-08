@@ -1,6 +1,6 @@
 import { after, assert, clickToolbarButton, createFile, defer, expandSelection,
   moveCursor, pasteContent, pressKey, test, testIf, testGroup, triggerEvent,
-  typeCharacters, getDocument, getSelectionManager } from "test_helper"
+  typeCharacters, getDocument, getSelectionManager, TEST_IMAGE_URL } from "test_helper"
 
 import input from "config/input"
 import { OBJECT_REPLACEMENT_CHARACTER } from "core/constants"

@@ -1,4 +1,5 @@
-import {after, assert, createCursorTarget, getHTML, test, testGroup, eachFixture, fixtures } from "test_helper"
+import {after, assert, createCursorTarget, getHTML, test, testGroup, eachFixture,
+  fixtures, TEST_IMAGE_URL } from "test_helper"
 import { textAttributes } from "config"
 
 import HTMLParser from "models/html_parser"

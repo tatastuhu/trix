@@ -1,6 +1,6 @@
 import { after, assert, clickElement, clickToolbarButton, createFile, defer,
   insertImageAttachment, moveCursor, pasteContent, skip, test, testIf, testGroup,
-  triggerEvent, typeCharacters, typeInToolbarDialog, getEditorElement, getComposition } from "test_helper"
+  triggerEvent, typeCharacters, typeInToolbarDialog, getEditorElement, getComposition, TEST_IMAGE_URL } from "test_helper"
 import { rangesAreEqual } from "core/helpers/ranges"
 
 import rangy from "rangy"

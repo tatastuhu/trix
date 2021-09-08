@@ -1,5 +1,6 @@
 import { assert, defer, testIf, testGroup, triggerEvent,
-  typeCharacters, clickToolbarButton, isToolbarButtonActive, insertNode, getEditorElement } from "test_helper"
+  typeCharacters, clickToolbarButton, isToolbarButtonActive, insertNode,
+    getEditorElement, TEST_IMAGE_URL } from "test_helper"
 import input from "config/input"
 
 test = ->

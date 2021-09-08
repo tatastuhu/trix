@@ -1,4 +1,6 @@
-import { after, assert, test, testGroup, getDocument, getEditor, getEditorElement } from "test_helper"
+import { after, assert, test, testGroup, getDocument, getEditor,
+  getEditorElement, TEST_IMAGE_URL } from "test_helper"
+
 import { OBJECT_REPLACEMENT_CHARACTER } from "core/constants"
 
 testGroup "HTML loading", ->

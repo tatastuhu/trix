@@ -1,5 +1,6 @@
 import { removeNode } from "core/helpers/dom"
 import { templates } from "./template_helpers"
+import { TEST_IMAGE_URL } from "./fixtures/fixtures"
 
 setFixtureHTML = (html, container = "form") ->
   element = document.getElementById("trix-container")
@@ -32,7 +33,7 @@ export testGroup = (name, options, callback) ->
             target.editor.setSelectedRange(0)
           callback(target)
 
-        setFixtureHTML(templates[template](), container)
+        setFixtureHTML(templates[template]({ TEST_IMAGE_URL }), container)
       else
         callback()
     setup?()

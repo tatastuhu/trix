@@ -1,6 +1,7 @@
 import css from "config/css"
 import { ZERO_WIDTH_SPACE } from "core/constants"
 import { makeElement } from "core/helpers/dom"
+import { TEST_IMAGE_URL } from "./test_image_url"
 
 import Text from "models/text"
 import Block from "models/block"
@@ -8,7 +9,7 @@ import Document from "models/document"
 import StringPiece from "models/string_piece"
 import Attachment from "models/attachment"
 
-@TEST_IMAGE_URL = "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs="
+export { TEST_IMAGE_URL }
 
 createDocument = (parts...) ->
   blocks = for part in parts
